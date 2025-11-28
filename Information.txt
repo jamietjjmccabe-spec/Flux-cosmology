@@ -1,0 +1,58 @@
+
+---
+
+## 🔧 Simulations Included
+
+### **1. Flux Scalar Cosmology**
+Evolves the flux scalar σ(N) and computes:
+- H(a)
+- Sound horizon r_s
+- χ* distance
+- Dark-energy equation of state wσ(a)
+
+### **2. Unified BH–Disk–Jet Model**
+Simulates:
+- Flux-driven jet acceleration  
+- Magnetic pressure structure  
+- Horizon inflation due to flux deficit  
+- Coherent vs incoherent matter flow  
+- Jet Lorentz profiles  
+
+### **3. Lunar Orbit Simulation**
+Includes:
+- Flux-variable G_eff  
+- Tidal torque calibration  
+- Orbital radius evolution  
+- Recession rate verification  
+
+---
+
+## 🔬 Scientific Goal
+
+This work proposes and tests a closed quantum flux cosmology, modeling:
+
+- cosmic expansion from a flux deficit mechanism  
+- dynamic gravity and c_eff from coherence exhaustion  
+- black hole growth in a flux-coherent framework  
+- real-world observational links (CMB, lunar recession, jet Lorentz factors)
+
+All simulations are reproducible and open.
+
+---
+
+## 📘 License
+
+- **Code:** MIT License  
+- **Paper:** CC-BY 4.0  
+
+See `/LICENSE` and `/paper/LICENSE-paper.txt`.
+
+---
+
+## 📞 Contact
+
+For academic collaboration or inquiries:
+
+**Jamie McCabe  
+Ireland**  
+jamietjjmccabe@gmail.com

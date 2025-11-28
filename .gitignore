@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Data
+*.npy
+*.npz
+data/*.csv
+data/*.dat
+
+# Latex build
+*.aux
+*.log
+*.out
+*.toc
+*.pdf
+*.synctex.gz
+
+# OS junk
+.DS_Store
+Thumbs.db
