@@ -28,7 +28,7 @@ S0 = 0.0
 # -----------------------------
 
 M_earth = 1.0
-M_moon  = 0.0123      # Moon / Earth mass ratio
+M_moon  = 0.0223      # Moon / Earth mass ratio
 R0      = 1.0         # 1 unit = current Moon distance
 V0      = math.sqrt(G0 * M_earth / R0)
 
