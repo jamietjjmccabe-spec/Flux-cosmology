@@ -1,7 +1,4 @@
 import numpy as np
-import vispy
-vispy.set_log_level('debug')
-vispy.use('pyqt5')
 from scipy.integrate import solve_ivp
 import matplotlib.pyplot as plt
 
