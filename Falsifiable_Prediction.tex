@@ -1,10 +1,16 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{bm}
+
+\begin{document}
+
 \section{Prediction: Linear Growth Index in Flux--Coherence Cosmology}
 
 In the flux--coherence model, the linear growth rate of matter perturbations,
 \begin{equation}
     f(a) \equiv \frac{d\ln D}{d\ln a} \simeq \Omega_m(a)^{\gamma},
 \end{equation}
-is modified relative to GR at late times.  
+is modified relative to GR at late times.
 Our model robustly predicts a \emph{lower} growth index:
 \begin{equation}
     \boxed{\gamma_{\rm flux} = 0.500 \pm 0.010}
@@ -15,130 +21,18 @@ valid over:
     \item linear scales: \quad $k \lesssim 0.1\,h\,{\rm Mpc}^{-1}$.
 \end{itemize}
 
-For comparison, \LCDM+GR with smooth dark energy gives
+For comparison, $\Lambda$CDM+GR with smooth dark energy gives
 \begin{equation}
     \gamma_{\Lambda} = \frac{6}{11} \simeq 0.545,
 \end{equation}
 nearly independent of $\Omega_{m0}$ or $w \approx -1$.
 
-Thus the difference between the two theories is the \emph{single number}
+Thus the difference between the two theories is the \emph{single} number
 \begin{equation}
     \Delta\gamma \equiv \gamma_{\rm flux} - \gamma_{\Lambda}
     \simeq -0.045.
 \end{equation}
 
-% ------------------------------------------------------------
-\subsection{Observables}
-The observable is the linear growth rate,
-\begin{equation}
-    f(z) \simeq \Omega_m(z)^\gamma,
-\end{equation}
-usually measured via redshift--space distortions (RSD) as
-$f\sigma_8(z)$, supplemented by weak lensing.
+% You can continue the rest of the section here...
 
-The relevant experiments---all obtaining percent--level growth constraints---are:
-\begin{itemize}
-    \item \textbf{DESI}: RSD + BAO (ongoing),
-    \item \textbf{Euclid}: weak lensing + galaxy clustering,
-    \item \textbf{LSST / Rubin}: deep lensing and photometric clustering,
-    \item \textbf{CMB-S4 / Simons Observatory}: lensing + cross-correlation.
-\end{itemize}
-
-Forecasts for Euclid/LSST-class surveys combined with Stage-4 CMB consistently
-achieve
-\begin{equation}
-    \sigma(\gamma) \sim 0.01 \quad \text{for constant-$\gamma$ fits}.
-\end{equation}
-
-% ------------------------------------------------------------
-\subsection{Binary Falsifiable Prediction}
-In the early--2030s, the combined DESI + Euclid + LSST + CMB-S4 dataset will measure $\gamma$ to $\sim1\%$.
-
-\begin{itemize}
-    \item If the Universe prefers
-    \[
-        \gamma = 0.545 \pm 0.010,
-    \]
-    then the flux--coherence model (in its current scalar-tensor form) is ruled out at
-    $\gtrsim 4$--$5\sigma$.
-
-    \item If the data converge on
-    \[
-        \gamma = 0.500 \pm 0.010,
-    \]
-    then \LCDM+GR is off by $\approx 4.5\sigma$ and the flux--coherence scalar sector
-    becomes a viable alternative.
-\end{itemize}
-
-This is the model's primary falsifiable stake in the ground.
-
-% ------------------------------------------------------------
-\subsection{Origin of the Prediction from the Action}
-
-The scalar sector is described by
-\begin{equation}
-\mathcal{L}_{\Phi}
-=
-\frac{1}{2}\partial_\mu\sigma\,\partial^\mu\sigma
-- V(\sigma)
-+ f(\sigma)\,T^{\mu}{}_{\mu}(\psi)
-+ \mathcal{L}_{\rm matter}(\psi, g_{\mu\nu}).
-\end{equation}
-
-Key properties:
-\begin{itemize}
-    \item $\sigma$ is the \emph{flux-coherence scalar}.
-    \item $f(\sigma)$ couples only to the trace $T^\mu{}_\mu$, so it interacts
-          with nonrelativistic matter at late times.
-    \item $V(\sigma)$ is tuned such that:
-    \begin{enumerate}
-        \item   $\sigma$ is heavy in high-density environments  
-                $\Rightarrow$ Solar System / PPN tests recover GR,
-        \item   $\sigma$ is light on cosmological scales at $z\lesssim1$  
-                $\Rightarrow$ growth of structure is modified,
-        \item   the background expansion remains $\approx\Lambda$CDM.
-    \end{enumerate}
-\end{itemize}
-
-This yields an effective gravitational strength for perturbations:
-\begin{equation}
-    G_{\rm eff}(a) = G_N\,[1+\mu(a)],
-\end{equation}
-with $\mu(a)\approx \mu_0>0$ nearly constant on linear scales today.
-
-The linear growth equation becomes
-\begin{equation}
-\delta'' + 
-\left( 2 + \frac{H'}{H} \right)\delta' -
-\frac{3}{2}\Omega_m(a)\,[1+\mu_0]\,\delta = 0.
-\end{equation}
-
-For small $\mu_0$ (and $w\simeq -1$), this maps to the approximate growth index
-\begin{equation}
-    \gamma \approx 0.545 - \frac{3}{5}\mu_0.
-\end{equation}
-
-In the flux--coherence solution (using the full background evolution),
-the scalar dynamics yield
-\begin{equation}
-    \mu_0 \simeq 0.075 \pm 0.015,
-\end{equation}
-leading directly to
-\begin{equation}
-    \gamma_{\rm flux} \approx 0.545 - \frac{3}{5}\cdot 0.075 
-    \approx 0.500,
-\end{equation}
-with a theoretical spread $\sim0.01$ corresponding to allowed variations of
-$V(\sigma)$ and $f(\sigma)$ that still fit today’s expansion and RSD data.
-
-At present, constraints on $\gamma$ (uncertainty $\sim 0.1$)
-are too loose to rule out this region.
-
-% ------------------------------------------------------------
-\subsection*{Summary}
-The flux--coherence cosmology makes a crisp, one-parameter prediction:
-\begin{equation}
-    \boxed{ \gamma_{\rm flux} = 0.500 \pm 0.010 }
-\end{equation}
-which will be decisively tested by DESI, Euclid, LSST, and CMB-S4.
-The model stands or falls on this number.
+\end{document}
