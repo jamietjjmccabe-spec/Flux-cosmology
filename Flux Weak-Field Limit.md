@@ -794,4 +794,484 @@ def g_flux_exact(r, M, alpha, a_sigma, lambda_sigma, n):
 
     g_total = g_N + g_sigma
 
-    return g_total, g_N, g_sigma, C
+    return g_total, g_N, g_sigma, C14. Solar System Diagnostic
+
+For a Solar System body at radius r, compute:
+
+R
+solar
+	​
+
+(r)=
+	​
+
+g
+N
+	​
+
+(r)
+g
+σ
+	​
+
+(r)
+	​
+
+	​
+
+.
+
+The model passes the crude screen if:
+
+R
+solar
+	​
+
+(r)<ϵ
+solar
+	​
+
+.
+
+Example values:
+
+M_sun = 1.98847e30
+
+AU = 1.495978707e11
+r_mercury = 0.387 * AU
+r_earth = 1.0 * AU
+r_moon = 3.844e8
+
+A useful first test:
+
+epsilon_solar = 1e-12
+
+The scan should reject any parameter set where the Solar System correction is too large.
+
+15. Galactic Diagnostic
+
+For a crude galaxy test, use a baryonic mass scale:
+
+M_gal = 6e10 * M_sun
+
+and galactic radii:
+
+kpc = 3.085677581e19
+r_inner = 5 * kpc
+r_outer = 30 * kpc
+
+Compute:
+
+g_total, g_N, g_sigma, C = g_flux_exact(
+    r_outer,
+    M_gal,
+    alpha,
+    a_sigma,
+    lambda_sigma,
+    n
+)
+
+boost = np.sqrt(g_total / g_N)
+
+A crude useful condition is:
+
+boost > 1.2
+
+or more aggressively:
+
+boost > 1.3
+
+This corresponds to meaningful flattening support in the outskirts.
+
+16. Interpretation of a Successful Overlap
+
+If a single parameter set gives:
+
+	​
+
+g
+N
+	​
+
+g
+σ
+	​
+
+	​
+
+	​
+
+Solar
+	​
+
+≪1
+
+and
+
+g
+N
+	​
+
+g
+σ
+	​
+
+	​
+
+galaxy
+	​
+
+∼0.3−1,
+
+then the weak-field Flux model has a viable numerical window.
+
+That does not prove the theory.
+
+It would show only that the framework is not immediately ruled out by the simplest local-versus-galactic comparison.
+
+The correct claim would be:
+
+A screened Flux weak-field limit has a non-empty parameter region where Solar System corrections are suppressed while galactic-envelope corrections become dynamically relevant.
+
+17. Interpretation of a Failed Overlap
+
+If no overlap exists, then at least one assumption must be revised.
+
+Possible failure modes:
+
+Fixed λ
+σ
+	​
+
+ is too rigid.
+The acceleration-screened approximation is too simple.
+n makes the transition too sharp.
+a
+σ
+	​
+
+=ηcH
+0
+	​
+
+ is too restrictive.
+The model requires explicit surface-density dependence.
+C
+σ
+	​
+
+ must be computed from actual S
+max
+	​
+
+−S, not approximated through a
+N
+	​
+
+.
+The weak-field correction is too constrained to explain galaxy-scale missing gravity.
+
+A failed scan would still be useful because it would identify which closure assumption breaks first.
+
+18. Next Development Steps
+Step 1 — Add the weak-field note
+
+Save this file as:
+
+flux_weak_field_note.md
+Step 2 — Add a parameter scan
+
+Create:
+
+parameter_collision.py
+
+The script should scan over:
+
+α,η,λ
+σ
+	​
+
+,n.
+
+It should reject parameter sets that fail Solar System suppression and keep those that produce galactic velocity boosts.
+
+Step 3 — Mark lunar script as sandbox
+
+Rename or document the lunar script as:
+
+constraint_sandbox_lunar.py
+
+It should be explicitly described as a constraint calibration tool, because it calibrates tidal torque to match the observed lunar recession rate.
+
+It does not independently predict the 3.8 cm/year recession.
+
+Step 4 — Add environmental λ
+σ
+	​
+
+
+Introduce:
+
+λ
+σ
+	​
+
+(Σ
+b
+	​
+
+)
+
+for galaxy testing.
+
+Step 5 — Replace acceleration-screened C
+σ
+	​
+
+
+Eventually replace:
+
+C
+σ
+	​
+
+(r)≈
+1+(a
+N
+	​
+
+/a
+σ
+	​
+
+)
+n
+1
+	​
+
+
+with an explicit local entropy-capacity computation:
+
+C
+σ
+	​
+
+(r)=
+S
+max
+	​
+
+(r)
+S
+max
+	​
+
+(r)−S(r)
+	​
+
+.
+
+This will make the weak-field law fully Flux-native instead of partly phenomenological.
+
+19. Minimal Claim
+
+The minimal defensible claim is:
+
+Flux Cosmology admits a weak-field screened-coherence limit in which the correction to Newtonian gravity is controlled by the available coherence fraction C
+σ
+	​
+
+=(S
+max
+	​
+
+−S)/S
+max
+	​
+
+. In this limit, highly actualized regions suppress the correction, while diffuse coherence envelopes may produce an additional effective gravitational gradient. The model is numerically falsifiable by searching for overlap between Solar System suppression and galactic rotation support.
+
+20. Stronger Future Claim
+
+The stronger future claim, only if the scans support it, would be:
+
+The same entropy-capacity bookkeeping used in MIP and background Flux Cosmology may also generate a viable screened weak-field correction, allowing galaxy-scale missing-gravity behaviour without requiring the correction to appear in high-actualization environments such as the Solar System.
+
+This claim should not be made until the parameter scan is complete.
+
+21. Summary
+
+The weak-field Flux limit is:
+
+Φ
+total
+	​
+
+(r)=−
+r
+GM
+	​
+
+[1+αC
+σ
+	​
+
+(r)e
+−r/λ
+σ
+	​
+
+].
+
+The Flux-native coherence factor is:
+
+C
+σ
+	​
+
+(r)=
+S
+max
+	​
+
+(r)
+S
+max
+	​
+
+(r)−S(r)
+	​
+
+.
+
+The practical approximation is:
+
+C
+σ
+	​
+
+(r)≈
+1+(
+a
+σ
+	​
+
+a
+N
+	​
+
+(r)
+	​
+
+)
+n
+1
+	​
+
+.
+
+The exact weak-field acceleration is:
+
+g
+total
+	​
+
+(r)=
+r
+2
+GM
+	​
+
++αGMe
+−r/λ
+σ
+	​
+
+[
+r
+2
+C
+σ
+	​
+
+(r)
+	​
+
+−
+r
+1
+	​
+
+dr
+dC
+σ
+	​
+
+	​
+
++
+λ
+σ
+	​
+
+r
+C
+σ
+	​
+
+(r)
+	​
+
+].
+
+The acceleration-screened derivative is:
+
+dr
+dC
+σ
+	​
+
+	​
+
+=
+r
+2n
+	​
+
+C
+σ
+	​
+
+(1−C
+σ
+	​
+
+).
+
+The core falsifiability test is:
+
+g
+σ
+	​
+
+≪g
+N
+	​
+
+
+in the Solar System, while
+
+g
+σ
+	​
+
+∼g
+N
+	​
+
+
+in galactic outskirts.
+
+If both can be satisfied by the same reasonable parameter region, the weak-field Flux model survives its first numerical collision test.
+
+If not, the closure must be revised.
