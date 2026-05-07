@@ -35,6 +35,9 @@ Outputs:
     ecee_core_to_stellar.png
     ecee_battery_vs_ecee.png
     ecee_mass_radius_battery.png
+    ecee_cbp_scores.png
+    ecee_cbp_mass_radius.png
+    ecee_cbp_energy_gradient.png
 """
 
 from __future__ import annotations
@@ -113,6 +116,21 @@ BATTERY_WEIGHTS = {
     "magnetosphere_dynamo": 0.12,
     "rocky_boundary": 0.10,
     "stellar_stress_resistance": 0.04,
+}
+
+# CBP = Complex Biology Potential.
+# Unlike ECEM, this does not ask whether the world is comfortable for humans.
+# It asks whether the planet provides a long-lived chemistry/energy-processing
+# environment capable of supporting complex adaptive biology.
+CBP_WEIGHTS = {
+    "energy_gradient": 0.20,
+    "retention_capacity": 0.18,
+    "chemical_boundary": 0.16,
+    "geological_cycling": 0.15,
+    "radiation_shielding": 0.12,
+    "environmental_variability": 0.08,
+    "stellar_stability": 0.07,
+    "time_available": 0.04,
 }
 
 ALIASES = {
@@ -765,6 +783,208 @@ def classify(row: pd.Series) -> str:
 
 
 # -----------------------------------------------------------------------------
+# CBP: Complex Biology Potential, deliberately not human-comfort weighted
+# -----------------------------------------------------------------------------
+
+def cbp_chemical_boundary_score(row: pd.Series) -> float:
+    """
+    Relaxed boundary gate for non-human complex biology.
+
+    This keeps the catastrophic wrong-boundary warning for likely gas/volatile worlds,
+    but does not force Earth-comfort radius/pressure. Borderline 1.8-2.3 R_earth
+    candidates can rise if they retain a dense/rocky-enough interface.
+    """
+    r = finite_or_nan(row.get("planet_radius_earth")); m = finite_or_nan(row.get("planet_mass_earth"))
+    rho = finite_or_nan(row.get("density_earth")); volatile = str(row.get("volatile_flag", "")).lower()
+    if not np.isfinite(r): r = 1.0
+    if not np.isfinite(m): m = mass_from_radius_rocky(r)
+    if not np.isfinite(rho): rho = m / max(r ** 3, EPS)
+
+    score = 1.0
+    # Human-comfort scripts punish >2.0 R_e hard. CBP allows larger bodies until
+    # the sub-Neptune boundary becomes likely.
+    if r > 2.3:
+        score *= math.exp(-0.80 * (r - 2.3) ** 2)
+    if r > 2.8:
+        score *= 0.45
+
+    # Dense/rocky surfaces/interfaces are preferred, but unusual high-pressure
+    # biology is not automatically excluded.
+    if rho < 0.55:
+        score *= math.exp(-1.2 * (0.55 - rho) ** 2)
+    if rho < 0.35:
+        score *= 0.45
+
+    if m > 12.0:
+        score *= 0.70
+    if m > 20.0:
+        score *= 0.45
+
+    # Volatile worlds are not "human comfortable", but may still host exotic
+    # chemistry. Keep them below clean rocky worlds instead of zeroing them out.
+    if any(x in volatile for x in ["sub", "neptune", "volatile", "h/he", "gas"]):
+        score *= 0.45
+    return clamp01(score)
+
+
+def cbp_energy_gradient_score(row: pd.Series) -> float:
+    """Broad energy-gradient score: sunlight + internal battery, not Earth comfort."""
+    insol = finite_or_nan(row.get("insolation_earth"))
+    if not np.isfinite(insol): insol = 1.0
+    core = core_heat_relative(row)
+    core_star = core_to_stellar_flux_ratio_relative(row)
+
+    # Broad chemistry engine: surface input plus a smaller contribution from
+    # internal heat/maintenance. Extremes are allowed more than in ECEE.
+    total_gradient = max(insol + 0.18 * core, EPS)
+    total_score = asymmetric_log_score(total_gradient, 1.0, width_low=2.0, width_high=2.2)
+
+    # Core dominance helps farther-out worlds, but if extreme it may be an ice-shell
+    # or deep-ocean branch rather than surface complex biology.
+    core_star_score = asymmetric_log_score(core_star, 1.0, width_low=2.0, width_high=3.4)
+
+    # Avoid hard human comfort gates; only very extreme stellar heating/cooling drops.
+    if insol > 4.0:
+        total_score *= math.exp(-0.20 * (insol - 4.0) ** 2)
+    if insol < 0.05:
+        total_score *= math.exp(-0.50 * (0.05 - insol) ** 2)
+    return clamp01(0.65 * total_score + 0.35 * core_star_score)
+
+
+def cbp_retention_capacity_score(row: pd.Series) -> float:
+    raw = retention_raw(row)
+    earth_raw = retention_raw(pd.Series(EARTH))
+    # Too little retention is bad; extra retention is useful for non-human branches.
+    return asymmetric_log_score(raw, earth_raw, width_low=1.15, width_high=4.0)
+
+
+def cbp_geological_cycling_score(row: pd.Series) -> float:
+    core = core_heat_relative(row)
+    life = battery_lifetime_proxy(row)
+    boundary = cbp_chemical_boundary_score(row)
+    gravity = finite_or_nan(row.get("gravity_earth"))
+    if not np.isfinite(gravity): gravity = 1.0
+    # Higher gravity is not a human-comfort penalty here; only very high gravity
+    # starts to reduce accessibility/large-complex-body viability.
+    gravity_gate = 1.0
+    if gravity > 4.0:
+        gravity_gate *= math.exp(-0.12 * (gravity - 4.0) ** 2)
+    return clamp01((0.38 * asymmetric_log_score(core, 1.0, 0.95, 2.7)
+                    + 0.34 * asymmetric_log_score(life, 1.0, 1.20, 3.0)
+                    + 0.28 * boundary) * gravity_gate)
+
+
+def cbp_radiation_shielding_score(row: pd.Series) -> float:
+    mag = magnetosphere_dynamo_score(row)
+    atm = clamp01(row.get("atmosphere_score", 0.5))
+    activity = finite_or_nan(row.get("stellar_activity_score", 0.7))
+    if not np.isfinite(activity): activity = 0.7
+    # Dense atmosphere can substitute partly for magnetic protection in exotic branches.
+    shield = 0.48 * mag + 0.37 * atm + 0.15 * activity
+    return clamp01(shield)
+
+
+def cbp_environmental_variability_score(row: pd.Series) -> float:
+    ecc = finite_or_nan(row.get("eccentricity", 0.05))
+    tidal = tidal_strength_earth(row)
+    if not np.isfinite(ecc): ecc = 0.05
+    if not np.isfinite(tidal): tidal = 1.0
+    # Some variability and tidal/internal driving can help cycling. Extremes reduce it.
+    ecc_score = math.exp(-((ecc / 0.45) ** 2))
+    tidal_score = asymmetric_log_score(max(tidal, EPS), 10.0, width_low=3.0, width_high=3.0)
+    return clamp01(0.70 * ecc_score + 0.30 * tidal_score)
+
+
+def cbp_stellar_stability_score(row: pd.Series) -> float:
+    c = str(row.get("star_class", "UNKNOWN")).upper()
+    activity = finite_or_nan(row.get("stellar_activity_score", 0.7))
+    if not np.isfinite(activity): activity = 0.7
+    # K/G remain excellent; M is not rejected because native biology can adapt,
+    # but flare/activity penalties still matter.
+    class_score = {"F": 0.62, "G": 0.96, "K": 1.00, "M": 0.76}.get(c, 0.72)
+    return clamp01(class_score * (0.45 + 0.55 * activity))
+
+
+def cbp_time_available_score(row: pd.Series) -> float:
+    age = finite_or_nan(row.get("star_age_gyr", 4.5))
+    c = str(row.get("star_class", "UNKNOWN")).upper()
+    if not np.isfinite(age): age = 4.5
+    maturity = 1.0 - math.exp(-age / 1.0)
+    old_penalty = math.exp(-0.010 * max(age - 10.0, 0.0) ** 2)
+    lifetime_class = {"F": 0.55, "G": 0.92, "K": 1.00, "M": 0.95}.get(c, 0.75)
+    return clamp01(maturity * old_penalty * lifetime_class)
+
+
+def cbp_data_completeness_score(row: pd.Series) -> float:
+    # CBP can infer missing mass from radius, but radius and insolation are core
+    # observables. Without them, do not allow catalog rows to float to the top.
+    required = ["planet_radius_earth", "insolation_earth"]
+    score = 1.0
+    for key in required:
+        val = finite_or_nan(row.get(key, np.nan))
+        if not np.isfinite(val) or val <= 0:
+            score *= 0.05
+    # Helpful but not mandatory fields.
+    helpful = ["planet_mass_earth", "star_mass_solar", "semi_major_axis_au"]
+    for key in helpful:
+        val = finite_or_nan(row.get(key, np.nan))
+        if not np.isfinite(val) or val <= 0:
+            score *= 0.80
+    return clamp01(score)
+
+
+def compute_cbp(row: pd.Series) -> Dict[str, float]:
+    scores = {
+        "energy_gradient": cbp_energy_gradient_score(row),
+        "retention_capacity": cbp_retention_capacity_score(row),
+        "chemical_boundary": cbp_chemical_boundary_score(row),
+        "geological_cycling": cbp_geological_cycling_score(row),
+        "radiation_shielding": cbp_radiation_shielding_score(row),
+        "environmental_variability": cbp_environmental_variability_score(row),
+        "stellar_stability": cbp_stellar_stability_score(row),
+        "time_available": cbp_time_available_score(row),
+    }
+    cbp_raw = weighted_product(scores, CBP_WEIGHTS)
+    data_gate = cbp_data_completeness_score(row)
+    cbp = clamp01(cbp_raw * data_gate)
+    # Useful single sort key: biological potential with the internal battery included.
+    cbp_battery_raw = weighted_product(
+        {"cbp": cbp_raw, "usable_battery": row.get("usable_battery_score", 0.0), "battery": row.get("planetary_battery_score", 0.0)},
+        {"cbp": 0.55, "usable_battery": 0.30, "battery": 0.15},
+    )
+    cbp_battery = clamp01(cbp_battery_raw * data_gate)
+    return {
+        **{f"score_cbp_{k}": v for k, v in scores.items()},
+        "score_cbp_data_completeness": data_gate,
+        "CBP_score_raw": cbp_raw,
+        "CBP_score": cbp,
+        "CBP_battery_score_raw": cbp_battery_raw,
+        "CBP_battery_score": cbp_battery,
+    }
+
+
+def classify_cbp(row: pd.Series) -> str:
+    r = finite_or_nan(row.get("planet_radius_earth")); m = finite_or_nan(row.get("planet_mass_earth"))
+    boundary = finite_or_nan(row.get("score_cbp_chemical_boundary")); cbp = finite_or_nan(row.get("CBP_score"))
+    usable = finite_or_nan(row.get("usable_battery_score")); insol = finite_or_nan(row.get("insolation_earth"))
+    star_class = str(row.get("star_class", "UNKNOWN")).upper()
+    volatile = str(row.get("volatile_flag", "")).lower()
+    if any(x in volatile for x in ["sub", "neptune", "volatile", "h/he", "gas"]) and np.isfinite(boundary) and boundary < 0.55:
+        return "exotic volatile-interface biology candidate / wrong-boundary for Earth life"
+    if np.isfinite(r) and 1.8 <= r <= 2.35 and np.isfinite(cbp) and cbp > 0.70:
+        return "borderline-large complex-biology candidate"
+    if np.isfinite(usable) and usable > 0.75 and np.isfinite(cbp) and cbp > 0.70:
+        return "prime usable-battery complex-biology candidate"
+    if star_class == "M" and np.isfinite(cbp) and cbp > 0.55:
+        return "M-dwarf adapted-biosphere branch"
+    if np.isfinite(insol) and insol < 0.35 and np.isfinite(cbp) and cbp > 0.55:
+        return "low-stellar-flux internal-battery biosphere branch"
+    if np.isfinite(cbp) and cbp > 0.55:
+        return "non-human complex-biology candidate"
+    return "low/uncertain complex-biology potential"
+
+
+# -----------------------------------------------------------------------------
 # Built-in catalog
 # -----------------------------------------------------------------------------
 
@@ -812,13 +1032,22 @@ def score_dataframe(df: pd.DataFrame) -> pd.DataFrame:
         outdf["ECEE_score"].clip(lower=1e-6) ** 0.45
         * outdf["usable_battery_score"].clip(lower=1e-6) ** 0.55
     )
+
+    cbp_rows = []
+    for _, cbp_row in outdf.iterrows():
+        cbp_rows.append(compute_cbp(cbp_row))
+    cbpdf = pd.DataFrame(cbp_rows)
+    outdf = pd.concat([outdf.reset_index(drop=True), cbpdf.reset_index(drop=True)], axis=1)
+    outdf["CBP_classification"] = outdf.apply(classify_cbp, axis=1)
     outdf["rank_ECEM_flux"] = outdf["ECEM_flux"].rank(ascending=False, method="min").astype(int)
     outdf["rank_ECEE"] = outdf["ECEE_score"].rank(ascending=False, method="min").astype(int)
     outdf["rank_battery"] = outdf["planetary_battery_score"].rank(ascending=False, method="min").astype(int)
     outdf["rank_usable_battery"] = outdf["usable_battery_score"].rank(ascending=False, method="min").astype(int)
     outdf["rank_battery_coherence"] = outdf["battery_coherence_score"].rank(ascending=False, method="min").astype(int)
     outdf["rank_battery_coherence_usable"] = outdf["battery_coherence_usable_score"].rank(ascending=False, method="min").astype(int)
-    return outdf.sort_values(["rank_battery_coherence_usable", "rank_usable_battery", "rank_ECEE"]).reset_index(drop=True)
+    outdf["rank_CBP"] = outdf["CBP_score"].rank(ascending=False, method="min").astype(int)
+    outdf["rank_CBP_battery"] = outdf["CBP_battery_score"].rank(ascending=False, method="min").astype(int)
+    return outdf.sort_values(["rank_CBP_battery", "rank_CBP", "rank_battery_coherence_usable"]).reset_index(drop=True)
 
 
 def save_plots(df: pd.DataFrame, outdir: Path, prefix: str, top: int) -> None:
@@ -879,29 +1108,73 @@ def save_plots(df: pd.DataFrame, outdir: Path, prefix: str, top: int) -> None:
     plt.savefig(outdir / "ecee_mass_radius_battery.png", dpi=180)
     plt.close()
 
+    cbptop = df.nsmallest(top, "rank_CBP_battery").copy() if "rank_CBP_battery" in df.columns else topdf
+
+    plt.figure(figsize=(12, max(6, 0.38 * len(cbptop))))
+    y = np.arange(len(cbptop))
+    plt.barh(y - 0.18, cbptop["CBP_score"], height=0.32, label="CBP_score")
+    plt.barh(y + 0.18, cbptop["CBP_battery_score"], height=0.32, label="CBP_battery_score")
+    plt.yticks(y, cbptop["name"])
+    plt.xlabel("score")
+    plt.title("Complex Biology Potential without human-comfort penalties")
+    plt.gca().invert_yaxis()
+    plt.legend()
+    plt.tight_layout()
+    plt.savefig(outdir / "ecee_cbp_scores.png", dpi=180)
+    plt.close()
+
+    plt.figure(figsize=(9, 6))
+    sc = plt.scatter(df["planet_radius_earth"], df["planet_mass_earth"], c=df["CBP_battery_score"], s=70)
+    plt.colorbar(sc, label="CBP_battery_score")
+    for _, r in cbptop.iterrows():
+        plt.annotate(str(r["name"]), (r["planet_radius_earth"], r["planet_mass_earth"]), fontsize=8, xytext=(4,4), textcoords="offset points")
+    plt.xlabel("planet radius / Earth")
+    plt.ylabel("planet mass / Earth")
+    plt.title("CBP search space: larger worlds allowed")
+    plt.grid(True, alpha=0.3)
+    plt.tight_layout()
+    plt.savefig(outdir / "ecee_cbp_mass_radius.png", dpi=180)
+    plt.close()
+
+    plt.figure(figsize=(9, 6))
+    sc = plt.scatter(df["insolation_earth"], df["core_to_stellar_ratio_relative"], c=df["CBP_score"], s=70)
+    plt.colorbar(sc, label="CBP_score")
+    for _, r in cbptop.iterrows():
+        plt.annotate(str(r["name"]), (r["insolation_earth"], r["core_to_stellar_ratio_relative"]), fontsize=8, xytext=(4,4), textcoords="offset points")
+    plt.xscale("log")
+    plt.yscale("log")
+    plt.xlabel("insolation / Earth")
+    plt.ylabel("core-to-stellar ratio / Earth")
+    plt.title("CBP energy-gradient space")
+    plt.grid(True, which="both", alpha=0.3)
+    plt.tight_layout()
+    plt.savefig(outdir / "ecee_cbp_energy_gradient.png", dpi=180)
+    plt.close()
+
 
 def print_summary(df: pd.DataFrame, top: int) -> None:
     cols = [
-        "rank_battery_coherence", "rank_battery", "rank_ECEE", "rank_ECEM_flux",
-        "name", "star_class", "battery_coherence_score", "planetary_battery_score",
-        "ECEE_score", "ECEM_flux", "core_heat_relative", "core_to_stellar_ratio_relative",
-        "battery_lifetime_proxy", "retention_raw", "score_ecee_rocky_boundary",
-        "score_surface_state", "branch_classification",
+        "rank_CBP_battery", "rank_CBP", "rank_battery_coherence_usable", "rank_usable_battery",
+        "name", "star_class", "CBP_battery_score", "CBP_score",
+        "usable_battery_score", "planetary_battery_score", "ECEE_score", "ECEM_flux",
+        "planet_radius_earth", "planet_mass_earth", "insolation_earth",
+        "core_to_stellar_ratio_relative", "score_cbp_chemical_boundary",
+        "CBP_classification",
     ]
     view = df[cols].head(top).copy()
     with pd.option_context("display.max_rows", top, "display.max_columns", None, "display.width", 260):
-        print("\nECEE × Planetary Battery ranking")
-        print("=" * 96)
+        print("\nECEE × Planetary Battery × CBP ranking")
+        print("=" * 112)
         print(view.to_string(index=False, float_format=lambda x: f"{x:.6f}"))
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="ECEM/ECEE planetary-battery ranker for flux-coherence exoplanet screening.")
     parser.add_argument("--input", type=str, default=None, help="Optional input CSV. If omitted, uses built-in candidate/control catalog.")
-    parser.add_argument("--output", type=str, default="ecee_planetary_battery_ranked.csv", help="Output ranked CSV path.")
+    parser.add_argument("--output", type=str, default="ecee_planetary_battery_cbp_ranked.csv", help="Output ranked CSV path.")
     parser.add_argument("--outdir", type=str, default=".", help="Output directory for plots.")
     parser.add_argument("--top", type=int, default=25, help="Number of rows to print/annotate.")
-    parser.add_argument("--prefix", type=str, default="ecee_planetary_battery", help="Prefix for the main score plot.")
+    parser.add_argument("--prefix", type=str, default="ecee_planetary_battery_cbp", help="Prefix for the main score plot.")
     args = parser.parse_args()
 
     if args.input:
