@@ -1,0 +1,20 @@
+Supercluster Flux Sink Scan
+===========================
+N galaxies                 : 1200
+Grid                       : 150 x 150
+Box size                   : 260.0 Mpc
+S_flux convergence index   : 9.761296e-01
+S_mass-only index          : 1.579378e-01
+S_residual flux index      : 8.195995e-01
+
+Basin diagnostics
+-----------------
+Great_Attractor  | n= 305 | sink=5.175 | mean_flow=22.918 | mean_residual=22.918 | stellar_mass=1.183e+13
+Shapley          | n= 452 | sink=10.800 | mean_flow=22.441 | mean_residual=22.441 | stellar_mass=1.500e+13
+Vela_Basin       | n= 443 | sink=9.610 | mean_flow=21.616 | mean_residual=21.616 | stellar_mass=1.434e+13
+
+Interpretation
+--------------
+High S_flux marks a supercluster-scale coherence sink.
+Positive S_residual means the flux model predicts convergence beyond a mass-only field.
+Filament-aligned residuals support the active-channel reading of cosmic-web structure.
