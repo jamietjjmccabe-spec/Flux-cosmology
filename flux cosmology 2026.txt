@@ -1,0 +1,343 @@
+Quantum–Entropic Flux Cosmology: A Unified Mechanism
+Without Dark Energy or Inflation
+Jamie McCabe
+March 14, 2026
+Abstract
+We present a reduced effective cosmological model driven by a single entropy-deficit scalar Φ,
+whose dynamics generate accelerated expansion and modified structure growth without introducing a cosmological-constant dark-energy sector or a separate inflaton field. Cosmic expansion
+˙ emerges from an entropy-production law, S= γΦ, coupled to a flux contribution in the Friedmann equation, while early-universe causal connectivity is enhanced through a deficit-dependent
+effective propagation speed ceff(Φ, QΦ, Π) that reaches factors of order 6–8 near recombination
+in the viable region of the model. Quantum steering is supplied by a Bohm-style flux-adapted
+potential QΦ, and classicalization is modeled through a measurement-induced projection (MIP)
+density Π.
+The framework is formulated as an effective field theory with non-minimal curvature coupling
+via Geff(Φ, Π), together with flux-trace coupling and MIP back-reaction terms. In the homogeneous limit, this yields a master system which, after smoothing with a square-root closure
+and mild damping, supports a compact continuous viable region in parameter space centered
+near α ≈ 8, χQ ≈ 0.05–0.06, and χΠ ≈ 0.03–0.04. Within this basin, the model produces: (i)
+sufficient early causal enlargement to address the horizon problem, (ii) late-time acceleration
+with w(0) ≈ −0.87 to −0.92, and (iii) a linear growth index γ(z = 1) ≈ 0.499–0.505, while
+keeping max(Geff/G) < 1.09 and local lunar signatures below 2 × 10−11
+.
+The theory recovers standard general relativity in the low-deficit, high-projection limit and
+remains diffeomorphism-invariant at the effective level. Although the present treatment is a
+homogeneous proof-of-mechanism and a full perturbative derivation remains future work, it
+demonstrates that a unified entropy-quantum-projection framework can reproduce horizon, acceleration, and reduced-growth phenomenology within a nontrivial parameter island.
+Contents
+1 Introduction 2
+2 Master Equations 2
+3 Effective Field Equations 3
+4 Homogeneous Numerical Implementation 4
+5 Results and Viable Parameter Basin 5
+6 Discussion and Outlook 6
+1A Variation of the Non-Minimally Coupled Gravitational Sector 6
+1 Introduction
+Modern cosmology rests on a remarkably successful but patchwork framework. The standard
+ΛCDM model explains a broad range of observations, from the cosmic microwave background
+acoustic peaks to large-scale structure and type Ia supernova distances, yet it relies on largely distinct sectors to address separate problems: an inflaton-like mechanism for early causal smoothing, a
+dark-energy component for late-time acceleration, and dark matter for enhanced clustering. While
+phenomenologically effective, this layered structure leaves open the question of whether a more
+unified physical mechanism could underlie all three [3].
+This paper explores such a candidate within a reduced effective framework we term Flux Cosmology. The central dynamical quantity is an entropy-deficit scalar
+Φ = Smax − S, (1)
+where the maximum entropy capacity evolves as
+Smax = s0a
+2
+. (2)
+Entropy production follows the logistic-like law
+˙ S= γΦ, (3)
+producing a thermodynamic gradient that manifests macroscopically as a flux contribution in the
+Friedmann equation. Quantum steering is supplied by a Bohm-style potential QΦ built from the
+deficit field, while classical geometric response is modeled through a measurement-induced projection density Π that converts quantum flux possibilities into realized branches. The effective
+propagation speed ceff(Φ, QΦ, Π) becomes deficit-dependent, producing enlarged early causal horizons that gradually relax toward the local constant c0 as entropy saturates and projection hardens.
+Conceptually, the framework borrows elements from scalar–tensor gravity [1], variable-speedof-light proposals, and entropic gravity approaches, but combines them into a single entropy-deficit
+driven mechanism. In the homogeneous FLRW limit, the model reduces to a compact master
+system that can be evolved numerically and tested against broad phenomenological targets: horizon
+enlargement, late-time acceleration, and a reduced linear growth index.
+We emphasize that the present treatment is a homogeneous proof-of-mechanism implementation
+using proxy closures for the Laplacian structure in QΦ and the MIP operator. Full perturbation
+theory, a more principled derivation of the projection operator, and detailed confrontation with
+precision CMB, BAO, and lensing datasets remain future work. Nevertheless, the reduced system already demonstrates that a unified entropy-quantum-projection framework can generate a
+continuous viable parameter basin rather than a single isolated tuned point.
+2 Master Equations
+The reduced homogeneous model is organized around three core relations:
+Smax = s0a
+2
+, (4)
+Φ = Smax − S, (5)
+˙ S= γΦ. (6)
+2The expansion sector is written as
+H2 = H0
+2
+
+Ωa
+m
+3
++
+Ωa
+4
+r
++ kflux fΦ(Φ, Qeff, ceff)
+
+. (7)
+A convenient homogeneous proxy closure is
+Q
+proxy
+eff (a) = Q0
+
+ΦΦ
+∗
+p
+e
+−qdamp(1−1/x)
+, (8)
+Π(a) = Π0
+h
+1 − e
+−Φ∗/Φ
+i
+, ceff(a) = c0
+q
+1 + α(Φ/Φ∗)
+r + 0.25 Q
+proxy
+eff 1 + βΠ
+/Q∗
+(9)
+, (10)
+fΦ(a) = 
+ΦΦ
+∗
+n
+1 + ξ
+Q
+eff
+proxy
+Q∗
+ cceff
+0
+m
+, (11)
+with x ≡ Φ/Φ∗. These proxy closures are not claimed as final microscopic definitions, but provide a smooth and numerically stable effective implementation suitable for exploring whether the
+mechanism can simultaneously address multiple cosmological targets.
+3 Effective Field Equations
+We work in the Jordan frame with the reduced effective action
+S =
+Z
+d
+4x
+√
+−g
+
+16πGeffR
+(Φ, Π) + Lm + LΦ + Lflux + LMIP
+. (12)
+The effective gravitational strength is taken to be
+Geff(Φ, Π) = G
+
+1 + χQ
+QQΦ
+∗
+− χΠΠ
+
+, (13)
+with the Bohm-style flux-adapted quantum potential
+QΦ = −λQc
+2
+∇2p
+Φ/Φ∗ eff
+p
+. Φ/Φ∗
+(14)
+The entropy-deficit scalar contribution is
+LΦ =
+2
+1
+∇µΦ∇µΦ − V (Φ), (15)
+˙ where V (Φ) is chosen to reproduce the entropy-production law S= γΦ.
+The flux-driving term, which replaces both Λ and dark-matter clustering in the effective description, is
+Lflux = kflux fΦ(Φ, Qeff, ceff) T, (16)
+where T = g
+µνTµν is the trace of the matter stress-energy tensor. The flux term couples to the
+trace, providing an effective source for acceleration that emerges from entropy deficit rather than
+from an independent cosmological constant. In the dust-dominated era T = −ρm, so the sign
+convention implies the flux term acts as a matter-sourced negative contribution to the effective
+pressure sector.
+3The MIP classicalization contribution is modeled as
+LMIP = −Π
+
+2
+1
+T + δLbranch
+, (17)
+where δLbranch represents an effective correction associated with the projection of quantum flux
+superpositions onto classical branches. In the present work this term is treated as a phenomenological placeholder for a future operator-level derivation. This term provides the classicalizing
+back-reaction that hardens quantum steering into geometric curvature, ensuring GR recovery at
+low deficit.
+Varying the action with respect to g
+µν yields the effective Einstein equation (see Appendix A
+for details of the non-minimal variation):
+Gµν + Λeff(Φ) gµν = 8πGeff(Φ, Π)
+T
+µν m
++ T
+µν Φ
++ T
+µν flux
++ T
+µν MIP
++ T
+µν deriv
+
+, (18)
+with
+Λeff(Φ) = 3H0 2
+kflux fΦ(Φ, Qeff, ceff). (19)
+Here Λeff(Φ) is the geometric rewriting of the leading flux contribution and is not an independent
+dark-energy component. The term T
+deriv
+µν collects derivative contributions from the variation of
+Geff; these are slow-roll suppressed in the homogeneous limit (see Appendix A).
+Total covariant conservation follows from diffeomorphism invariance of the full effective action:
+∇µ
+
+T
+µν m
++ T
+µν Φ
++ T
+µν flux
++ T
+µν MIP
++ T
+µν deriv
+
+= 0, (20)
+while individual sectors may exchange energy-momentum off shell. This is consistent with the twicecontracted Bianchi identity and mirrors the conservation structure familiar from non-minimally
+coupled scalar–tensor theories [1].
+In the low-deficit, high-projection limit,
+Φ → 0, Π → Π0, fΦ → 0, ceff → c0, Geff → G, (21)
+so the theory reduces to standard general relativity with ordinary matter.
+4 Homogeneous Numerical Implementation
+For the numerical implementation, the system is evolved as a coupled background-plus-growth
+problem. The background obeys
+a˙ = Ha, (22)
+˙ S= γΦ, (23)
+with H(a, S) determined from the reduced Friedmann sector in Section 2.
+Linear growth is treated through the scale-factor form of the growth equation,
+D′′(a) + 
+a
+3
++
+H
+1
+dH
+da 
+D′
+(a) −
+3
+2
+Ωa
+m5HH2
+0
+2
+GG
+eff
+D(a) = 0, (24)
+where primes denote derivatives with respect to a. The growth rate and growth index are defined
+as
+fg(a) = d ln D
+d ln a
+, γ(a) = ln Ωm(a)
+, ln fg
+(25)
+4following the standard convention [2]. For reference, ΛCDM with a smooth dark-energy component
+predicts γ ≈ 0.545; the present framework targets γ(z = 1) ≈ 0.50 within the viable basin.
+The smoothed square-root closure together with mild damping in the quantum proxy substantially improves stability relative to an unsmoothed linear ceff closure and produces a compact
+continuous viable basin in parameter space.
+5 Results and Viable Parameter Basin
+A coarse scan over (α, χQ, χΠ) reveals a contiguous viable region centered near
+α ≈ 8, χQ ≈ 0.05–0.06, χΠ ≈ 0.03–0.04. (26)
+Within this basin, the reduced effective model simultaneously yields:
+(i) an early causal enlargement with ceff(z ≈ 1100)/c0 ≈ 6–8.4,
+(ii) late-time acceleration with w(0) ≈ −0.87 to −0.92,
+(iii) a growth index γ(z = 1) ≈ 0.499–0.505,
+(iv) bounded effective gravitational enhancement with max(Geff/G) < 1.09,
+(v) local lunar signatures below 2 × 10−11
+.
+Figure 1 shows the viability basin projected onto the (α, χQ) plane.
+[Heatmap figure: viability basin in (α, χQ) parameter space.
+Replace this box with heatmap placeholder.png once generated.]
+Figure 1: Viability basin in the (α, χQ) plane at fixed χΠ = 0.035. The central island corresponds
+to models satisfying horizon enlargement, late-time acceleration, and growth-index constraints simultaneously. Colour encodes the growth index γ(z = 1); the target band 0.499–0.505 is shown in
+blue.
+These results indicate that the mechanism can perform three simultaneous tasks within a nontrivial parameter island: enlarged early causal reach, residual late-time acceleration, and reducedgrowth phenomenology. By comparison, ΛCDM requires independent inflaton, cosmological constant, and dark matter sectors to achieve the same three objectives.
+56 Discussion and Outlook
+The present construction is best interpreted as a proof-of-mechanism effective model rather than
+a final fundamental theory. Several important limitations remain. First, the Bohm-style potential
+and MIP contribution are implemented through homogeneous proxy closures rather than through
+a full covariant perturbative derivation. Second, the growth analysis is limited to linear structure
+formation within an effective Geff description and has not yet been confronted with full CMB, BAO,
+and weak-lensing likelihoods. Third, the operator-level definition of the MIP projector remains to
+be developed.
+Despite these limitations, the model establishes a coherent and numerically tractable framework in which entropy deficit, quantum steering, projection-induced classicalization, and effective
+propagation speed are linked within a single cosmological mechanism. The existence of a compact
+continuous viable basin, rather than a single fine-tuned point, is the principal result of the present
+paper.
+Future work should extend the perturbative sector to derive scalar and tensor spectra explicitly,
+refine the projector algebra to move δLbranch beyond placeholder status, test the model against
+precision datasets, and perform a self-consistent two-pass calibration of kflux using the evolved
+S(ttoday) rather than a fixed guess.
+A Variation of the Non-Minimally Coupled Gravitational Sector
+Define
+1
+F(Φ, Π) ≡
+16πGeff(Φ, Π), (27)
+so the gravitational part of the action is Sg =
+R
+d
+4x
+√
+−g F(Φ, Π) R. Varying with respect to the
+metric yields the standard scalar–tensor structure
+δgµν
+δSg
+=
+√
+−g [F Gµν + (gµν □ − ∇µ∇ν)F] , (28)
+up to boundary terms. The full field equation before regrouping is therefore
+F(Φ, Π) Gµν + (gµν □F − ∇µ∇νF) = 8π
+
+T
+µν m
++ T
+µν Φ
++ T
+µν flux
++ T
+µν MIP
+
+. (29)
+Multiplying through by Geff = 1/(16πF) and defining
+T
+deriv
+µν ≡ (∇µ∇ν − gµν □)F (30)
+recovers the form in Section 3, with T
+deriv
+µν appearing on the right-hand side multiplied by Geff.
+In the homogeneous FLRW limit, spatial gradients of F vanish and the surviving terms reduce
+˙ ¨to time-derivative combinations Fand F. For slowly varying Geff — which holds throughout the
+viable parameter island identified in Section 5 — these are suppressed relative to the flux and
+matter sources. The T
+deriv
+µν contributions are retained here for completeness and become relevant
+at next order in a perturbative expansion around the homogeneous background.
+Total covariant conservation follows from diffeomorphism invariance of the full effective action,
+consistent with the twice-contracted Bianchi identity. This is the direct analogue of the conservation
+structure in Brans–Dicke theory [1] and its Horndeski generalisation.
+6References
+[1] C. Brans and R. H. Dicke, Mach’s Principle and a Relativistic Theory of Gravitation, Phys.
+Rev. 124, 925 (1961).
+[2] E. V. Linder, Cosmic growth history and expansion history, Phys. Rev. D 72, 043529 (2005).
+[3] Planck Collaboration (N. Aghanim et al.), Planck 2018 results VI: Cosmological parameters,
+Astron. Astrophys. 641, A6 (2020).
+7
