@@ -1,0 +1,319 @@
+# Flux-CBH Cosmology: A Central-Black-Hole Entropy Reservoir Model for Late-Time Expansion and Structure Growth
+
+## Abstract
+
+The standard (\Lambda)CDM cosmological model remains highly successful, yet it faces persistent late-time tensions in the inferred Hubble constant (H_0) and the amplitude of matter clustering, commonly parameterized by (S_8). In this work we introduce and test a phenomenological Flux-CBH cosmology in which the late-time dark sector is modeled as a dynamic response to an accumulated central-black-hole entropy reservoir. The framework is motivated by the Bekenstein-Hawking entropy scaling (S_{\rm BH}\propto M_{\rm BH}^2), which implies that hierarchical black-hole growth and mergers act as a strongly nonlinear entropy-storage channel. We construct a redshift-dependent Flux response from a Schechter-integrated central black-hole entropy history and couple it to the background expansion through a dynamic compression exponent (p_{\rm eff}(z)). The resulting expansion history is tested against the CMB acoustic angle, supernova distance-shape residuals, BAO distance ratios, linear growth, and first-pass redshift-space-distortion data.
+
+We identify two branches. An aggressive high-(H_0) branch reaches (H_0\simeq73,\mathrm{km,s^{-1},Mpc^{-1}}), preserves the CMB acoustic angle at diagnostic accuracy, matches the supernova distance-redshift shape, and lowers (S_8) to (\sim0.749), but fails the absolute BAO distance ladder. A BAO-compatible branch settles at (H_0\simeq71,\mathrm{km,s^{-1},Mpc^{-1}}), (\Omega_m\simeq0.288), preserves the CMB acoustic angle, matches supernova shape residuals at the (\sim0.014) mag level, recovers a BAO fit comparable to (\Lambda)CDM, and lowers (S_8) to (\sim0.800) while maintaining an RSD fit statistically equivalent to the Planck (\Lambda)CDM baseline. These results suggest that a late-time black-hole entropy reservoir can partially relax both the (H_0) and (S_8) tensions. A full (H_0\simeq73) solution appears to require an additional early-sector or sound-horizon modification.
+
+---
+
+## 1. Introduction
+
+The concordance (\Lambda)CDM model provides a compact and successful description of the cosmic microwave background, large-scale structure, baryon acoustic oscillations, and the late-time accelerated expansion of the Universe. Nevertheless, several observational tensions have become increasingly difficult to dismiss as mere statistical fluctuations. The most widely discussed are the Hubble tension, in which late-time distance-ladder measurements prefer a larger (H_0) than CMB-inferred (\Lambda)CDM fits, and the (S_8) tension, in which weak-lensing and low-redshift structure surveys prefer a lower clustering amplitude than the Planck (\Lambda)CDM prediction.
+
+Many proposed resolutions modify either early-universe physics, late-time dark energy, gravitational growth, or neutrino/radiation content. However, a recurring difficulty is the inverse-distance-ladder constraint: models that raise (H_0) at late times while preserving the early sound horizon often distort BAO distances. Conversely, models that alter the sound horizon can face pressure from CMB precision observables and structure formation.
+
+This paper explores a phenomenological alternative inspired by black-hole thermodynamics. Supermassive and central black holes are not merely compact gravitating masses; they are the dominant entropy reservoirs in the late Universe. Since Bekenstein-Hawking entropy scales quadratically with mass,
+
+[
+S_{\rm BH}\propto M_{\rm BH}^2,
+]
+
+hierarchical black-hole mergers create an entropy channel that grows faster than stellar mass or star-formation rate alone. This motivates the hypothesis that the late-time effective dark sector may track a compressed, redshift-dependent response to the accumulated central-black-hole entropy reservoir.
+
+We call this phenomenological construction Flux-CBH cosmology. The goal is not to claim a complete fundamental theory, but to test whether a thermodynamic late-time reservoir can reproduce the observed background and growth phenomenology while relieving the modern tensions.
+
+---
+
+## 2. Physical Framework
+
+### 2.1 Stellar current and black-hole entropy storage
+
+A purely stellar source history peaks too early to resemble the late-time acceleration history. The Madau-Dickinson star-formation-rate density peaks near cosmic noon and declines toward the present. Its accumulated stellar-mass integral produces a smoother late-time reservoir, but still lacks the nonlinear amplification required to reproduce the observed dark-sector evolution.
+
+Central black holes introduce the missing nonlinearity. For a Schwarzschild black hole,
+
+[
+\frac{S_{\rm BH}}{k_B}\simeq 1.07\times10^{77}\left(\frac{M_{\rm BH}}{M_\odot}\right)^2.
+]
+
+Thus, entropy density is not proportional to the mean black-hole mass alone. The high-mass tail dominates:
+
+[
+\langle M_{\rm BH}^2\rangle \neq \langle M_{\rm BH}\rangle^2.
+]
+
+This makes black-hole mergers thermodynamically important. Two equal black holes of mass (M) have total entropy proportional to (2M^2); after merger, the entropy scales as ((2M)^2=4M^2), doubling the entropy at fixed total mass.
+
+### 2.2 Schechter-integrated CBH entropy density
+
+We model the central-black-hole entropy density as
+
+[
+S_{\rm CBH}(z)=\int \Phi(M,z)S_{\rm BH}(M),d\log M,
+]
+
+where (\Phi(M,z)) is a redshift-dependent Schechter-like black-hole mass function. The precise mass-function parameterization is treated phenomenologically in the present diagnostic phase. The important feature is that the entropy density properly weights the massive end of the black-hole population through the quadratic Bekenstein-Hawking scaling.
+
+A four-term Flux battery diagnostic is then constructed from stellar ignition, stellar mass, the CBH entropy reservoir, and the active CBH entropy-growth term:
+
+[
+F_{\rm raw}(z)\sim
+A\dot\rho_\star(z)+B\rho_\star(z)+C\mathcal{S}*{\rm CBH}(z)+D\dot{\mathcal{S}}*{\rm CBH}(z),
+]
+
+where all terms are normalized for shape comparison. Non-negative fitting shows that CBH entropy terms dominate the late-time dark-sector shape, while stellar terms act as supporting channels.
+
+### 2.3 Dynamic compression exponent
+
+The metric does not respond linearly to raw black-hole entropy. A linear response is too aggressive. Instead, the diagnostic scans favor a compressed response,
+
+[
+F_{\rm metric}(z)=F_{\rm raw}(z)^{p_{\rm eff}(z)}.
+]
+
+The effective compression exponent is redshift dependent:
+
+[
+p_{\rm eff}(z)=p_{\rm high}+\frac{p_0-p_{\rm high}}{1+\exp[(z-z_t)/w]}.
+]
+
+The best-fit branches satisfy (p_{\rm high}>p_0), meaning that the metric response to the CBH entropy reservoir is stronger at earlier/post-cosmic-noon redshifts and softens toward the present epoch.
+
+---
+
+## 3. Background Cosmology
+
+The Flux-CBH background is written as
+
+[
+E^2(z)=\Omega_r(1+z)^4+\Omega_m(1+z)^3+\Omega_{{\rm flux},0}F_{\rm metric}(z),
+]
+
+with flat closure
+
+[
+\Omega_{{\rm flux},0}=1-\Omega_m-\Omega_r.
+]
+
+The model is compared against a Planck-like (\Lambda)CDM baseline using several diagnostic observables.
+
+### 3.1 CMB acoustic angle
+
+The CMB acoustic angle is approximated by
+
+[
+\theta_\star=\frac{r_s(z_\star)}{D_M(z_\star)},
+]
+
+where
+
+[
+r_s(z_\star)=\int_{z_\star}^{\infty}\frac{c_s(z)}{H(z)},dz,
+]
+
+and
+
+[
+D_M(z_\star)=\int_0^{z_\star}\frac{c}{H(z)},dz.
+]
+
+The present diagnostic uses acoustic-angle matching rather than a full Boltzmann likelihood.
+
+### 3.2 Supernova shape residuals
+
+Supernovae constrain the relative luminosity-distance shape rather than the absolute Hubble scale unless calibrated externally. The luminosity distance is
+
+[
+D_L(z)=(1+z)\frac{c}{H_0}\int_0^z\frac{dz'}{E(z')},
+]
+
+and the distance modulus is
+
+[
+\mu(z)=5\log_{10}\left(\frac{D_L(z)}{\rm Mpc}\right)+25.
+]
+
+We compare the intercept-marginalized residual
+
+[
+\Delta\mu_{\rm shape}(z)=\Delta\mu(z)-\langle\Delta\mu\rangle_{z\in[0.01,0.05]}.
+]
+
+### 3.3 BAO distances
+
+BAO measurements compare distances to the drag-epoch sound horizon (r_d). We compute
+
+[
+D_H(z)=\frac{c}{H(z)},
+]
+
+[
+D_V(z)=\left[zD_M^2(z)D_H(z)\right]^{1/3},
+]
+
+and compare (D_M/r_d), (D_H/r_d), and (D_V/r_d) against a first-pass consensus BAO compilation.
+
+---
+
+## 4. Growth of Structure
+
+The linear growth factor is integrated using
+
+[
+D''+\left[2+\frac{d\ln H}{dN}\right]D'-\frac{3}{2}\Omega_m(z)D=0,
+]
+
+where (N=\ln a), primes denote derivatives with respect to (N), and
+
+[
+\Omega_m(z)=\frac{\Omega_{m,0}(1+z)^3}{E^2(z)}.
+]
+
+The first-pass calculation assumes
+
+[
+\mu_{\rm eff}=1,
+]
+
+so any change in growth comes from the background expansion history rather than an explicit modified-gravity growth coupling.
+
+The growth rate is
+
+[
+f(z)=\frac{d\ln D}{d\ln a},
+]
+
+and the observed RSD quantity is
+
+[
+f\sigma_8(z)=f(z)\sigma_8\frac{D(z)}{D(0)}.
+]
+
+The weak-lensing summary statistic is
+
+[
+S_8=\sigma_8\sqrt{\frac{\Omega_m}{0.3}}.
+]
+
+---
+
+## 5. Diagnostic Pipeline
+
+The numerical pipeline proceeds in stages:
+
+1. Integrate a Madau-Dickinson star-formation history and construct stellar-current and stellar-reservoir terms.
+2. Build a Schechter-integrated CBH entropy density using the Bekenstein-Hawking scaling.
+3. Fit a four-term Flux battery history and identify the CBH entropy reservoir as the dominant late-time component.
+4. Introduce a compressed metric response (F_{\rm metric}=F_{\rm raw}^{p_{\rm eff}}).
+5. Scan CMB acoustic angle and SN shape to identify high-(H_0) branches.
+6. Enforce BAO distances to identify BAO-compatible compromise branches.
+7. Integrate the linear growth ODE and compare (S_8) and RSD (f\sigma_8) predictions.
+
+---
+
+## 6. Results
+
+We identify two phenomenologically distinct Flux-CBH branches. The first, an aggressive high-(H_0) branch, demonstrates that the dynamic CBH entropy reservoir can reproduce (H_0\simeq73,\mathrm{km,s^{-1},Mpc^{-1}}), preserve the early-universe CMB acoustic angle in the diagnostic calculation, match the late-time supernova distance-redshift shape, and suppress (S_8) into the weak-lensing-preferred regime. However, this branch fails the absolute BAO distance ladder constraint. The second, a BAO-rescued branch, relaxes the Hubble shift to (H_0\simeq71.0,\mathrm{km,s^{-1},Mpc^{-1}}), while preserving the CMB acoustic angle, matching supernovae, recovering a BAO fit comparable to standard (\Lambda)CDM, and reducing (S_8) to (\sim0.800). These two branches bracket the present capability of the late-time-only Flux-CBH model.
+
+### 6.1 Branch A: aggressive (H_0\simeq73) solution
+
+The first branch isolates the model's capacity to maximize Hubble-tension relief without altering the early-universe sound-horizon calibration. By allowing the physical matter density (\omega_m) to float alongside the dynamic compression parameters (p_0) and (p_{\rm high}), the model locates an island at
+
+[
+H_0=73.0,\mathrm{km,s^{-1},Mpc^{-1}},\qquad \Omega_m\simeq0.263,
+]
+
+with
+
+[
+p_0=0.18,\qquad p_{\rm high}=0.23.
+]
+
+This branch yields the following diagnostic results:
+
+* CMB acoustic angle error: (\sim11) ppm.
+* Maximum supernova shape residual: (\sim0.009) mag.
+* Growth prediction: (S_8\simeq0.749).
+* RSD improvement relative to Planck (\Lambda)CDM: (\Delta\chi^2_{\rm RSD}\simeq-2.83).
+* BAO fit: (\chi^2_{\rm BAO}\simeq40.6), significantly worse than the (\Lambda)CDM baseline.
+
+The BAO failure is localized primarily in the transverse comoving distances (D_M/r_d) at (z\sim0.4-0.7). The sound horizon remains nearly unchanged, so the failure is an inverse-distance-ladder effect rather than a sound-horizon instability.
+
+### 6.2 Branch B: BAO-rescued compromise solution
+
+To construct a BAO-compatible late-time background, Branch B enforces the absolute distance anchors of the BAO consensus compilation. Under this constraint, the Flux-CBH expansion history shifts into a compromise state:
+
+[
+H_0=71.0,\mathrm{km,s^{-1},Mpc^{-1}},\qquad \Omega_m\simeq0.288,
+]
+
+with
+
+[
+p_0=0.19,\qquad p_{\rm high}=0.25.
+]
+
+This branch gives:
+
+* CMB acoustic angle error: (\sim17) ppm.
+* Maximum supernova shape residual: (\sim0.014) mag.
+* BAO fit: (\chi^2_{\rm BAO}\simeq17.7), comparable to the (\Lambda)CDM diagnostic value (\chi^2\simeq16.8).
+* Growth prediction: (S_8\simeq0.800), down from (S_8\simeq0.831) in the Planck (\Lambda)CDM baseline.
+* RSD fit: (\chi^2_{\rm RSD}=9.98), statistically equivalent to the (\Lambda)CDM diagnostic value (\chi^2_{\rm RSD}=9.89).
+
+The contrast between Branch A and Branch B makes the inverse-distance-ladder constraint explicit. The CBH entropy reservoir can generate the late-time expansion history required for (H_0\simeq73), and this same branch strongly suppresses (S_8). However, when the BAO absolute ruler is enforced without modifying the early sound horizon, the allowed solution moves toward (H_0\simeq71). Thus, the present late-time-only model should be interpreted as a partial tension-relief mechanism, while the aggressive branch identifies the target behavior for a future extension including pre-recombination Flux dynamics.
+
+### 6.3 Constraint summary
+
+| Diagnostic         |              Branch A: aggressive |               Branch B: BAO-rescued |
+| ------------------ | --------------------------------: | ----------------------------------: |
+| (H_0)              |                            (73.0) |                              (71.0) |
+| (\Omega_m)         |                       (\sim0.263) |                         (\sim0.288) |
+| (p_0)              |                            (0.18) |                              (0.19) |
+| (p_{\rm high})     |                            (0.23) |                              (0.25) |
+| CMB (\theta_\star) |                Pass, (\sim11) ppm |                  Pass, (\sim17) ppm |
+| SN shape           |             Pass, (\sim0.009) mag |               Pass, (\sim0.014) mag |
+| BAO distances      |            Fail, (\chi^2\sim40.6) |              Pass, (\chi^2\sim17.7) |
+| (S_8)              |                       (\sim0.749) |                         (\sim0.800) |
+| RSD (f\sigma_8)    | Improved, (\Delta\chi^2\sim-2.83) | Equivalent, (\Delta\chi^2\sim+0.10) |
+| Interpretation     |     full tension-relief potential |         viable late-time compromise |
+
+---
+
+## 7. Discussion
+
+The diagnostic sequence shows that a black-hole entropy reservoir can reproduce several features usually attributed to a cosmological constant or a more general dark-energy sector. The model is most successful when the metric response to the CBH entropy history is compressed and redshift dependent. This supports the interpretation that spacetime does not respond linearly to raw black-hole entropy. Instead, the metric appears to read a screened or projected entropy channel.
+
+The high-(H_0) branch demonstrates the potential of the mechanism: it raises (H_0), lowers (\Omega_m), suppresses (S_8), and improves RSD consistency. However, it fails BAO, showing that a late-time-only modification cannot freely raise (H_0) while leaving the sound horizon fixed.
+
+The BAO-rescued branch is more conservative and more viable. It raises (H_0) to (\sim71), lowers (S_8) to (\sim0.800), and preserves BAO. This is not a complete resolution of the Hubble tension, but it is a simultaneous partial relaxation of both (H_0) and (S_8).
+
+The remaining theoretical implication is clear: a full (H_0\simeq73) solution likely requires an early-sector extension. Possibilities include a pre-recombination Flux response, a modified drag-epoch sound horizon, or a coupling between the CBH entropy sector and earlier radiation/matter registration dynamics.
+
+---
+
+## 8. Limitations
+
+This paper presents a diagnostic-level phenomenological model, not a full Boltzmann-code likelihood analysis. Several limitations remain:
+
+1. The CBH entropy history is parameterized rather than derived from a fully observational black-hole mass-function catalog.
+2. The CMB test uses the acoustic angle rather than a full temperature/polarization likelihood.
+3. The supernova diagnostic uses shape residuals rather than the full Pantheon+ covariance matrix.
+4. The BAO and RSD comparisons use first-pass consensus compilations and diagonal errors.
+5. The growth calculation assumes (\mu_{\rm eff}=1), leaving any explicit Flux modification to gravitational clustering for future work.
+6. Transfer-function effects and matter-radiation equality consistency require a full Boltzmann implementation.
+
+These limitations define the next stage of the research program rather than invalidating the present diagnostic result.
+
+---
+
+## 9. Conclusion
+
+Flux-CBH cosmology provides a thermodynamically motivated late-time alternative to a strict cosmological constant. By treating central black holes as nonlinear entropy reservoirs and coupling their accumulated entropy history to the metric through a dynamic compression exponent, the model naturally produces late-time expansion histories capable of relaxing both the (H_0) and (S_8) tensions.
+
+Two branches emerge. The aggressive branch reaches (H_0\simeq73) and (S_8\simeq0.749), but fails BAO. The BAO-rescued branch reaches (H_0\simeq71), preserves CMB, SN, BAO, and RSD diagnostics, and lowers (S_8) to (\sim0.800). Thus, the late-time-only Flux-CBH model is best interpreted as a viable partial tension-relief mechanism. A complete high-(H_0) solution likely requires an early-sector extension capable of modifying the sound-horizon calibration while preserving the successes of the late-time CBH entropy response.
+
+---
+
