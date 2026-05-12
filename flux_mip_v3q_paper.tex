@@ -1,0 +1,668 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{\textbf{#1}}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Dark Matter as the Metric Shadow of Dead History},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Dark Matter as the Metric Shadow of Dead History}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{3}
+\tableofcontents
+}
+\section{Dark Matter as the Metric Shadow of Dead
+History}\label{dark-matter-as-the-metric-shadow-of-dead-history}
+
+\subsection{A Flux/MIP Archive Model for Galactic Rotation
+Curves}\label{a-fluxmip-archive-model-for-galactic-rotation-curves}
+
+\textbf{Author:} Jamie McCabe, with AI-assisted formalization\\
+\textbf{Version:} v3q paper bundle, 2026-05-12
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Abstract}\label{abstract}
+
+The standard interpretation of galactic rotation curves introduces a
+non-luminous collisionless mass component, while modified-gravity
+alternatives usually encode the observed excess acceleration through a
+universal acceleration scale. This paper develops a different
+interpretation within the Flux/MIP framework: galactic dark-sector
+behaviour is treated as the metric response to historical registration
+structure. In this view, baryonic matter is not only a source of
+mass-energy but also a persistent archive of prior actualization events.
+We define a global spatial archive depth, introduce a saturating
+archival-efficiency function, and extend the model with a
+compact-remnant archive amplifier motivated by white dwarfs, neutron
+stars, and stellar/rogue black holes as high historical-depth nodes. The
+resulting v3q model is tested against the official SPARC175 mass-model
+catalogue. In the present implementation, Newtonian baryons alone give a
+galaxy-mean MAE of approximately \textbf{39.98 km/s}, the v3o spatial
+archive model gives \textbf{27.96 km/s}, and the v3q compact-remnant
+archive model gives \textbf{18.71 km/s}. The model does not yet solve
+SPARC at MOND-level precision, but it substantially improves over the
+baryonic baseline and isolates a structured residual pathway associated
+with old, gas-poor, remnant-rich systems. The central thesis is:
+\textbf{dark matter is the metric shadow of dead history.}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{1. Introduction}\label{introduction}
+
+The galactic rotation-curve problem is usually stated as a missing-mass
+problem. Observed circular velocities remain too high at large radii
+compared with the Newtonian prediction from visible baryons. The
+standard cosmological answer is cold dark matter: an extended
+collisionless halo surrounding galaxies. However, the tight empirical
+coupling between baryons and acceleration suggests that the dark-sector
+signal is not arbitrary. It tracks baryonic structure with remarkable
+fidelity.
+
+The Flux/MIP programme reframes this coupling. Instead of asking where
+unseen mass is located, we ask how the metric stores, exports, and
+responds to historical registration. In this framework, matter is
+interpreted as bound history: a stable residue of measurement-induced
+actualization events. Mass is therefore not merely substance in space,
+but persistent causal record.
+
+The present paper develops the v3q version of this idea for galaxy
+rotation curves. The model starts with a global archive-depth scalar
+derived from baryonic surface compression, then adds a saturating
+efficiency law and a compact-remnant wake amplifier. The SPARC175
+dataset provides a first falsification benchmark.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{2. Flux/MIP Ontology}\label{fluxmip-ontology}
+
+The Flux/MIP framework treats physical reality as a system of
+actualization events. MIP has two associated meanings:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Measurement-Induced Projection:} the transition from
+  unresolved quantum potential into classical registration.
+\item
+  \textbf{Minimum Intersection Point:} the local condition under which a
+  possibility becomes a persistent event in the metric.
+\end{enumerate}
+
+Matter is the stable residue of repeated actualization. The nucleus of
+an atom is interpreted as a hardened archive of prior registrations,
+while electron shells form the active interface through which the object
+exchanges information and entropy with its environment.
+
+The galactic model therefore distinguishes between:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{spatial compression}, the present baryonic density state;
+\item
+  \textbf{temporal persistence}, the accumulated duration of stable
+  registration;
+\item
+  \textbf{compact-remnant texture}, the hidden population of high-depth
+  archive nodes.
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{3. Mass as Bound History}\label{mass-as-bound-history}
+
+In standard dynamics, inertial mass is a scalar resistance to
+acceleration. In the Flux/MIP interpretation, inertial mass is the work
+required to re-register an already persistent historical record. This
+gives a compact statement:
+
+\begin{quote}
+Mass is persistent bound history.
+\end{quote}
+
+Gravity is then the metric response to gradients and concentrations of
+this bound historical structure.
+
+This interpretation does not require changing local inertial mass
+directly. The model instead modifies the effective nonlocal wake
+produced by the galaxy-level archive. This avoids immediately violating
+equivalence-principle constraints, because the correction is treated as
+a metric response rather than a composition-dependent inertial-mass
+change.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{4. Black Holes as Horizon-Locked Historical
+Archives}\label{black-holes-as-horizon-locked-historical-archives}
+
+Black holes are treated as the limiting case of historical registration.
+A collapse event occurs when accumulated temporal depth and coherence
+exceed the local entropy-export capacity:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{D\_t C\_sigma / S\_leak \textgreater{} Theta\_BH}
+\end{Highlighting}
+\end{Shaded}
+
+where:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{D\_t} is temporal depth,
+\item
+  \texttt{C\_sigma} is coherence/compression,
+\item
+  \texttt{S\_leak} is entropy export capacity,
+\item
+  \texttt{Theta\_BH} is the horizon-lock threshold.
+\end{itemize}
+
+The event horizon is interpreted as a causal vault: a topological
+boundary that quarantines saturated historical registration from the
+surrounding metric. In this language, black holes are not singularities
+of matter but singularities of accumulated history.
+
+This motivates v3q. Mature galaxies contain compact remnants: white
+dwarfs, neutron stars, stellar black holes, and potentially rogue black
+holes. They need not dominate baryonic mass, but they may dominate
+historical-depth texture.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{5. The v3q Master Equations}\label{the-v3q-master-equations}
+
+\subsubsection{5.1 Global Spatial Archive
+Depth}\label{global-spatial-archive-depth}
+
+The galaxy is assigned a global baryonic archive depth:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{D\_spatial = (Sigma\_bar / Sigma\_ref)\^{}0.08}
+\end{Highlighting}
+\end{Shaded}
+
+with:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Sigma\_bar = M\_bar / (2 pi R\_disk\^{}2)}
+\NormalTok{M\_bar = M\_star + M\_gas}
+\NormalTok{M\_star = Upsilon\_star L\_3.6}
+\NormalTok{M\_gas = 1.33 M\_HI}
+\NormalTok{Sigma\_ref = 4.08e9 Msun kpc\^{}{-}2}
+\NormalTok{Upsilon\_star = 0.5}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{5.2 Saturating Archival
+Efficiency}\label{saturating-archival-efficiency}
+
+The v3o causal-sluice efficiency is:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{eta(D) = 8.0 D\^{}{-}7 / [1 + (D / 0.68)\^{}8]}
+\end{Highlighting}
+\end{Shaded}
+
+This term prevents runaway archive leakage at high depth.
+
+\subsubsection{5.3 Memory Radius}\label{memory-radius}
+
+The radial expression scale of the wake is:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{L\_chi = 7.9 R\_disk D\^{}{-}4.6}
+\end{Highlighting}
+\end{Shaded}
+
+Low-depth systems generate broader wakes; high-depth systems compress
+their archive more tightly.
+
+\subsubsection{5.4 Universal Wake Texture}\label{universal-wake-texture}
+
+The enclosed historical wake mass is:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{M\_hist(\textless{}r) = eta\_eff M\_bar x\^{}s / (1+x)\^{}(s{-}1)}
+\end{Highlighting}
+\end{Shaded}
+
+with:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x = r / L\_chi}
+\NormalTok{s = 1.36}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{5.5 Compact-Remnant Archive
+Proxy}\label{compact-remnant-archive-proxy}
+
+The raw remnant proxy is:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{R\_rem = (1 {-} f\_gas) ((10 {-} T) / 10)}
+\NormalTok{f\_gas = M\_gas / M\_bar}
+\end{Highlighting}
+\end{Shaded}
+
+where \texttt{T} is Hubble type. The term targets old, gas-poor systems.
+
+\subsubsection{5.6 Retention Gate}\label{retention-gate}
+
+A physically conservative variant requires a sufficiently deep potential
+to retain and organize compact archive nodes:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{G\_ret = (V\_max / V\_ref)\^{}n / [1 + (V\_max / V\_ref)\^{}n]}
+\end{Highlighting}
+\end{Shaded}
+
+A useful physical gate explored here is:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{V\_ref = 200 km/s}
+\NormalTok{n = 4}
+\end{Highlighting}
+\end{Shaded}
+
+The retained remnant archive is:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{R\_eff = R\_rem G\_ret}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{5.7 Effective Archival
+Efficiency}\label{effective-archival-efficiency}
+
+The v3q remnant amplifier is:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{eta\_eff = eta(D) [1 + chi\_rem R\_eff\^{}zeta]}
+\end{Highlighting}
+\end{Shaded}
+
+with the empirical best ungated values:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{chi\_rem = 3.0}
+\NormalTok{zeta = 0.5}
+\end{Highlighting}
+\end{Shaded}
+
+The square-root dependence implies sublinear amplification:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{eta\_eff = eta(D) [1 + 3 sqrt(R\_eff)]}
+\end{Highlighting}
+\end{Shaded}
+
+Compact remnants therefore act as a coherence amplifier, not as a linear
+mass reservoir.
+
+\subsubsection{5.8 Total Rotation Curve}\label{total-rotation-curve}
+
+The historical acceleration is:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{g\_hist(r) = G M\_hist(\textless{}r) / r\^{}2}
+\end{Highlighting}
+\end{Shaded}
+
+The baryonic velocity contribution is computed from SPARC mass-model
+components:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{V\_bar\^{}2 = |V\_gas| V\_gas + Upsilon\_disk V\_disk\^{}2 + Upsilon\_bulge V\_bul\^{}2}
+\end{Highlighting}
+\end{Shaded}
+
+with:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Upsilon\_disk = 0.5}
+\NormalTok{Upsilon\_bulge = 0.7}
+\end{Highlighting}
+\end{Shaded}
+
+The final prediction is:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{V\_Flux\^{}2(r) = V\_bar\^{}2(r) + G eta\_eff M\_bar / r * x\^{}1.36 / (1+x)\^{}0.36}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{6. SPARC175 Validation}\label{sparc175-validation}
+
+The model was evaluated against the SPARC175 rotation-curve dataset
+using the official global galaxy table and mass-model table. The
+implementation parses the global table for \texttt{L\_3.6},
+\texttt{R\_disk}, \texttt{M\_HI}, \texttt{T}, and quality values, and
+parses the mass-model table for \texttt{R}, \texttt{Vobs},
+\texttt{Vgas}, \texttt{Vdisk}, and \texttt{Vbul}.
+
+\subsubsection{6.1 Summary Metrics}\label{summary-metrics}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2143}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2857}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2857}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2143}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Model
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Point MAE
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Galaxy Mean MAE
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Notes
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Newtonian baryons & 47.01 km/s & 39.98 km/s & Fixed baryonic
+mass-to-light ratios \\
+v3o spatial archive & 33.01 km/s & 27.96 km/s & Causal-sluice only \\
+v3p-T morphology proxy & 28.76 km/s & 27.96 km/s & Helpful point-level
+correction, too blunt galaxy-level \\
+v3q compact-remnant archive & 19.59 km/s & 18.71 km/s & Best empirical
+branch \\
+v3q-retention scan best & 19.75 km/s & 18.92 km/s & Conservative
+retention-gated branch \\
+\end{longtable}
+
+\subsubsection{6.2 Strongly Improved
+Systems}\label{strongly-improved-systems}
+
+\begin{longtable}[]{@{}lrrrrr@{}}
+\toprule\noalign{}
+Galaxy & T & f\_gas & D\_spatial & v3o MAE & v3q MAE \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+UGC02487 & 0 & 0.010 & 0.861 & 127.98 & 44.71 \\
+NGC6674 & 3 & 0.038 & 0.844 & 79.80 & 15.44 \\
+NGC3992 & 4 & 0.019 & 0.873 & 73.03 & 16.42 \\
+UGC02885 & 5 & 0.026 & 0.801 & 74.77 & 19.45 \\
+NGC5985 & 3 & 0.015 & 0.820 & 110.22 & 59.31 \\
+NGC2841 & 3 & 0.014 & 0.903 & 101.94 & 53.55 \\
+NGC5907 & 5 & 0.031 & 0.846 & 54.44 & 6.75 \\
+UGC12506 & 6 & 0.063 & 0.791 & 84.76 & 41.29 \\
+\end{longtable}
+
+\subsubsection{6.3 Overcorrection Cases}\label{overcorrection-cases}
+
+The first v3q proxy over-amplifies some intermediate systems. These
+cases motivate the retention-gated form and/or a more refined
+remnant-population proxy.
+
+\begin{longtable}[]{@{}lrrrrr@{}}
+\toprule\noalign{}
+Galaxy & T & f\_gas & D\_spatial & v3o MAE & v3q MAE \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+NGC4088 & 4 & 0.020 & 0.913 & 14.19 & 41.07 \\
+NGC6195 & 3 & 0.014 & 0.773 & 12.36 & 38.11 \\
+NGC4051 & 4 & 0.007 & 0.822 & 6.47 & 31.81 \\
+NGC4389 & 4 & 0.007 & 0.792 & 29.91 & 51.52 \\
+NGC5371 & 4 & 0.009 & 0.845 & 15.95 & 36.41 \\
+UGC11557 & 8 & 0.054 & 0.761 & 13.51 & 28.33 \\
+NGC4217 & 3 & 0.008 & 0.877 & 36.04 & 48.55 \\
+F561-1 & 9 & 0.096 & 0.699 & 5.62 & 15.54 \\
+\end{longtable}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{7. Interpretation}\label{interpretation}
+
+The v3q result suggests that the residual signal in massive early-type
+systems is not random. The systems that improve most are old, gas-poor,
+high-luminosity galaxies where compact-remnant archive density should be
+highest. The square-root scaling indicates that the first compact
+archive nodes matter disproportionately; after a remnant population
+exists, additional remnants yield diminishing returns.
+
+This is distinct from MACHO dark matter. The model does not claim that
+stellar remnants supply all the missing gravitational mass. Instead,
+compact remnants are treated as high-registration-depth nodes that
+amplify a nonlocal metric wake.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{8. Failure Modes and Falsification
+Tests}\label{failure-modes-and-falsification-tests}
+
+A serious model must be falsifiable. The following tests are direct:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Residual-remnant correlation:} v3q predicts that v3o residuals
+  should correlate with old stellar populations, low gas fraction, and
+  compact-remnant indicators.
+\item
+  \textbf{Color and stellar-population tests:} External SDSS/WISE/GALEX
+  colours should reduce scatter if temporal persistence is real.
+\item
+  \textbf{Lensing consistency:} Any archive wake that affects rotation
+  curves must also have a consistent weak-lensing signature.
+\item
+  \textbf{Bullet Cluster-style systems:} If baryonic archive sources and
+  lensing peaks are fully separated without a historical-lag mechanism,
+  the model fails.
+\item
+  \textbf{Solar System screening:} The archive wake must vanish in
+  high-coherence local environments.
+\item
+  \textbf{Independent SPARC reruns:} The model must survive quality
+  cuts, alternate mass-to-light ratios, and independent parsers.
+\end{enumerate}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{9. Limitations}\label{limitations}
+
+The current v3q model is not a final replacement for ΛCDM or MOND. It is
+a structured prototype. Its galaxy-mean MAE remains above MOND-level
+performance, and the remnant proxy is coarse. Hubble type and gas
+fraction are not direct measurements of compact-remnant distributions.
+The retention gate is physically motivated but not yet derived from
+first principles.
+
+Therefore, the correct empirical claim is modest:
+
+\begin{quote}
+v3q substantially improves over Newtonian baryons and identifies a
+physically structured residual pathway tied to compact-remnant archive
+physics.
+\end{quote}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{10. Conclusion}\label{conclusion}
+
+Flux/MIP v3q converts the dark matter question from a missing-substance
+problem into a missing-history problem. A galaxy is not merely a
+distribution of visible mass. It is a historical archive containing
+smooth baryonic depth, temporal persistence, and compact remnant
+texture.
+
+The present SPARC175 implementation shows a clear improvement from
+Newtonian baryons to v3o and from v3o to v3q:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{39.98 km/s {-}\textgreater{} 27.96 km/s {-}\textgreater{} 18.71 km/s}
+\end{Highlighting}
+\end{Shaded}
+
+for galaxy-mean MAE.
+
+The strongest conceptual result is:
+
+\begin{quote}
+Dark-sector behaviour is not missing matter alone; it is missing
+historical registration structure.
+\end{quote}
+
+Or, in the compact thesis statement:
+
+\begin{quote}
+\textbf{Dark matter is the metric shadow of dead history.}
+\end{quote}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{References}\label{references}
+
+\begin{itemize}
+\tightlist
+\item
+  Lelli, F., McGaugh, S. S., \& Schombert, J. M. (2016). SPARC: Mass
+  Models for 175 Disk Galaxies with Spitzer Photometry and Accurate
+  Rotation Curves. \emph{Astronomical Journal}.
+\item
+  McGaugh, S. S., Lelli, F., \& Schombert, J. M. (2016). The Radial
+  Acceleration Relation in Rotationally Supported Galaxies.
+  \emph{Physical Review Letters}.
+\item
+  Milgrom, M. (1983). A modification of the Newtonian dynamics as a
+  possible alternative to the hidden mass hypothesis.
+  \emph{Astrophysical Journal}.
+\item
+  Bekenstein, J. D. (1973). Black holes and entropy. \emph{Physical
+  Review D}.
+\item
+  Hawking, S. W. (1975). Particle creation by black holes.
+  \emph{Communications in Mathematical Physics}.
+\end{itemize}
+
+\end{document}
