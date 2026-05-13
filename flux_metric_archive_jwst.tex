@@ -1,0 +1,550 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{siunitx}
+\usepackage{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black}
+\setlist[itemize]{topsep=2pt,itemsep=2pt,parsep=0pt}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt,parsep=0pt}
+\newcommand{\LCDM}{$\Lambda$CDM}
+\newcommand{\Msun}{M_\odot}
+\newcommand{\kunit}{h\,\mathrm{Mpc}^{-1}}
+\newcommand{\todo}[1]{\textcolor{red}{#1}}
+
+\title{A Scale-Gated Metric Archive Model for JWST Early Galaxy Formation}
+\author{Jamie McCabe\\\small Flux/MIP Cosmology Working Draft}
+\date{May 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+The discovery of luminous galaxy candidates at $z \gtrsim 10$ by JWST has intensified tension between early structure formation and the hierarchical growth expected in standard \LCDM. While some candidates may be resolved by improved photometry, stellar-population modelling, or gravitational lensing corrections, the persistence of compact high-redshift objects motivates a selective mechanism that can enhance early local collapse without modifying the linear cosmological background. We introduce a scale-gated Metric Archive model, developed within the Flux/MIP framework, in which nonlinear bound systems may acquire a history-dependent gravitational reinforcement only after satisfying two independent gates: an environmental scale filter $G_{\rm env}(k)$ and a collapse-history registration function $G_{\rm bound}(z,M)$. The reinforcement amplitude is anchored to a maximum nonlinear Closure-D value $A_D=12$, but is suppressed on CMB and redshift-space-distortion scales by the filter
+\begin{equation}
+G_{\rm env}(k)=\frac{(k/k_\chi)^q}{1+(k/k_\chi)^q},
+\end{equation}
+with $k_\chi=9.2\,h\,\mathrm{Mpc}^{-1}$ and $q=4$. This gives $G_{\rm env}(0.01\,h\,\mathrm{Mpc}^{-1})\approx1.4\times10^{-12}$ and $G_{\rm env}(0.1\,h\,\mathrm{Mpc}^{-1})\approx1.4\times10^{-8}$, rendering the reinforcement invisible to primary CMB anisotropies and quasi-linear growth probes.
+
+We apply the model to a JWST/UNCOVER Abell 2744 working sample using redshift-dependent cluster magnification maps. Out of the top 50 candidates in the local Phase-10.2 audit, the model classifies only three as stable registered systems, with 28 unregistered, 15 outside the map footprint or invalid, three weakly registered, and one mixed case. The strongest object, ID 12385 at $z=13.48$, remains registered across $z=6,8,10,15,$ and $20$ magnification planes, with $G_{\rm bound}=0.861$--$0.989$ despite large caustic variation. This selectivity is the central result: the model does not rescue all high-redshift ``monster'' candidates, but identifies a small class of compact de-lensed seeds for which historical metric reinforcement can accelerate early baryonic assembly without disturbing the CMB or large-scale structure.
+\end{abstract}
+
+\section{Introduction}
+
+The first years of JWST observations have transformed early-galaxy cosmology. Candidate galaxies at $z\gtrsim10$, including objects inferred to possess unexpectedly high stellar masses or luminosities, have challenged simple expectations for the timing of baryonic collapse, star formation, and halo assembly. In standard \LCDM, structure grows hierarchically: small overdensities collapse first, merge into larger halos, and gradually assemble luminous galaxies. The high-redshift JWST population therefore presents a sharp question: are these objects ordinary galaxies whose inferred properties have been overestimated, or do they point toward missing physics in early nonlinear structure formation?
+
+Several conventional explanations remain viable. Photometric redshifts may be contaminated by lower-redshift interlopers. Stellar masses may be overestimated because of uncertain stellar-population assumptions, nebular emission, dust, or star-formation histories. In lensing fields, magnification corrections can reduce intrinsic masses substantially. These effects must be treated carefully before invoking new physics.
+
+However, even after these corrections, a narrow physical possibility remains: some early objects may be genuinely compact, efficiently star-forming seeds whose rapid assembly is difficult to explain using only linear growth plus standard baryonic prescriptions. This paper explores that possibility through a selective, scale-gated modification of nonlinear gravitational response.
+
+We propose a Metric Archive model within the Flux/MIP framework. The central idea is that gravity in the nonlinear regime may contain a history-dependent component: once matter collapses into a persistent bound state, part of its prior collapse history is retained as an effective metric imprint. This imprint is not a universal change to Newton's constant and is not active on all scales. It is expressed only when two conditions are satisfied.
+
+First, the system must lie in the nonlinear environmental regime. This is enforced by the scale filter
+\begin{equation}
+G_{\rm env}(k)=\frac{(k/k_\chi)^q}{1+(k/k_\chi)^q},
+\end{equation}
+where $k_\chi=9.2\,h\,\mathrm{Mpc}^{-1}$ and $q=4$. At CMB and redshift-space-distortion scales, this filter suppresses the nonlinear reinforcement by many orders of magnitude. At galactic and compact-seed scales, the filter opens.
+
+Second, the object must satisfy a collapse-history registration condition. We parameterize this using a bounded registration function $G_{\rm bound}(z,M)$, which depends on redshift and intrinsic de-lensed mass. In this picture, not every massive JWST candidate is helped. Indeed, overly massive intrinsic objects generally fail the registration gate. The model preferentially selects compact seeds whose mass and redshift place them near the Phase-5 collapse threshold.
+
+The maximum nonlinear reinforcement is written as
+\begin{equation}
+A_{\rm eff}=1+A_D\,G_{\rm env}(k)\,G_{\rm bound}(z,M),
+\end{equation}
+with $A_D=12$. Thus the largest possible local enhancement is approximately $13\times$, but only after both gates open. On CMB scales, $G_{\rm env}\approx0$, so $A_{\rm eff}\approx1$. On quasi-linear RSD scales, $G_{\rm env}\approx0$, so the model remains compatible with $f\sigma_8$-type constraints. On compact galactic scales, $G_{\rm env}\rightarrow1$, so registered seeds can express the reinforcement.
+
+The empirical target of this paper is therefore not the entire cosmological background. The target is narrower and falsifiable:
+\begin{center}
+\fbox{\begin{minipage}{0.92\linewidth}
+Can a scale-gated historical metric reinforcement selectively identify compact JWST seeds while rejecting the majority of high-mass candidates?
+\end{minipage}}
+\end{center}
+
+To test this, we apply the model to an Abell 2744/UNCOVER high-redshift candidate sample using redshift-dependent magnification maps. The lensing correction is essential. In the model, gravitational lensing is not replaced by Flux/MIP; it is used as the geometric tool that reveals intrinsic source masses. Only after de-lensing do we evaluate the registration gate.
+
+The strongest case is ID 12385 at $z=13.48$. Across the sampled magnification planes, its lensing factor remains high:
+\begin{equation}
+\mu_{06}=63.39,\quad
+\mu_{08}=174.59,\quad
+\mu_{10}=2547.71,\quad
+\mu_{15}=106.39,\quad
+\mu_{20}=71.50.
+\end{equation}
+The $z=10$ value is treated as a caustic spike rather than as a stable physical estimate. The important result is the floor: even excluding the extreme spike, the object remains highly magnified across redshift planes. Its corresponding registration values remain
+\begin{equation}
+G_{\rm bound}=0.861\text{--}0.989,
+\end{equation}
+placing it in the stable-registered class. By contrast, the majority of the sample fails the registration criterion. This rejection rate is a key strength of the model. A mechanism that rescues every candidate would be uninformative; a mechanism that selects only a small physically defined subset is testable.
+
+\section{The Scale-Gated Metric Archive Model}
+
+The standard \LCDM{} paradigm treats the gravitational coupling as a universal constant, resulting in a strictly Markovian growth history where the evolution of a perturbation depends only on the instantaneous background density and Hubble rate. In the Flux/MIP framework, we introduce a non-Markovian extension for nonlinear structures: once matter enters a persistent bound state, a fraction of its structural actualization history is retained as a localized metric imprint.
+
+This historical metric reinforcement is not modeled as an extrinsic dark matter fluid, but as an effective enhancement to the local gravitational source term. To prevent this reinforcement from violating precision background cosmology, the model restricts the enhancement to the nonlinear, collapsed regime via two independent gating functions.
+
+The effective gravitational coupling multiplier $A_{\rm eff}$ is defined as
+\begin{equation}
+A_{\rm eff}(k,z,M)=1+A_DG_{\rm env}(k)G_{\rm bound}(z,M),
+\end{equation}
+where $A_D$ is the maximum nonlinear reinforcement amplitude. In this work, we fix $A_D=12$, anchored to the Closure-D benchmark derived from late-time galactic rotation-curve fits, which limits the maximum metric atmosphere enhancement to $13\times$ the baryonic source term.
+
+\subsection{The Environmental Scale Filter, $G_{\rm env}(k)$}
+
+The first gate enforces the condition that historical reinforcement cannot act on unbound, linear, or quasi-linear scales. We model this transition in Fourier space using a high-pass spatial frequency filter:
+\begin{equation}
+G_{\rm env}(k)=\frac{(k/k_\chi)^q}{1+(k/k_\chi)^q},
+\end{equation}
+where $k_\chi$ represents the characteristic wavenumber separating the linear cosmic web from virialized halos, and $q$ dictates the sharpness of the transition. Based on prior cosmological stress-testing, we adopt
+\begin{equation}
+k_\chi=9.2\,h\,\mathrm{Mpc}^{-1},\qquad q=4.
+\end{equation}
+This places the activation scale safely inside the nonlinear regime, approximately
+\begin{equation}
+r_\chi=\frac{2\pi}{k_\chi}\approx0.68\,h^{-1}\mathrm{Mpc},
+\end{equation}
+ensuring that the metric archive only influences bounded systems. Figure~\ref{fig:envfilter} shows the resulting containment hierarchy.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.82\linewidth]{figures/flux_env_filter.png}
+\caption{Environmental scale filter $G_{\rm env}(k)$ for $k_\chi=9.2\,h\,\mathrm{Mpc}^{-1}$ and $q=4$. The CMB and RSD regimes are suppressed by many orders of magnitude, while compact galactic scales can activate the nonlinear archive.}
+\label{fig:envfilter}
+\end{figure}
+
+\subsection{The Collapse-History Registration Gate, $G_{\rm bound}(z,M)$}
+
+The second gate determines whether a specific physical system has accumulated sufficient density and historical persistence to trigger the metric reinforcement. We link this to the structural collapse history using a modified Press-Schechter formalism.
+
+The collapsed fraction of the universe in halos of mass greater than $M$ at redshift $z$ is approximated by
+\begin{equation}
+f_{\rm coll}(>M,z)=\mathrm{erfc}\left(\frac{\delta_c}{\sqrt{2}\,\sigma(M,z)}\right),
+\end{equation}
+where $\sigma(M,z)$ is the mass variance of the linear density field smoothed on scale $R(M)$, and $\delta_c\simeq1.686$ is the critical overdensity for spherical collapse. The registration gate is then defined as a threshold function of this collapsed fraction:
+\begin{equation}
+G_{\rm bound}(z,M)=\left[\frac{f_{\rm coll}(>M,z)}{f_{\rm coll}(>M,z)+f_{\rm gate}}\right]^p,
+\end{equation}
+with $f_{\rm gate}=10^{-4}$ and $p=1$ for the present audit. Because the small-scale variance $\sigma(M)$ is substantially higher for smaller masses, this mechanism introduces a redshift-mass inversion: at high redshift ($z>10$), the only systems capable of crossing the registration threshold are compact, low-mass seeds. Massive monolithic halos lack the necessary variance at early times to trigger the gate, correctly rendering them unregistered in the Flux/MIP ledger.
+
+\section{CMB and RSD Containment Audit}
+
+A persistent challenge for modified gravity or interacting dark sector models is the tension between early-universe constraints and late-time structural growth. A mechanism powerful enough to accelerate the assembly of $z\gtrsim10$ JWST galaxies risks devastating the acoustic peaks of the Cosmic Microwave Background or over-predicting the quasi-linear growth rate measured by redshift-space distortions.
+
+The scale-gated architecture explicitly suppresses the $A_D=12$ reinforcement outside of bound halos. We quantify this containment at the relevant observational scales.
+
+\subsection{Linear Regime: CMB Safety}
+
+Primary CMB anisotropies probe linear scales roughly corresponding to $k\sim10^{-3}$ to $10^{-2}\,h\,\mathrm{Mpc}^{-1}$. Evaluating the environmental filter at $k=0.01\,h\,\mathrm{Mpc}^{-1}$ yields
+\begin{equation}
+G_{\rm env}(0.01)=\frac{(0.01/9.2)^4}{1+(0.01/9.2)^4}\approx1.39\times10^{-12}.
+\end{equation}
+The reinforcement term is suppressed by twelve orders of magnitude. The effective gravity remains $A_{\rm eff}\approx1.000$, ensuring negligible direct back-reaction on the recombination era, the sound horizon, or the primary angular power spectrum.
+
+\subsection{Quasi-Linear Regime: RSD Safety}
+
+Large-scale structure surveys constrain the growth rate of structure $f\sigma_8(z)$ predominantly at quasi-linear scales around $k\sim0.1\,h\,\mathrm{Mpc}^{-1}$. Evaluating the environmental filter at this scale yields
+\begin{equation}
+G_{\rm env}(0.1)\approx1.40\times10^{-8}.
+\end{equation}
+Again, the metric reinforcement remains safely isolated from the measurable velocity flows of the cosmic web. At these scales, the Flux/MIP framework is instead dominated by the unresolved entropic-drag sector, characterized by the parameter $A_S$, which can mildly suppress the linear growth rate. This feature separates the sluggish growth of the large-scale web from the accelerated, $A_D$-reinforced growth of compact galactic seeds.
+
+\subsection{Nonlinear Regime: JWST/Galactic Activation}
+
+The reinforcement only activates at galactic scales. At $k=20\,h\,\mathrm{Mpc}^{-1}$, the filter opens to
+\begin{equation}
+G_{\rm env}(20)\approx0.957.
+\end{equation}
+Consequently, if a compact early seed satisfies the intrinsic mass requirements of the registration gate, it achieves near-total effective reinforcement. This mathematically bridges the two phenomenological extremes: it permits the existence of a small class of early compact galaxies by reinforcing their local metric, while leaving the large-scale cosmological background strictly unharmed.
+
+\section{The Phase-5 Registration Ledger}
+
+The environmental filter $G_{\rm env}(k)$ determines whether a system lies on a scale where historical metric reinforcement may be expressed. It does not, by itself, determine whether a particular object is physically eligible for reinforcement. For this second condition, the model requires a collapse-history threshold: the system must occupy a mass-redshift region where bound structure formation is statistically plausible but still sufficiently rare to mark a persistent registration event.
+
+We refer to this mass-redshift selection rule as the Phase-5 Registration Ledger.
+
+\subsection{Physical Meaning of the Ledger}
+
+In the Flux/MIP framework, registration is not assigned to mass alone. A galaxy candidate is not reinforced merely because it is luminous, massive, or observed at high redshift. Instead, registration depends on whether the object's intrinsic de-lensed mass lies near the compact collapse window available at its epoch.
+
+This creates a crucial distinction between observed mass and registered mass. The observed stellar mass inferred from photometry must first be corrected by the gravitational lensing magnification,
+\begin{equation}
+M_{\star,\rm true}=\frac{M_{\star,\rm obs}}{\mu}.
+\end{equation}
+The registration gate is then evaluated not on $M_{\star,\rm obs}$, but on the de-lensed intrinsic mass. This is essential in cluster fields such as Abell 2744, where strong lensing can make a compact seed appear as a much more massive object.
+
+The ledger mass used by the gate is written as
+\begin{equation}
+M_{\rm gate}=\frac{M_{\star,\rm true}}{\epsilon_\star},
+\end{equation}
+where $\epsilon_\star$ is an effective baryon-to-stellar conversion parameter. In the present audit we adopt $\epsilon_\star=0.20$, so that the gate mass is five times the inferred intrinsic stellar mass. This choice is conservative: it does not assume that the entire baryonic reservoir has been converted into stars, nor does it require unphysical star-formation efficiency.
+
+\subsection{Collapse Fraction and Registration Probability}
+
+The registration probability is computed from the collapsed fraction proxy,
+\begin{equation}
+f_{\rm coll}(>M,z)=\mathrm{erfc}\left[\frac{\delta_c}{\sqrt{2}\,\sigma(M,z)}\right],
+\end{equation}
+where $\delta_c\simeq1.686$ is the critical overdensity for spherical collapse and $\sigma(M,z)$ is the redshift-dependent mass variance.
+
+The registration gate is then defined as
+\begin{equation}
+G_{\rm bound}(z,M)=\frac{f_{\rm coll}(>M,z)}{f_{\rm coll}(>M,z)+f_{\rm gate}},
+\end{equation}
+with $f_{\rm gate}=10^{-4}$. The condition for strong registration is $G_{\rm bound}>0.5$. This threshold does not mean that the object is common. It means that, within the model's collapse-history accounting, the object has crossed the minimum persistence condition required for its local metric history to become dynamically expressed.
+
+\subsection{The Monster Ceiling}
+
+The ledger naturally produces what we call the Monster Ceiling. At high redshift, very large intrinsic masses are strongly disfavoured because the variance on those mass scales is too small. Consequently, a claimed $10^{10}\Msun$ galaxy at $z\gtrsim12$ is not automatically rescued by the model. In most cases, it fails the registration gate. This is a central falsifiability feature.
+
+The model imposes the following selection logic:
+\begin{equation}
+\boxed{\text{High observed mass + low magnification}\Rightarrow\text{unregistered monster},}
+\end{equation}
+while
+\begin{equation}
+\boxed{\text{High observed mass + strong lensing}\Rightarrow\text{possible compact registered seed}.}
+\end{equation}
+
+\subsection{Approximate Phase-5 Trigger Windows}
+
+For the present audit, the relevant trigger behaviour may be summarized qualitatively as follows:
+\begin{table}[H]
+\centering
+\caption{Approximate Phase-5 trigger windows used as interpretive guidance. Exact values are evaluated object by object through $G_{\rm bound}(z,M_{\rm gate})$.}
+\begin{tabular}{lll}
+\toprule
+Redshift & Preferred registered regime & Typical failure mode \\
+\midrule
+$6$--$8$ & $\sim10^9$--$10^{10}\Msun$ & too diffuse or too massive \\
+$8$--$10$ & $\sim10^9\Msun$ & large intrinsic monsters \\
+$10$--$12$ & $\sim10^8$--$10^9\Msun$ & insufficient collapse probability \\
+$12$--$15$ & $\sim10^7$--$10^8\Msun$ & unlensed high-mass candidates \\
+$15$--$20$ & $\lesssim10^8\Msun$ & caustic-sensitive or unregistered \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The important point is the redshift-mass inversion: at the earliest times, registered systems are not expected to be the largest intrinsic objects. They are expected to be compact seeds whose apparent brightness may be amplified by lensing, bursty star formation, or both.
+
+\section{Application to the UNCOVER Abell 2744 Sample}
+
+We now apply the two-gate Metric Archive model to a JWST/UNCOVER Abell 2744 high-redshift candidate sample. The purpose of this section is not to claim that every candidate is confirmed, nor to treat photometric masses as final. The purpose is narrower: to determine whether the model selectively identifies a small class of compact de-lensed seeds while rejecting the majority of high-intrinsic-mass candidates.
+
+\subsection{Input Sample and Lensing Maps}
+
+The working sample consists of the top 50 high-redshift candidates from the cleaned Phase-9 catalogue. Each object includes sky position, redshift estimate, and stellar mass proxy. Because the field lies behind Abell 2744, gravitational lensing corrections are essential. We therefore sample UNCOVER/Zitrin-dPIE-PIEMD magnification maps at multiple source redshift planes:
+\begin{equation}
+z_{\rm lens}=6,8,10,15,20.
+\end{equation}
+For each object and each map, the intrinsic stellar mass is computed as
+\begin{equation}
+M_{\star,\rm true}(z_{\rm lens})=\frac{M_{\star,\rm obs}}{\mu(z_{\rm lens})}.
+\end{equation}
+The gate mass is then
+\begin{equation}
+M_{\rm gate}(z_{\rm lens})=\frac{M_{\star,\rm true}(z_{\rm lens})}{0.20}.
+\end{equation}
+Finally, $G_{\rm bound}$ is evaluated independently for each lensing plane.
+
+\subsection{Treatment of Map Footprint and Invalid Values}
+
+Fifteen of the fifty objects fall outside the valid magnification-map region or return invalid sampled values. These are not assigned artificial magnifications. They are classified as \texttt{outside\_map\_or\_invalid}. This is conservative. It prevents the model from falsely rescuing candidates by assuming lensing where the map does not provide support.
+
+For valid objects, the magnification values are taken directly from the sampled maps. No smoothing, caustic clipping, or manual correction is applied at this stage.
+
+\subsection{Stability Classification}
+
+For each candidate, the model computes $G_{06},G_{08},G_{10},G_{15},G_{20}$. The final classification is assigned using the following rules:
+\begin{align}
+\texttt{stable\_registered} &\Longleftrightarrow G_{\rm bound}>0.5\quad\text{across the sampled redshift planes},\\
+\texttt{weak\_registered} &\Longleftrightarrow 0.1<G_{\rm bound}<0.5\quad\text{across the relevant planes},\\
+\texttt{weak\_or\_mixed} &\Longleftrightarrow G_{\rm bound}\quad\text{lies near the weak/unregistered boundary},\\
+\texttt{unregistered} &\Longleftrightarrow G_{\rm bound}<0.1\quad\text{for the valid sampled planes},\\
+\texttt{outside\_map\_or\_invalid} &\Longleftrightarrow \text{no reliable magnification value is available}.
+\end{align}
+
+\subsection{Final Classification Summary}
+
+The Phase-10.2 merged redshift-plane stability audit gives the following classification:
+\begin{table}[H]
+\centering
+\caption{Final Phase-10.2 classification summary for the top-50 UNCOVER/Abell 2744 working sample.}
+\begin{tabular}{lr}
+\toprule
+Class & Count \\
+\midrule
+\texttt{unregistered} & 28 \\
+\texttt{outside\_map\_or\_invalid} & 15 \\
+\texttt{stable\_registered} & 3 \\
+\texttt{weak\_registered} & 3 \\
+\texttt{weak\_or\_mixed} & 1 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+This distribution is the central empirical result of the audit. The model does not rescue the full sample. It rejects the majority of high-redshift candidates as either unregistered or unavailable for valid lensing evaluation. Only three objects survive as stable registered candidates.
+
+\subsection{Stable Registered Candidates}
+
+The three stable registered candidates are listed in Table~\ref{tab:stable}.
+\begin{table}[H]
+\centering
+\caption{Stable registered candidates from the Phase-10.2 audit.}
+\label{tab:stable}
+\begin{tabular}{rrrrr}
+\toprule
+ID & $z$ & $M_{\star,\rm obs}$ [$\Msun$] & $G_{\min}$ & $G_{\max}$ \\
+\midrule
+12385 & 13.482972 & $2.922986\times10^9$ & 0.861470 & 0.989069 \\
+21001 & 8.306184 & $7.332993\times10^9$ & 0.861701 & 0.870730 \\
+28312 & 10.266833 & $2.531407\times10^9$ & 0.811662 & 0.827960 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+These objects are not identical cases. ID 21001 is a lower-redshift registered system at $z=8.31$, with moderate lensing and stable $G_{\rm bound}\approx0.86$. ID 28312 lies at $z=10.27$, also with moderate magnification and stable $G_{\rm bound}\approx0.82$. ID 12385 is the extreme high-redshift case and the strongest test of the model.
+
+\subsection{Case Study: ID 12385}
+
+ID 12385 has $z=13.482972$ and an observed stellar mass proxy
+\begin{equation}
+M_{\star,\rm obs}=2.922986\times10^9\Msun.
+\end{equation}
+Across the sampled redshift planes, its magnifications are
+\begin{align}
+\mu_{06}&=63.387627, & \mu_{08}&=174.587357, & \mu_{10}&=2547.705078,\nonumber\\
+\mu_{15}&=106.389412, & \mu_{20}&=71.503822.\nonumber
+\end{align}
+The $z=10$ value is an extreme caustic spike and is not used as the interpretive anchor. The robust result is the magnification floor. Even at the more conservative $z=6$ and $z=20$ planes, the source remains highly magnified, $\mu>60$.
+
+Using the $z=6$ floor alone gives
+\begin{equation}
+M_{\star,\rm true}=\frac{2.922986\times10^9}{63.387627}\simeq4.61\times10^7\Msun.
+\end{equation}
+The corresponding gate mass is
+\begin{equation}
+M_{\rm gate}=\frac{4.61\times10^7}{0.20}\simeq2.31\times10^8\Msun.
+\end{equation}
+At $z=13.48$, this mass lies in the compact-seed registration window. The resulting registration values are
+\begin{equation}
+G_{06}=0.861470,\quad
+G_{08}=0.939885,\quad
+G_{10}=0.989069,\quad
+G_{15}=0.910534,\quad
+G_{20}=0.875160.
+\end{equation}
+Therefore $G_{\min}=0.861470>0.5$, and ID 12385 is consequently classified as \texttt{stable\_registered}. The effective reinforcement factor is
+\begin{equation}
+A_{\rm eff}=1+A_DG_{\rm env}G_{\rm bound}.
+\end{equation}
+On compact galactic scales where $G_{\rm env}\rightarrow1$, and using the conservative floor $G_{\rm bound}=0.861470$,
+\begin{equation}
+A_{\rm eff}\simeq1+12(0.861470)\simeq11.34.
+\end{equation}
+Thus ID 12385 is not interpreted as a $10^{10}\Msun$ monolithic early galaxy. It is interpreted as a compact, strongly lensed, historically registered seed whose local metric reinforcement may accelerate gas capture and luminous assembly.
+
+\subsection{Interpretation: Lensing Rescue Versus Monster Rejection}
+
+The audit reveals two complementary mechanisms. The first is the Lensing Rescue. Strong gravitational lensing can reduce an apparently massive JWST object into the compact intrinsic mass range where the Phase-5 registration gate opens. ID 12385 is the archetypal case.
+
+The second is the Monster Ceiling. Candidates that remain intrinsically too massive after de-lensing generally fail the registration gate. The model does not treat high redshift alone as sufficient. A massive object at early time must still satisfy the collapse-history ledger. This is the strongest result of the Phase-10.2 audit. The Metric Archive model is not a free boost applied to all JWST anomalies. It is a selective nonlinear registration rule that identifies a small population of compact seeds and rejects the majority of the sample.
+
+\section{ID 12385 as the Archetypal Registered Seed}
+
+The Phase-10.2 classification isolates three stable candidates, but ID 12385 at $z=13.48$ stands out as the strongest case study for the Metric Archive model. Its observational and derived properties capture the intersection of geometric magnification and historical metric reinforcement, demonstrating how the Flux/MIP framework can physically address an early-galaxy anomaly without breaking the linear cosmological background.
+
+\subsection{The Magnification Floor Versus the Caustic Spike}
+
+A persistent vulnerability in high-redshift cluster-lensed galaxy claims is their sensitivity to the exact topology of the lens model's critical curves. Because ID 12385 sits at high redshift, its position relative to the magnification caustics varies significantly depending on the sampled source plane.
+
+The UNCOVER/Zitrin magnification map yields an extreme value at the $z=10$ plane, $\mu_{10}=2547.71$. If one were to adopt this value, the intrinsic stellar mass of the object would plummet to $\sim10^6\Msun$, driving the registration gate close to saturation. However, relying on a caustic spike is physically precarious; a spatial offset of a single pixel can collapse the magnification by orders of magnitude.
+
+Instead, the robustness of ID 12385 rests on its magnification floor. Across the remaining sampled planes ($z=6,8,15,20$), the magnification never drops below $\mu\approx60$. By anchoring the analysis to the conservative minimum, the $z=6$ plane value $\mu_{06}=63.39$, the registration claim is insulated from caustic variations. Even if the critical curve shifts substantially, the candidate remains highly magnified.
+
+\subsection{The Intrinsic Compact Seed}
+
+Using the magnification floor, the apparent photometric stellar mass is corrected to an intrinsic stellar mass of
+\begin{equation}
+M_{\star,\rm true}\simeq\frac{2.92\times10^9}{63.39}\simeq4.61\times10^7\Msun.
+\end{equation}
+In standard \LCDM, an intrinsic stellar mass of $4.6\times10^7\Msun$ at $z=13.48$ remains challenging and requires an exceptionally early collapsed halo and efficient star formation.
+
+In the Flux/MIP ledger, however, this mass and redshift combination places the object in the compact-seed registration window. Assuming the conservative effective baryon-to-stellar conversion parameter $\epsilon_\star=0.20$, the gate mass is evaluated at $M_{\rm gate}\simeq2.31\times10^8\Msun$.
+
+\subsection{Metric Reinforcement and Luminous Assembly}
+
+Because $4.6\times10^7\Msun$ represents a compact, early-collapsing baryonic structure, it has the required variance $\sigma(M,z)$ to satisfy the Phase-5 Press-Schechter registration condition. Evaluating the gate at the magnification floor yields
+\begin{equation}
+G_{\min}=0.861.
+\end{equation}
+Because $G_{\min}>0.5$, ID 12385 is formally classified as stably registered. On these compact, nonlinear scales, the environmental filter is fully open, $G_{\rm env}\rightarrow1$. Consequently, the maximum nonlinear reinforcement $A_D=12$ is expressed, resulting in an effective gravitational coupling multiplier of
+\begin{equation}
+A_{\rm eff}\simeq1+12(0.861)\simeq11.34.
+\end{equation}
+This factor is not an arbitrary dark matter halo mass; in the model, it is the physical consequence of the seed's own structural history locked into the local metric.
+
+\subsection{The Physical Narrative of ID 12385}
+
+The Metric Archive model provides a self-consistent narrative for ID 12385 that distinguishes it from a monolithic monster galaxy. The object did not form as a $10^{10}\Msun$ system at $z\sim13.5$. Rather, it began as a compact, low-mass seed that collapsed early enough to cross the metric registration threshold. Once the $G_{\rm bound}$ gate opened, the system acquired an $11.34\times$ reinforcement to its local gravitational potential. This reinforcement acted as a catalyst, accelerating subsequent gas accretion and potentially boosting the star formation rate beyond what its baryonic mass alone would support. Finally, geometric magnification from the Abell 2744 cluster amplified its luminous output, allowing JWST to observe it.
+
+ID 12385 is therefore the archetypal case for a scale-gated Metric Archive: a system whose interpretation depends on both standard gravitational lensing and local historical metric reinforcement. Figure~\ref{fig:id12385} summarizes its redshift-plane stability.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.82\linewidth]{figures/id12385_zplane_stability.png}
+\caption{ID 12385 redshift-plane stability. The $z=10$ magnification is a caustic spike, but $G_{\rm bound}$ remains above the registration threshold across all sampled planes.}
+\label{fig:id12385}
+\end{figure}
+
+\section{Falsification, Predictions, and Future Observational Tests}
+
+The Metric Archive model is intentionally restrictive. It does not assert that all high-redshift JWST anomalies are real, nor that every compact early galaxy must be historically reinforced. Instead, it predicts that reinforcement appears only when three conditions are simultaneously satisfied:
+\begin{equation}
+G_{\rm env}(k)\rightarrow1,
+\end{equation}
+\begin{equation}
+G_{\rm bound}(z,M)>0.5,
+\end{equation}
+and
+\begin{equation}
+M_{\star,\rm true}=\frac{M_{\star,\rm obs}}{\mu}
+\end{equation}
+places the object inside the compact-seed registration window. This creates several direct routes to falsification. A successful model must continue to satisfy four constraints:
+\begin{equation}
+\boxed{\text{CMB safe, RSD safe, galaxy active, JWST selective.}}
+\end{equation}
+
+\subsection{Spectroscopic Redshift Tests}
+
+The first and most direct test is spectroscopic confirmation of the stable registered candidates. If ID 12385, ID 21001, or ID 28312 are spectroscopically revised to significantly lower redshift, the registration interpretation weakens or fails. For ID 12385 specifically, the model predicts that it should remain a high-redshift compact source. A robust spectroscopic redshift near $z\simeq13.5$ would strengthen the interpretation. A confirmed low-redshift interloper solution would remove it from the registered-seed class.
+
+\subsection{Lens-Model Refinement Tests}
+
+The second major test is improved cluster-lensing reconstruction. For ID 12385, the current claim rests not on the extreme $z=10$ caustic spike, but on the conservative magnification floor $\mu_{\rm floor}>60$. Future lens models may alter the critical-curve topology. If improved Abell 2744 reconstructions reduce the stable magnification floor below the level required to place ID 12385 in the compact-seed regime, the classification changes. The candidate remains registered only if
+\begin{equation}
+G_{\rm bound}(z,M_{\rm gate})>0.5.
+\end{equation}
+This is a clean test. The model does not require the present magnification solution to be correct; it requires only that the de-lensed intrinsic mass remain inside the Phase-5 registration window.
+
+\subsection{Population-Level JWST Tests}
+
+The Metric Archive model predicts a selective population, not a universal rescue. Future JWST catalogues should therefore show the same qualitative pattern found in the Phase-10.2 audit: many rejected candidates, few stable registered compact seeds, and some weak or caustic-sensitive borderline cases.
+
+A useful future statistic is
+\begin{equation}
+f_{\rm reg}=\frac{N(G_{\rm bound}>0.5)}{N_{\rm valid}},
+\end{equation}
+where $N_{\rm valid}$ excludes objects outside the lensing-map footprint or lacking reliable mass/redshift estimates. For the present UNCOVER audit,
+\begin{equation}
+f_{\rm reg}=\frac{3}{35}\simeq0.086
+\end{equation}
+among valid sampled candidates, or $3/50=0.06$ relative to the full top-50 sample.
+
+\subsection{Monster Ceiling Prediction}
+
+The model predicts that truly intrinsic high-mass galaxies at very high redshift should remain rare or unregistered. If a future spectroscopically confirmed galaxy at $z>12$ has a robust de-lensed intrinsic stellar mass $M_{\star,\rm true}\gtrsim10^{10}\Msun$ and cannot be reduced by lensing, stellar-population modelling, or photometric revision, then the present registration ledger fails. Such an object would violate the model's Monster Ceiling.
+
+\subsection{CMB and Acoustic-Scale Tests}
+
+The environmental gate was designed to suppress the nonlinear reinforcement on CMB scales:
+\begin{equation}
+G_{\rm env}(0.01\,h\,\mathrm{Mpc}^{-1})\approx1.4\times10^{-12}.
+\end{equation}
+Any version of the theory that allows $G_{\rm env}$ to open on CMB scales would be ruled out. The CMB containment condition is
+\begin{equation}
+G_{\rm env}(k_{\rm CMB})A_D\ll1.
+\end{equation}
+For the frozen parameters, $A_DG_{\rm env}(0.01)\sim1.7\times10^{-11}$.
+
+\subsection{RSD, Euclid, DESI, and Growth-Index Tests}
+
+At RSD scales, $k\sim0.1\,h\,\mathrm{Mpc}^{-1}$, the environmental filter gives $G_{\rm env}\sim1.4\times10^{-8}$. Thus the nonlinear reinforcement cannot significantly affect measured $f\sigma_8$. Any observed large-scale growth modification must come from the entropic-drag sector, parameterized by $A_S$, not from the Closure-D reinforcement. This produces a clear observational split: large-scale web growth may be sluggish or suppressed, while compact galaxies may undergo locally reinforced growth.
+
+\subsection{Strong-Lensing Field Predictions}
+
+The model predicts that cluster-lensing fields should be unusually effective at revealing registered seeds. This is not because lensing creates the registration, but because lensing lowers the inferred intrinsic mass:
+\begin{equation}
+M_{\star,\rm true}=\frac{M_{\star,\rm obs}}{\mu}.
+\end{equation}
+Thus the strongest future tests should come from fields with accurate high-redshift magnification maps. The model predicts that registered candidates should cluster near strong-lensing caustics, but only when the de-lensed intrinsic mass falls into the Phase-5 compact-seed window.
+
+\subsection{Local-Universe Consistency Tests}
+
+The same reinforcement amplitude $A_D=12$ is anchored to late-time galactic dynamics. Therefore the model must remain consistent with low-redshift rotation-curve and lensing data. The expected low-redshift behaviour is $G_{\rm env}\rightarrow1$ inside bound galactic systems, while $G_{\rm bound}$ approaches saturation for mature galaxies. A key falsification route is mismatch with galactic data: if the Closure-D reinforcement cannot simultaneously fit rotation curves, lensing profiles, and environmental dependence, then the $A_D=12$ anchor must be revised or abandoned.
+
+\subsection{Summary of Falsification Conditions}
+
+The model fails in its current form if any of the following occur:
+\begin{enumerate}
+\item Stable candidates become confirmed low-redshift interlopers.
+\item Improved lens models erase the magnification floor required for ID 12385.
+\item Future JWST catalogues show no compact registered minority.
+\item Confirmed intrinsic $z>12$, $M_\star\gtrsim10^{10}\Msun$ monsters exist.
+\item The scale gate must move into CMB/RSD regimes to preserve fits.
+\item The Closure-D anchor fails against low-redshift galactic dynamics.
+\end{enumerate}
+These conditions make the model directly vulnerable to observational improvement. That vulnerability is essential. The Metric Archive model is not proposed as a flexible explanation for all early-galaxy anomalies, but as a sharply gated physical mechanism whose success depends on a narrow and testable population of compact registered seeds.
+
+\section{Discussion and Conclusion}
+
+The discovery of unexpectedly luminous early galaxy candidates by JWST has forced renewed scrutiny of structure formation during Cosmic Dawn. Standard \LCDM{} remains a highly successful framework for the background universe and late-time large-scale structure, but the apparent rapid emergence of compact high-redshift systems raises an unresolved question: are these objects primarily artefacts of photometric uncertainty, lensing misestimation, and stellar-population modelling, or do they expose missing physics in nonlinear baryonic assembly?
+
+In this work, we have explored a structural alternative. The Metric Archive model, developed within the Flux/MIP framework, proposes that nonlinear bound systems can acquire a history-dependent metric reinforcement after crossing a collapse-registration threshold. This reinforcement is not introduced as a universal change to gravity, nor as a freely distributed dark fluid. It is a strictly gated nonlinear effect controlled by two conditions: $G_{\rm env}(k)\rightarrow1$ on compact bound scales, and $G_{\rm bound}(z,M)>0.5$ for systems whose intrinsic mass and redshift place them inside the collapse-history registration window.
+
+This architecture produces three main results. First, the model is JWST selective. It does not function as a blanket rescue for all high-redshift anomalies. In the UNCOVER Abell 2744 top-50 audit, only three candidates survive as stable registered systems. Twenty-eight are unregistered, fifteen fall outside the valid magnification-map footprint or return invalid values, three are weakly registered, and one is mixed. Thus the model imposes a strong Monster Ceiling: intrinsically massive early candidates remain difficult or impossible unless de-lensing places them in the compact-seed regime.
+
+Second, the model is lensing-synergistic. It does not replace standard gravitational lensing; it relies on lensing to reveal intrinsic source masses. ID 12385 at $z=13.48$ provides the strongest case study. Using the conservative magnification floor, $\mu_{\rm floor}=63.39$, its observed stellar mass proxy is reduced to $M_{\star,\rm true}\simeq4.61\times10^7\Msun$. With $\epsilon_\star=0.20$, this corresponds to $M_{\rm gate}\simeq2.31\times10^8\Msun$. At $z=13.48$, this places the source inside the compact-seed registration window. Across the sampled magnification planes, ID 12385 remains registered with $G_{\rm bound}=0.861$--$0.989$. On nonlinear galactic scales, where $G_{\rm env}\rightarrow1$, the conservative reinforcement factor becomes $A_{\rm eff}\simeq11.34$.
+
+Third, the model is cosmologically contained. The same reinforcement that may operate inside compact nonlinear seeds is suppressed on CMB and RSD scales by the environmental filter. The nonlinear $A_D=12$ reinforcement is effectively absent from the primary CMB and quasi-linear growth regimes.
+
+The central conclusion is that Flux/MIP does not make impossible galaxies easy. It makes a specific subset physically eligible. The model predicts that most high-redshift photometric monsters should fail, while a small population of compact, de-lensed, high-redshift seeds may cross the registration threshold and express a local metric archive.
+
+This makes the theory directly vulnerable to future data. Spectroscopic confirmation, improved Abell 2744 lens models, deeper JWST catalogues, Euclid and DESI growth constraints, and low-redshift rotation-curve/lensing consistency tests can all falsify the present framework. In its current form, the model survives because it satisfies the required containment hierarchy:
+\begin{equation}
+\boxed{\text{CMB safe. RSD safe. Galaxy active. JWST selective.}}
+\end{equation}
+
+\section*{Data and Code Availability}
+
+This draft is accompanied by a repository package containing the manuscript source, the compiled PDF, summary scan tables, and Python scripts used to reproduce the containment and Phase-10.2 classification logic from the local working CSV products. The UNCOVER/JWST and DJA data products referenced here should be cited according to their respective release instructions. The numerical candidate outputs in this paper are based on the user's local Phase-9/Phase-10 audit files and should be re-run against the latest official catalogues before formal submission.
+
+\section*{Acknowledgements}
+
+This manuscript uses the terminology and internal development phases of the Flux/MIP cosmology project. Public JWST/UNCOVER and DJA data products are essential context for the empirical audit; formal submission should include the relevant data-release acknowledgements and final catalogue citations.
+
+\begin{thebibliography}{99}
+
+\bibitem{Planck2018}
+Planck Collaboration. Planck 2018 results. VI. Cosmological parameters. \emph{Astronomy \& Astrophysics}, 641, A6 (2020).
+
+\bibitem{PressSchechter1974}
+Press, W. H., \& Schechter, P. Formation of galaxies and clusters of galaxies by self-similar gravitational condensation. \emph{Astrophysical Journal}, 187, 425--438 (1974).
+
+\bibitem{Lelli2016}
+Lelli, F., McGaugh, S. S., \& Schombert, J. M. SPARC: Mass Models for 175 Disk Galaxies with Spitzer Photometry and Accurate Rotation Curves. \emph{Astronomical Journal}, 152, 157 (2016). DOI: 10.3847/0004-6256/152/6/157.
+
+\bibitem{Weaver2024}
+Weaver, J. R., et al. The UNCOVER Survey: A First-look HST + JWST Catalog of 60,000 Galaxies near Abell 2744 and beyond. \emph{Astrophysical Journal Supplement Series}, 270, 7 (2024). DOI: 10.3847/1538-4365/ad07e0.
+
+\bibitem{Atek2023}
+Atek, H., et al. JWST UNCOVER: discovery of $z>9$ galaxy candidates behind the lensing cluster Abell 2744. \emph{Monthly Notices of the Royal Astronomical Society}, 524, 5486--5496 (2023). DOI: 10.1093/mnras/stad1998.
+
+\bibitem{Furtak2023}
+Furtak, L. J., Zitrin, A., Weaver, J. R., et al. UNCOVERing the extended strong lensing structures of Abell 2744 with the deepest JWST imaging. \emph{Monthly Notices of the Royal Astronomical Society}, 523, 4568--4582 (2023). DOI: 10.1093/mnras/stad1627.
+
+\bibitem{DJA}
+DAWN JWST Archive (DJA). Public JWST galaxy data reduced with grizli and msaexp. Cosmic Dawn Center, University of Copenhagen. \url{https://dawn-cph.github.io/dja/}.
+
+\bibitem{UNCOVERDR3}
+JWST UNCOVER Project. Data Release 3: Photometric catalogs and mosaics for Abell 2744. \url{https://jwst-uncover.github.io/DR3.html}.
+
+\end{thebibliography}
+
+\end{document}
