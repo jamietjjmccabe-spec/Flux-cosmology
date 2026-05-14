@@ -1,0 +1,81 @@
+{
+    "input": "sparc_age_proxy_catalog.csv",
+    "sample_size": 135,
+    "benchmark_parameters": {
+        "k": 18.0,
+        "gamma": 0.08,
+        "eta": 12.0,
+        "q_gate_baseline": 2.0,
+        "f_rem_baseline": 0.15
+    },
+    "q_ladder": [
+        {
+            "q": 1.0,
+            "f_rem": 0.15,
+            "D_star": 6175215000.0,
+            "partial_r": -0.33812307769858563,
+            "partial_p": 6.048990205267352e-05
+        },
+        {
+            "q": 2.0,
+            "f_rem": 0.15,
+            "D_star": 6175215000.0,
+            "partial_r": -0.3339395922122491,
+            "partial_p": 7.552013096766484e-05
+        },
+        {
+            "q": 3.0,
+            "f_rem": 0.15,
+            "D_star": 6175215000.0,
+            "partial_r": -0.32336779151934947,
+            "partial_p": 0.00013047467606233906
+        },
+        {
+            "q": 4.0,
+            "f_rem": 0.15,
+            "D_star": 6175215000.0,
+            "partial_r": -0.31546842947561227,
+            "partial_p": 0.00019380372757970388
+        }
+    ],
+    "f_rem_sensitivity_gated": [
+        {
+            "q": 2.0,
+            "f_rem": 0.1,
+            "D_star": 4116810000.0,
+            "partial_r": -0.3339395922122491,
+            "partial_p": 7.552013096766484e-05
+        },
+        {
+            "q": 2.0,
+            "f_rem": 0.15,
+            "D_star": 6175215000.0,
+            "partial_r": -0.3339395922122491,
+            "partial_p": 7.552013096766484e-05
+        },
+        {
+            "q": 2.0,
+            "f_rem": 0.2,
+            "D_star": 8233620000.0,
+            "partial_r": -0.3339395922122491,
+            "partial_p": 7.552013096766484e-05
+        }
+    ],
+    "direct_Dhist_baseline": {
+        "f_rem": 0.15,
+        "partial_r": 0.21725209770585774,
+        "partial_p": 0.011371354969264679
+    },
+    "shuffle_test": {
+        "n_shuffles": 1000,
+        "seed": 42,
+        "true_r": -0.3339395922122491,
+        "shuffle_mean_r": -0.3452256516677537,
+        "shuffle_std_r": 0.010159177398184947,
+        "shuffle_max_r": -0.3154941314674707,
+        "shuffle_min_r": -0.37271909744221404,
+        "n_match_or_beat": 140,
+        "empirical_p_one_sided": 0.14
+    },
+    "verdict": "WEAK AGAINST AGE SHUFFLING"
+}
