@@ -1,0 +1,144 @@
+{
+    "input": "sparc_age_proxy_catalog.csv",
+    "sample_size": 135,
+    "parameters": {
+        "k": 18.0,
+        "gamma": 0.08,
+        "eta_reference": 12.0,
+        "f_rem": 0.15,
+        "sigma_ref": 4080000000.0
+    },
+    "q_ladder": [
+        {
+            "q": 1.0,
+            "N": 135,
+            "D_star": 6175215000.0,
+            "rmse": {
+                "baryon_only": 0.629667850822213,
+                "direct_Dhist_proxy": 0.6001034285265705,
+                "one_term_gate_fitted": 0.5820811902553971,
+                "two_term_flux": 0.5798019565892888
+            },
+            "coefficients": {
+                "direct_Dhist_alpha": -2.2322045572010644e-12,
+                "one_term_gate_alpha": -8.357152728255478,
+                "two_term_alpha_accumulation": -2.56682393646066,
+                "two_term_alpha_saturation": -1.176309292106083
+            },
+            "improvements_vs_baryon": {
+                "direct_Dhist_proxy": 0.02956442229564249,
+                "one_term_gate_fitted": 0.04758666056681593,
+                "two_term_flux": 0.0498658942329242
+            },
+            "two_term_beats_baryon": true,
+            "two_term_beats_direct_proxy": true,
+            "two_term_beats_one_term_gate": true,
+            "expected_flux_signs": false
+        },
+        {
+            "q": 2.0,
+            "N": 135,
+            "D_star": 6175215000.0,
+            "rmse": {
+                "baryon_only": 0.629667850822213,
+                "direct_Dhist_proxy": 0.6001034285265705,
+                "one_term_gate_fitted": 0.575692098508651,
+                "two_term_flux": 0.5756808542581393
+            },
+            "coefficients": {
+                "direct_Dhist_alpha": -2.2322045572010644e-12,
+                "one_term_gate_alpha": -8.318975224956102,
+                "two_term_alpha_accumulation": 0.1678117114830351,
+                "two_term_alpha_saturation": -8.756954449764843
+            },
+            "improvements_vs_baryon": {
+                "direct_Dhist_proxy": 0.02956442229564249,
+                "one_term_gate_fitted": 0.053975752313562,
+                "two_term_flux": 0.053986996564073686
+            },
+            "two_term_beats_baryon": true,
+            "two_term_beats_direct_proxy": true,
+            "two_term_beats_one_term_gate": true,
+            "expected_flux_signs": true
+        },
+        {
+            "q": 3.0,
+            "N": 135,
+            "D_star": 6175215000.0,
+            "rmse": {
+                "baryon_only": 0.629667850822213,
+                "direct_Dhist_proxy": 0.6001034285265705,
+                "one_term_gate_fitted": 0.5743726123845914,
+                "two_term_flux": 0.5743142331532802
+            },
+            "coefficients": {
+                "direct_Dhist_alpha": -2.2322045572010644e-12,
+                "one_term_gate_alpha": -8.294039751752875,
+                "two_term_alpha_accumulation": 0.35354513409142274,
+                "two_term_alpha_saturation": -9.197994577138273
+            },
+            "improvements_vs_baryon": {
+                "direct_Dhist_proxy": 0.02956442229564249,
+                "one_term_gate_fitted": 0.05529523843762163,
+                "two_term_flux": 0.055353617668932764
+            },
+            "two_term_beats_baryon": true,
+            "two_term_beats_direct_proxy": true,
+            "two_term_beats_one_term_gate": true,
+            "expected_flux_signs": true
+        },
+        {
+            "q": 4.0,
+            "N": 135,
+            "D_star": 6175215000.0,
+            "rmse": {
+                "baryon_only": 0.629667850822213,
+                "direct_Dhist_proxy": 0.6001034285265705,
+                "one_term_gate_fitted": 0.5741237439456323,
+                "two_term_flux": 0.5740900892872992
+            },
+            "coefficients": {
+                "direct_Dhist_alpha": -2.2322045572010644e-12,
+                "one_term_gate_alpha": -8.258381542517192,
+                "two_term_alpha_accumulation": 0.25647242194904796,
+                "two_term_alpha_saturation": -8.90729190266999
+            },
+            "improvements_vs_baryon": {
+                "direct_Dhist_proxy": 0.02956442229564249,
+                "one_term_gate_fitted": 0.055544106876580734,
+                "two_term_flux": 0.05557776153491378
+            },
+            "two_term_beats_baryon": true,
+            "two_term_beats_direct_proxy": true,
+            "two_term_beats_one_term_gate": true,
+            "expected_flux_signs": true
+        }
+    ],
+    "best_two_term": {
+        "q": 4.0,
+        "N": 135,
+        "D_star": 6175215000.0,
+        "rmse": {
+            "baryon_only": 0.629667850822213,
+            "direct_Dhist_proxy": 0.6001034285265705,
+            "one_term_gate_fitted": 0.5741237439456323,
+            "two_term_flux": 0.5740900892872992
+        },
+        "coefficients": {
+            "direct_Dhist_alpha": -2.2322045572010644e-12,
+            "one_term_gate_alpha": -8.258381542517192,
+            "two_term_alpha_accumulation": 0.25647242194904796,
+            "two_term_alpha_saturation": -8.90729190266999
+        },
+        "improvements_vs_baryon": {
+            "direct_Dhist_proxy": 0.02956442229564249,
+            "one_term_gate_fitted": 0.055544106876580734,
+            "two_term_flux": 0.05557776153491378
+        },
+        "two_term_beats_baryon": true,
+        "two_term_beats_direct_proxy": true,
+        "two_term_beats_one_term_gate": true,
+        "expected_flux_signs": true
+    },
+    "verdict": "SUPPORTED: two-term accumulation/saturation structure improves prediction with expected signs"
+}

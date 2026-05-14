@@ -1,0 +1,27 @@
+{
+    "benchmark_parameters": {
+        "k": 18.0,
+        "gamma": 0.08,
+        "eta": 12.0,
+        "q_gate": 2.0,
+        "f_rem": 0.15
+    },
+    "sample_size": 135,
+    "D_star_threshold": 6175215000.0,
+    "raw_correlation": {
+        "pearson_r": -0.27736634529745274,
+        "pearson_p": 0.0011264235996974444,
+        "spearman_rho": -0.3866988586479368,
+        "spearman_p": 3.6077947385445903e-06
+    },
+    "partial_correlation_controlled": {
+        "controls": [
+            "Mb",
+            "Rb",
+            "Sigma_b"
+        ],
+        "pearson_r": 0.21725209770585843,
+        "pearson_p": 0.011371354969264488
+    },
+    "falsification_status": "SUPPORTED (Pending Robustness Checks)"
+}

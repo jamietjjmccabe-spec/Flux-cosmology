@@ -1,0 +1,6 @@
+Galaxy,file,N_points,RMSE_baryon,RMSE_flux,beats_baryon,Y_global,status,plot
+DDO154,Rotmod_LTG-main\DDO154_rotmod.dat,12,22.680803776816237,13.998555591226694,True,4.1651668330917655,geometry_only_ok,flux_radial_overlays\DDO154_flux_radial_overlay.png
+NGC2403,Rotmod_LTG-main\NGC2403_rotmod.dat,73,37.895599436401874,36.57019841743777,True,0.1809990555915137,geometry_only_ok,flux_radial_overlays\NGC2403_flux_radial_overlay.png
+NGC3198,Rotmod_LTG-main\NGC3198_rotmod.dat,43,37.60608265225926,36.32072662089137,True,0.15694150581593452,geometry_only_ok,flux_radial_overlays\NGC3198_flux_radial_overlay.png
+UGC00128,Rotmod_LTG-main\UGC00128_rotmod.dat,22,65.11324314929104,52.392205485133054,True,3.185458869287235,geometry_only_ok,flux_radial_overlays\UGC00128_flux_radial_overlay.png
+UGC02885,Rotmod_LTG-main\UGC02885_rotmod.dat,19,69.35716763455243,62.14396656494662,True,0.5248983626398761,geometry_only_ok,flux_radial_overlays\UGC02885_flux_radial_overlay.png
