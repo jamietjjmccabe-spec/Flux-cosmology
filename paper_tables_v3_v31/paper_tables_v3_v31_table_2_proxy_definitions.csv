@@ -1,0 +1,9 @@
+symbol,definition,role
+D_MR,(10^logMstar / Reff_kpc) * (Age / 13.8),mass-radius structural depth
+D_sigma,(sigma_v / 150)^2 * (Age / 13.8),kinematic maturity depth
+D_hybrid,sqrt(D_MR * D_sigma),combined registration-depth proxy
+D_reg,D_hybrid / median(D_hybrid),sample-normalized registration depth
+F_fill,"D_reg / D_sat, with D_sat = 1.15",well filling factor
+Child/Filling,F_fill < 0.5,underfilled/absorbing host
+Teen/Saturated,0.5 <= F_fill <= 1.5,near-capacity host
+Adult/Overflowing,F_fill > 1.5,mature/high-registration host

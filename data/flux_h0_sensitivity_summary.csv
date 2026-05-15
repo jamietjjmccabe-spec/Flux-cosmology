@@ -1,0 +1,2 @@
+verdict,best_w0_offset,best_hump_amp,best_w0,best_w_z2,H0_CMB_ref,H0_local_target,best_H0_mean_lowz,delta_H0_lowz,best_H0_eff_z0p1,best_H0_eff_z0p3,best_H0_eff_z0p5,omega_de_1090,interpretation
+NO_H0_BRIDGE,-0.005,0.0,-1.005,-1.0000096523123376,67.4,73.0,67.36511263305654,-0.03488736694346528,67.38406149284594,67.36176948803109,67.3495069182926,1.7830366801658023e-09,"Late phantom-lite Flux-DE can bias low-z LCDM distance fits toward a higher H0 while remaining CMB-era quiet. This is a sensitivity bridge, not a full H0-resolution claim."
