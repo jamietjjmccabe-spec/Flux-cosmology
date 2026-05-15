@@ -1,0 +1,6 @@
+Test,N_rows,Mean_H0
+A: All 50 Active,100,66.1162658092101
+B: Outlier Clipped (45 < H0 < 90),98,65.95709753117448
+C: High Confidence Only,25,67.01902860468759
+D: Calibrators Only,62,63.96169470863248
+E: Hubble-flow Only,38,69.63161865752093

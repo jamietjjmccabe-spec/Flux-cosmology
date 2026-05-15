@@ -1,0 +1,2 @@
+verdict,best_BIC_model,BIC_mass_model_A,BIC_flux_model_D,delta_BIC_flux_minus_mass,H0_proxy_lowD_quartile,H0_proxy_highD_quartile,H0_proxy_high_minus_low,mean_mu_lowD_quartile,mean_mu_highD_quartile,interpretation
+FLUX_PROXY_WINS_SYNTHETIC,D_flux_depth,-11275.968912501705,-11317.548343224196,-41.57943072249145,67.22872341768227,71.2713214370984,4.042598019416118,0.007857646240530872,-0.11883566915609954,"Registration-depth proxy wins or remains competitive against host mass, supporting the saturation-audit strategy."

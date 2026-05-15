@@ -1,0 +1,2 @@
+verdict,selected_proxy,best_BIC_model,BIC_best,BIC_mass_only,delta_BIC_best_minus_mass,amplitude_mu,Dsat,q,mass_step_mu_high_minus_low,H0_proxy_split_highD_minus_lowD,mean_H0_lowD_quartile,mean_H0_highD_quartile,interpretation
+PARTIAL_OR_FAIL,D_MR_age,C_kitchen_sink,-31795.302491336955,-30745.970508582526,-1049.3319827544292,-0.115,0.8,7.0,-0.07892804851769425,4.591515308493356,67.67891685049437,72.27043215898773,The literature-prior stress test did not decisively prefer the registration-depth proxy over mass-only.

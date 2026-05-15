@@ -1,0 +1,2 @@
+verdict,best_Gamma0,best_linear_S8,best_linear_sigma8,best_linear_delta_S8_percent,lcdm_S8,target_low,target_high,interpretation
+PASS_SMOOTHING_WINDOW,0.07,0.7992242081990784,0.7992242081990784,-1.4520088533812203,0.811,0.77,0.8,Topology friction can suppress linear S8 while the high-k halo track keeps retained-memory reinforcement active.
