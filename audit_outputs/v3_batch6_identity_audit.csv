@@ -1,0 +1,13 @@
+SNID,candidate_host_name,identity_status,reason
+2011dn,UGC 11501,cleared_identity,Identity verified via SN catalog as UGC 11501.
+2007jg,,coordinate_match_needed,SDSS-II SN; host remains anonymous/coordinate dependent.
+2007hx,UGC 11224,cleared_identity,Identity verified via SN catalog as UGC 11224.
+2006gr,CGCG 159-009,cleared_identity,Identity verified via KAIT/catalog as CGCG 159-009 (SBb).
+2004as,,coordinate_match_needed,Anonymous host; coordinate match still required.
+2007ux,UGC 10272,cleared_identity,Identity verified via SN catalog as UGC 10272.
+2006en,UGC 11333,cleared_identity,Identity verified via SN catalog as UGC 11333.
+2008hj,MCG -01-10-023,cleared_identity,Fallback invoked; identity verified as MCG -01-10-023.
+2007qe,,coordinate_match_needed,Anonymous host.
+2008gp,UGC 3317,cleared_identity,Fallback invoked; identity verified as UGC 3317.
+1995ac,,coordinate_match_needed,Anonymous host.
+2014bj,,coordinate_match_needed,Anonymous host.

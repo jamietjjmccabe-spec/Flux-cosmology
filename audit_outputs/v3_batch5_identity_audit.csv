@@ -1,0 +1,16 @@
+SNID,candidate_host_name,identity_status,reason
+ASASSN-16oz,,coordinate_match_needed,ASAS-SN survey designation; host blank.
+13796,,coordinate_match_needed,Numeric survey designation.
+2000cw,MCG +05-20-009,cleared_identity,Identity verified via SN catalog as MCG +05-20-009.
+000190,,coordinate_match_needed,Numeric survey designation.
+SN2017cii,NGC 2577,cleared_identity,Identity verified via SN catalog as NGC 2577.
+PS16evk,,coordinate_match_needed,Pan-STARRS designation.
+PS15asb,,coordinate_match_needed,Pan-STARRS designation.
+PS15bzz,,coordinate_match_needed,Pan-STARRS designation.
+15234,,coordinate_match_needed,Numeric survey designation.
+2009do,UGC 4312,cleared_identity,Identity verified via SN catalog as UGC 4312.
+PS16el,,coordinate_match_needed,Pan-STARRS designation.
+2006S,UGC 6667,cleared_identity,Identity verified via SN catalog as UGC 6667.
+SN2017mf,NGC 5510,cleared_identity,Identity verified via SN catalog as NGC 5510.
+ASASSN-16hc,UGC 10103,cleared_identity,Identity verified via SN catalog as UGC 10103.
+2008bq,NGC 3176,cleared_identity,Identity verified via SN catalog as NGC 3176.

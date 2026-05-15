@@ -1,0 +1,2 @@
+verdict,input_file,unique_active_SNIDs,Dsat,q_sat,best_BIC_model,best_BIC,BIC_intercept,BIC_mass_only,BIC_logD_hybrid,BIC_Gsat,BIC_capacity_state,delta_BIC_Gsat_minus_mass,delta_BIC_logD_minus_mass,adult_minus_child_H0,fixed_mass_positive_bins,fixed_mass_tested_bins
+DIRECTIONAL_SUPPORT,/mnt/data/host_structure_maturity_proxies_v3_100SNID_FINAL.csv,100,1.15,7.0,intercept,-230.7817495060352,-230.7817495060352,-226.5655721244735,-226.18584652799424,-229.32527389532893,-220.73203240629672,-2.759701770855429,0.3797255964792612,0.9701287107423013,5,6
