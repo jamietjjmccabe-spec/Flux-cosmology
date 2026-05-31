@@ -1,0 +1,10 @@
+SNID,candidate_host_name,identity_status,reason
+2011dn,,name_trap_hold,Do not confuse with SN 2011dh in M51.
+2007jg,,coordinate_match_needed,SDSS-II entry; likely needs coordinate/catalogue match rather than named NGC lookup.
+ATLAS17bas,,coordinate_match_needed,Survey-style designation; needs catalogue/coordinate host match.
+1999cp,,verify_from_catalogue,Needs IAUC/SN catalogue host confirmation.
+2002dp,NGC 7678,verify_from_catalogue,Host morphology source snippet associates SN 2002dp with NGC 7678.
+1998ab,,verify_from_catalogue,Needs SN catalogue host confirmation.
+2007hx,,verify_from_catalogue,Needs SN catalogue host confirmation.
+1998dh,,verify_from_catalogue,Needs SN catalogue host confirmation.
+2007O,,verify_from_catalogue,Needs SN catalogue host confirmation.

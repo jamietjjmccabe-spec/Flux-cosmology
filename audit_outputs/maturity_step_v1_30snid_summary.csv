@@ -1,0 +1,2 @@
+verdict,unique_Reff_Age_SNIDs,matched_Pantheon_rows,best_BIC_model,BIC_intercept,BIC_mass_only,BIC_Gsat,BIC_capacity_state,corr_mu_Ffill,corr_mu_Gsat,warning
+MATURITY_STEP_V1_30SNID_STRICT_SUBSET,30,57,kitchen_sink,-114.72230989997942,-110.81879841071148,-115.31384035018185,-107.51449611119796,-0.1137153242589209,-0.2794471621524305,Strict subset only; mixed sourced and estimated host values.

@@ -1,0 +1,16 @@
+SNID,candidate_host_name,identity_status,reason
+PS16cvc,,coordinate_match_needed,Pan-STARRS survey designation; needs catalogue coordinate match.
+2008cf,MCG +05-32-020,verify_from_catalogue,LOSS discovery; check MCG name in primary SN catalog.
+2007F,NGC 3162,cleared_identity,Identity verified via SN catalog as NGC 3162.
+ASASSN-16hz,,coordinate_match_needed,ASAS-SN survey designation; needs coordinate match.
+2014bj,,coordinate_match_needed,Reported as Anonymous host; coordinate lookup required.
+2008bz,2MASX J12385810+1107502,verify_from_catalogue,Has 2MASX identifier; check for standard catalog cross-match.
+2007ux,,coordinate_match_needed,Reported as Anonymous host; coordinate lookup required.
+2006en,,coordinate_match_needed,Reported as Anonymous host; coordinate lookup required.
+2008hj,,coordinate_match_needed,Reported as Anonymous host; coordinate lookup required.
+2008gp,,coordinate_match_needed,Reported as Anonymous host; coordinate lookup required.
+2006ac,NGC 4619,verify_from_catalogue,Host morphology/catalog source indicates NGC 4619.
+2001ah,NGC 5970,verify_from_catalogue,Host morphology/catalog source indicates NGC 5970.
+2008gg,NGC 539,cleared_identity,Identity verified via SN catalog as NGC 539.
+1999gp,UGC 1993,cleared_identity,Identity verified via SN catalog as UGC 1993.
+2001eh,UGC 11301,verify_from_catalogue,Host morphology/catalog source indicates UGC 11301.

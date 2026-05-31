@@ -1,0 +1,7 @@
+SNID,identity_status,reason
+2004as,coordinate_match_needed,Reported as Anonymous host; requires coordinate tracking.
+2007qe,coordinate_match_needed,Reported as Anonymous host.
+PS15bbn,coordinate_match_needed,Survey designation; host listed as 'none'.
+PS15cze,coordinate_match_needed,Survey designation; host listed as 'none'.
+PTSS-16efw,coordinate_match_needed,Survey designation; host listed as 'none'.
+2006gr,verify_from_catalogue,KAIT report ambiguous; need to ensure proper MCG mapping before applying.

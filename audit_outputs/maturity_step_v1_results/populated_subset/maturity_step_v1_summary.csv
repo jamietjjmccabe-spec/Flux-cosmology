@@ -1,0 +1,2 @@
+verdict,unique_Reff_Age_SNIDs,matched_Pantheon_rows,best_BIC_model,BIC_intercept,BIC_mass_only,BIC_logD_reg,BIC_Gsat,BIC_capacity_state,corr_mu_Ffill,corr_mu_Gsat,warning
+MATURITY_STEP_V1_SUBSET_AUDIT,20,32,S7_kitchen_sink,-51.956408019046215,-48.904166624509855,-48.55983971697514,-51.95964606195944,-46.081124658168626,-0.13803462779506745,-0.3205249758913697,Subset only: mixed sourced/estimated values; not final object-level falsification.
