@@ -1,0 +1,901 @@
+Flux Cosmology: Version 1.4 — Conservation-Safe Metric Registration Framework
+Version 1.4 advances Version 1.3 by making the framework more explicit about covariant consistency, causal memory, environmental measurement, and observational separation from modified gravity and particle dark matter.
+The main refinement is this:
+Registration memory is not added as arbitrary extra gravity. It is treated as an effective, gated, covariantly managed contribution to the metric sourced by accumulated environmental registration history.
+The theory remains built on four pillars:
+latex
+\boxed{c=\text{constant causal ceiling}}
+
+latex
+\boxed{\Gamma_{\rm env}(t)=\text{variable environmental update pressure}}
+
+latex
+\boxed{D_{\rm reg}(x,t)=\text{accumulated registration depth}}
+
+latex
+\boxed{\mathcal{F}(D_{\rm reg})=\text{gated metric response}}
+
+
+───
+
+1. Core Thesis — Version 1.4
+Flux/MIP cosmology proposes that spacetime curvature responds to both immediate stress-energy and accumulated registration history.
+Standard gravity asks:
+ Flux cosmology asks:
+ The Version 1.4 field-level thesis is:
+latex
+\boxed{
+G_{\mu\nu}
+=
+8\pi G
+\left(
+T_{\mu\nu}^{\rm present}
++
+T_{\mu\nu}^{\rm reg}
++
+T_{\mu\nu}^{\rm flux}
+\right)
+}
+
+where:
+•  is ordinary matter/radiation stress-energy,
+•  is the effective stress-energy of accumulated registration memory,
+•  is the global flux/coherence sector associated with dark-energy-like behavior.
+Conceptual flow:
+text
+quantum possibility
+        ↓
+environmental constraint Γ_env
+        ↓
+MIP / MIP³ registration
+        ↓
+state actualization
+        ↓
+registration density n̄_MIP
+        ↓
+registration depth D_reg
+        ↓
+gated response F(D_reg)
+        ↓
+metric memory
+        ↓
+dark-matter-like gravity
+
+Central Version 1.4 statement:
+The metric records not only where mass is, but where environmental registration has persistently occurred.
+
+───
+
+2. Environmental Measurement
+Flux/MIP cosmology keeps the word measurement, but defines it carefully.
+Measurement does not mean conscious observation.
+Measurement means:
+latex
+\boxed{
+\text{irreversible environmental constraint}
++
+\text{state registration}
+}
+
+A quantum state is environmentally measured when local physical conditions constrain its available outcomes and produce a stable update.
+Relevant environmental conditions include:
+text
+vacuum state
+radiation density
+thermal background
+ionisation level
+plasma density
+UV/radiation flux
+magnetic field structure
+particle density
+pressure
+chemical boundary conditions
+local curvature
+scattering rate
+
+Thus:
+Reality measures itself through environmental interaction.
+This makes the theory closer to decoherence and quantum information language than to observer-collapse metaphysics.
+
+───
+
+3. Minimum Interface Points and MIP³
+3.1 Minimum Interface Point
+A Minimum Interface Point, or MIP, is the smallest environmental registration event.
+latex
+\boxed{
+{\rm MIP}
+\equiv
+\ell_P\text{-scale environmental registration event}
+}
+
+A schematic event is:
+latex
+\boxed{
+{\rm MIP}
+=
+E_i
+\left[
+|\psi\rangle
+\rightarrow
+\xi
+\right]_{\Gamma_{\rm env}}
+}
+
+where:
+•  is the unresolved quantum state,
+•  is the registered classical/effective variable,
+•  is the local registration event,
+•  is environmental update pressure.
+A MIP is not a particle.
+ A MIP is not an observer.
+ A MIP is not a detector.
+It is a minimum interface where environmental reality constrains quantum possibility.
+
+───
+
+3.2 MIP³ Registration Volume
+A MIP³ is the smallest local 3-volume over which neighboring MIP events form a coherent environmental registration cell.
+latex
+\boxed{
+{\rm MIP}^3
+=
+\text{minimal environmental registration volume}
+}
+
+This is not literally a cube. It is a local causal update volume.
+text
+MIP  = minimum environmental registration point
+MIP³ = minimum environmental registration volume
+MIP³ network = causal environmental update substrate
+
+The MIP³ network is bounded by , but the theory does not require variable-speed-light cosmology.
+ The variable quantity is:
+ Metaphor:
+ is the speed limit. is the traffic density.
+
+───
+
+4. Environmental Update Pressure
+Version 1.4 defines environmental update pressure as:
+latex
+\boxed{
+\Gamma_{\rm env}(x,t)
+=
+\Gamma_{\rm scatter}
++
+\Gamma_{\rm thermal}
++
+\Gamma_{\rm ion}
++
+\Gamma_{\rm rad}
++
+\Gamma_{\rm curv}
++
+\Gamma_{\rm EM}
++
+\dots
+}
+
+In the early universe, a dominant measurable contribution is photon-electron scattering:
+latex
+\boxed{
+\Gamma_{\rm scatter}(z)
+\approx
+n_e(z)\sigma_T c
+}
+
+with:
+ where:
+•  is the free-electron fraction,
+•  is baryon number density,
+•  is the Thomson scattering cross-section.
+This ties directly to standard recombination physics.
+Version 1.4 observational anchor:
+ should be computable from standard ionisation history , meaning Flux cosmology does not need to invent a hidden early-universe clock.
+
+───
+
+5. Registration Density
+The theory does not count individual Planck-scale events. It coarse-grains them.
+latex
+\boxed{
+\bar{n}_{\rm MIP}(x,t)
+=
+\frac{1}{\Delta V \Delta t}
+\int_{\Delta V,\Delta t}
+\dot{n}_{\rm MIP}(x,t)
+\,dV\,dt
+}
+
+with:
+ and:
+ Plain English:
+A galaxy does not respond to individual Planck updates. It responds to averaged registration history.
+
+───
+
+6. Registration Depth
+Registration depth is the accumulated environmental registration history of a region.
+latex
+\boxed{
+D_{\rm reg}(x,t)
+=
+\int_{t_{\rm form}}^{t}
+\bar{n}_{\rm MIP}(x,t')
+W(t-t')
+dt'
+}
+
+where is the memory-retention kernel.
+6.1 Version 1.4 Causal Kernel
+Version 1.4 makes the kernel explicitly causal:
+latex
+\boxed{
+W(t-t')=0
+\quad
+\text{for}
+\quad
+t'<t_{\rm form}
+\quad
+\text{or}
+\quad
+t'>t
+}
+
+No future contribution is allowed.
+The default memory kernel is:
+latex
+\boxed{
+W(\Delta t)
+=
+\left(
+1+\frac{\Delta t}{\tau_0}
+\right)^{-p}
+\left[
+\alpha e^{-\Delta t/\tau_{\rm fast}}
++
+(1-\alpha)
+\right]
+}
+
+with:
+ and:
+ This improves Version 1.3’s hybrid kernel. It contains:
+• a short-timescale relaxation component,
+• a long-memory power-law component,
+• no acausal response.
+Interpretation:
+text
+recent events can relax quickly
+ancient collapse histories fade slowly
+black-hole and galaxy-core histories persist longest
+
+Plain English:
+The metric remembers slowly, but recent disruption can still matter quickly.
+
+───
+
+7. Gating Mechanisms
+Registration history must not automatically produce extra gravity everywhere. Version 1.4 keeps the multi-gate structure.
+7.1 Bound-State Gate
+latex
+\boxed{
+G_{\rm bound}
+=
+\frac{D_{\rm reg}^q}
+{D_{\rm reg}^q+D_*^q}
+}
+
+If:
+ then:
+ If:
+ then:
+ This is the main threshold preventing solar-system runaway effects.
+
+───
+
+7.2 Retention Gate
+ measures whether the system preserves registration history.
+High :
+text
+old stellar systems
+galaxy cores
+black-hole environments
+long-lived bound structures
+
+Low :
+text
+diffuse gas
+transient plasma
+unbound flows
+recently disrupted systems
+
+
+───
+
+7.3 Environmental Expression Gate
+ measures whether the surrounding environment allows registration memory to express gravitationally.
+This protects dense laboratory and solar-system environments from automatically producing large anomalous effects.
+
+───
+
+7.4 Dynamical Suppression Gate
+Version 1.4 retains , introduced in 1.3.
+ suppresses coherent memory expression in highly sheared, shocked, or dynamically disrupted systems.
+A schematic form:
+latex
+\boxed{
+G_{\rm dyn}
+=
+\left[
+1+
+\left(
+\frac{\mathcal{S}}{\mathcal{S}_*}
+\right)^m
+\right]^{-1}
+}
+
+where:
+•  is a shear/disruption proxy,
+•  is the disruption threshold,
+•  controls sharpness.
+This is important for cluster mergers.
+
+───
+
+8. Flux Response Function
+The full Flux response becomes:
+latex
+\boxed{
+\mathcal{F}(D_{\rm reg})
+=
+A_D
+G_{\rm bound}
+G_{\rm ret}
+G_{\rm env}
+G_{\rm dyn}
+}
+
+and:
+latex
+\boxed{
+\mu_{\rm eff}(x,t)
+=
+1+
+\mathcal{F}(D_{\rm reg})
+}
+
+Expanded:
+latex
+\boxed{
+\mu_{\rm eff}(x,t)
+=
+1+
+A_D
+\frac{D_{\rm reg}^q}
+{D_{\rm reg}^q+D_*^q}
+G_{\rm ret}
+G_{\rm env}
+G_{\rm dyn}
+}
+
+This is the operational bridge from accumulated registration history to effective gravity.
+
+───
+
+9. Modified Growth Equation
+The matter growth equation becomes:
+latex
+\boxed{
+D''
++
+\left[
+2+\frac{H'}{H}
+\right]D'
+-
+\frac{3}{2}
+\Omega_m(a)
+\mu_{\rm eff}(x,t)
+D
+=
+0
+}
+
+where:
+latex
+\mu_{\rm eff}(x,t)=1+\mathcal{F}(D_{\rm reg})
+
+Interpretation:
+Structure growth is enhanced only where registration depth is strong, retained, environmentally expressible, and dynamically coherent.
+This differentiates Flux cosmology from simple MOND-like acceleration laws.
+
+───
+
+10. Effective Field Equation and Conservation
+Version 1.4 strengthens the conservation claim.
+The effective field equation is:
+latex
+\boxed{
+G_{\mu\nu}
+=
+8\pi G
+\left(
+T_{\mu\nu}^{\rm present}
++
+T_{\mu\nu}^{\rm reg}
++
+T_{\mu\nu}^{\rm flux}
+\right)
+}
+
+Because:
+ the right-hand side must satisfy:
+latex
+\boxed{
+\nabla^\mu
+\left(
+T_{\mu\nu}^{\rm present}
++
+T_{\mu\nu}^{\rm reg}
++
+T_{\mu\nu}^{\rm flux}
+\right)
+=
+0
+}
+
+Version 1.4 does not require:
+ independently.
+Instead, registration memory and flux tension may exchange effective energy-momentum:
+latex
+\boxed{
+\nabla^\mu T_{\mu\nu}^{\rm reg}
+=
+Q_\nu
+}
+
+latex
+\boxed{
+\nabla^\mu T_{\mu\nu}^{\rm flux}
+=
+-Q_\nu
+}
+
+so that total conservation holds.
+This is important. It prevents the model from claiming an unconserved extra gravity source.
+Paper-safe phrase:
+The registration sector is treated as an effective contribution whose apparent non-conservation is compensated by the flux/coherence sector, preserving total covariant conservation.
+
+───
+
+11. Scalar-Registration Bridge
+The scalar flux field remains:
+latex
+\boxed{
+V(\sigma)
+=
+V_0
+\left(
+1-e^{-\sigma/\mu}
+\right)^2
+}
+
+Version 1.4 keeps the registration coupling:
+latex
+\boxed{
+\sigma(x,t)
+=
+\sigma_0
++
+\beta
+\ln
+\left[
+1+\kappa D_{\rm reg}(x,t)
+\right]
+}
+
+where:
+•  controls coupling strength,
+•  scales registration depth into scalar response.
+Then:
+ is derived from the scalar sector, while:
+ captures localized memory contributions.
+This creates a smoother local/global bridge:
+text
+local D_reg gradient → dark-matter-like behavior
+global σ potential   → dark-energy-like behavior
+
+
+───
+
+12. Dark Matter as Metric Memory
+The local gravitational residual is:
+latex
+\boxed{
+\Delta g_{\rm Flux}
+=
+g_{\rm observed}
+-
+g_{\rm baryon}
+}
+
+Flux cosmology interprets this as:
+latex
+\boxed{
+\Delta g_{\rm Flux}
+=
+\nabla \Phi_{\rm reg}
+}
+
+where:
+latex
+\boxed{
+\Phi_{\rm reg}
+=
+\mathcal{F}
+\left[
+D_{\rm reg}(x,t)
+\right]
+}
+
+The total effective gravity is:
+latex
+\boxed{
+g_{\rm total}
+=
+g_N
+\left[
+1+
+A_D
+G_{\rm bound}
+G_{\rm ret}
+G_{\rm env}
+G_{\rm dyn}
+\right]
+}
+
+Version 1.4 definition:
+Dark matter is the local metric-memory expression of accumulated baryonic registration history.
+Shorter:
+Dark matter is metric memory.
+
+───
+
+13. Dark Energy as Global Flux Tension
+Dark energy is interpreted as the global limit of the same registration/flux architecture.
+latex
+\boxed{
+\rho_\sigma
+=
+\frac{1}{2}v^2
++
+V(\sigma)
+}
+
+where:
+latex
+\boxed{
+V(\sigma)
+=
+V_0
+\left(
+1-e^{-\sigma/\mu}
+\right)^2
+}
+
+Thus:
+text
+local registration gradients → dark-matter-like gravity
+global scalar flux tension   → dark-energy-like acceleration
+
+Version 1.4 thesis:
+Dark matter and dark energy are not separate mysteries; they are local and global limits of environmental registration physics.
+
+───
+
+14. Recombination as Atomic Registration Transition
+Version 1.4 strengthens the recombination section by tying it directly to .
+Before recombination:
+ The universe is ionised, opaque, and scattering-dominated.
+text
+nuclei persist
+electron clouds fail to stabilize
+neutral atoms cannot remain registered
+photons remain coupled to plasma
+
+At recombination:
+latex
+\boxed{
+\Gamma_{\rm env}(t_{\rm rec})
+<
+\Gamma_{\rm atomic}
+}
+
+The atomic coherence window opens.
+After recombination:
+text
+neutral atoms persist
+electron probability shells stabilize
+photon scattering collapses
+radiation decouples
+CMB free-streams
+hydrogen becomes persistent registration substrate
+
+Strong Version 1.4 statement:
+Recombination was the moment the universe became environmentally quiet enough for matter to keep quantum surfaces.
+Even shorter:
+Nucleosynthesis gave the universe nuclei. Recombination gave the universe surfaces.
+
+───
+
+15. Hydrogen as First Durable Registration Substrate
+Hydrogen becomes the first large-scale material surface for environmental self-measurement.
+Key pathways:
+   Version 1.4 interpretation:
+text
+ionisation
+recombination
+neutral persistence
+molecular attachment
+stellar ignition
+chemical complexity
+
+Strong thesis phrase:
+Hydrogen was the first durable material language the universe used to write structure.
+
+───
+
+16. Black Holes as Extreme Registration Wells
+Black holes are maximal local registration structures.
+Near a black hole:
+text
+registration density becomes extreme
+time dilation becomes extreme
+metric persistence becomes extreme
+MIP stacking becomes extreme
+
+A black hole is:
+latex
+\boxed{
+D_{\rm reg}\rightarrow \text{maximal local regime}
+}
+
+Interpretation:
+A black hole is a region where history becomes maximally gravitational.
+This makes black holes temporal-registration anchors for galaxies.
+
+───
+
+17. Cluster Mergers and Memory Lag
+Version 1.4 gives cluster mergers a sharper prediction.
+In systems like the Bullet Cluster, baryonic gas can be displaced by ram pressure while collisionless-looking gravitational lensing remains offset.
+Standard view:
+text
+dark matter passes through
+gas collides and lags behind
+
+Flux view:
+text
+registration memory remains associated with prior collisionless/bound history
+gas displacement does not instantly erase D_reg
+metric memory can lag behind visible plasma
+
+This requires the memory kernel and dynamical gate to produce finite relaxation times.
+Prediction:
+In cluster mergers, lensing peaks should trace prior registration history with a measurable relaxation lag, not necessarily instantaneous baryonic gas position.
+This is a key discriminant.
+
+───
+
+18. Phenomenological Interpretation Table
+
+Phenomenon
+Standard View
+Flux 1.4 View
+
+Measurement
+Observer/instrument interaction
+Environmental registration
+
+Dark matter
+Invisible particles
+Local metric memory
+
+Dark energy
+Vacuum energy / 
+Global flux/coherence tension
+
+Recombination
+Thermal decoupling
+Atomic registration window
+
+CMB
+Photon decoupling fossil
+Environmental update transition fossil
+
+Hydrogen
+Lightest element
+First durable registration substrate
+
+Black holes
+Compact mass
+Extreme registration wells
+
+Bullet Cluster
+Collisionless dark matter
+Registration-memory lag after baryon displacement
+
+Galaxy halos
+Particle halos
+Historical baryonic registration fields
+
+
+
+───
+
+19. Failure Modes and Critical Tests
+Test 1 — Lensing Without Registration History
+If strong or weak lensing reveals persistent dark-matter-like mass concentrations in regions with no plausible baryonic, plasma, stellar, or black-hole registration history, then the metric-memory interpretation fails.
+
+───
+
+Test 2 — Solar-System Bounds
+The model must satisfy:
+ in the solar system.
+Any parameter set causing perihelion shifts, Cassini timing deviations, lunar ranging discrepancies, or local -variation beyond observational bounds is excluded.
+
+───
+
+Test 3 — Galaxy Correlations
+Flux residuals must correlate with baryonic-history proxies:
+text
+stellar age
+metallicity
+surface density
+gas fraction
+star-formation history
+bulge fraction
+compactness
+black-hole mass/activity
+environmental retention
+
+The target residual is:
+latex
+\boxed{
+\Delta g_{\rm Flux}
+=
+g_{\rm obs}
+-
+g_{\rm baryon}
+}
+
+
+───
+
+Test 4 — Structure Growth
+The model must reproduce:
+ using the same:
+latex
+\mu_{\rm eff}(x,t)
+=
+1+\mathcal{F}(D_{\rm reg})
+
+that is used for galaxies and clusters.
+
+───
+
+Test 5 — CMB and BAO
+The model must preserve:
+text
+sound horizon
+acoustic peak locations
+damping tail
+BAO scale
+matter-radiation transition
+recombination history
+
+The environmental update pressure must remain compatible with observed .
+
+───
+
+Test 6 — Cluster Merger Relaxation
+Bullet Cluster-like systems should show:
+text
+finite memory lag
+lensing offset tied to prior registration structure
+relaxation timescale governed by W(Δt) and G_dyn
+
+If lensing responds instantaneously to baryonic redistribution in all cases, Version 1.4 is weakened.
+If lensing persists forever without relaxation, Version 1.4 is also weakened.
+The model predicts neither instant erasure nor infinite memory.
+It predicts:
+ 
+───
+
+20. Version 1.4 Roadmap
+Task 1 — Define 
+Build an explicit effective tensor from:
+ and its gradients:
+ Candidate structure:
+ This is the next major mathematical task.
+
+───
+
+Task 2 — Implement Numerically
+Use baryonic history proxies:
+text
+stellar mass history
+gas history
+metallicity
+surface density
+star-formation rate
+black-hole accretion history
+merger history
+cluster gas maps
+
+Goal:
+ 
+───
+
+Task 3 — Parameter Scan
+Scan:
+ against:
+text
+SPARC galaxies
+weak lensing maps
+cluster mergers
+CMB acoustic constraints
+BAO
+RSD / fσ8
+
+
+───
+
+Task 4 — Recombination Anchor
+Compute:
+ from:
+ and compare:
+ Goal:
+Show recombination as the opening of the atomic environmental-registration window without modifying standard .
+
+───
+
+Task 5 — High-Redshift Galaxy Prediction
+Flux 1.4 predicts that early persistent baryonic registration may accelerate structure formation once neutral matter appears.
+JWST-era galaxies become a key test.
+Prediction:
+High-redshift galaxies should show evidence of unusually efficient structure formation where early registration depth builds rapidly.
+
+───
+
+21. Version 1.4 Summary
+latex
+\boxed{
+\text{Reality is environmentally registered into persistent structure.}
+}
+
+latex
+\boxed{
+\text{Persistent registration becomes metric memory.}
+}
+
+latex
+\boxed{
+\text{Metric memory appears as dark-matter-like gravity.}
+}
+
+latex
+\boxed{
+\text{Global flux tension appears as dark-energy-like acceleration.}
+}
+
+latex
+\boxed{
+\text{Total covariant conservation must be preserved.}
+}
+
+Final Version 1.4 thesis:
+Flux cosmology is the long-term gravitational bookkeeping of environmental quantum registration.
+Or sharper:
+Cosmology is quantum history becoming geometry.
