@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="650" viewBox="0 0 900 650">
+<rect width="100%" height="100%" fill="white"/>
+<text x="450.0" y="24" text-anchor="middle" font-family="sans-serif" font-size="16">Outer/low-flux usable-battery candidates</text>
+<line x1="75" y1="585" x2="875" y2="585" stroke="black"/>
+<line x1="75" y1="585" x2="75" y2="45" stroke="black"/>
+<text x="475.0" y="632" text-anchor="middle" font-family="sans-serif" font-size="12">Insolation / Earth (log)</text>
+<text x="18" y="315.0" text-anchor="middle" font-family="sans-serif" font-size="12" transform="rotate(-90 18 315.0)">Core-to-stellar ratio / Earth (log)</text>
+<circle cx="722.7" cy="463.8" r="4" fill="rgb(58,97,213)" stroke="#333" stroke-width=".4"/>
+<circle cx="584.5" cy="416.0" r="4" fill="rgb(60,104,214)" stroke="#333" stroke-width=".4"/>
+<circle cx="626.4" cy="434.3" r="4" fill="rgb(60,106,214)" stroke="#333" stroke-width=".4"/>
+<circle cx="713.9" cy="468.5" r="4" fill="rgb(61,108,215)" stroke="#333" stroke-width=".4"/>
+<circle cx="712.8" cy="464.5" r="4" fill="rgb(59,102,213)" stroke="#333" stroke-width=".4"/>
+<circle cx="522.3" cy="382.4" r="4" fill="rgb(62,112,216)" stroke="#333" stroke-width=".4"/>
+<circle cx="681.8" cy="458.3" r="4" fill="rgb(62,113,216)" stroke="#333" stroke-width=".4"/>
+<circle cx="719.0" cy="434.2" r="4" fill="rgb(61,110,216)" stroke="#333" stroke-width=".4"/>
+<circle cx="710.7" cy="429.2" r="4" fill="rgb(61,109,215)" stroke="#333" stroke-width=".4"/>
+<circle cx="605.6" cy="391.2" r="4" fill="rgb(63,117,217)" stroke="#333" stroke-width=".4"/>
+<circle cx="600.9" cy="390.4" r="4" fill="rgb(63,116,217)" stroke="#333" stroke-width=".4"/>
+<circle cx="783.3" cy="490.4" r="4" fill="rgb(60,105,214)" stroke="#333" stroke-width=".4"/>
+<circle cx="679.8" cy="419.8" r="4" fill="rgb(61,110,215)" stroke="#333" stroke-width=".4"/>
+<circle cx="459.2" cy="373.7" r="4" fill="rgb(63,118,217)" stroke="#333" stroke-width=".4"/>
+<circle cx="809.0" cy="495.6" r="4" fill="rgb(57,96,212)" stroke="#333" stroke-width=".4"/>
+<circle cx="722.3" cy="427.0" r="4" fill="rgb(63,115,217)" stroke="#333" stroke-width=".4"/>
+<circle cx="790.9" cy="497.2" r="4" fill="rgb(62,111,216)" stroke="#333" stroke-width=".4"/>
+<circle cx="626.4" cy="401.4" r="4" fill="rgb(64,121,218)" stroke="#333" stroke-width=".4"/>
+<circle cx="444.9" cy="344.3" r="4" fill="rgb(66,126,219)" stroke="#333" stroke-width=".4"/>
+<circle cx="803.9" cy="461.2" r="4" fill="rgb(60,106,215)" stroke="#333" stroke-width=".4"/>
+<circle cx="410.3" cy="357.1" r="4" fill="rgb(66,127,219)" stroke="#333" stroke-width=".4"/>
+<circle cx="720.4" cy="495.6" r="4" fill="rgb(64,118,217)" stroke="#333" stroke-width=".4"/>
+<circle cx="576.3" cy="376.1" r="4" fill="rgb(66,128,220)" stroke="#333" stroke-width=".4"/>
+<circle cx="635.2" cy="380.2" r="4" fill="rgb(68,133,221)" stroke="#333" stroke-width=".4"/>
+<circle cx="727.8" cy="506.4" r="4" fill="rgb(63,116,217)" stroke="#333" stroke-width=".4"/>
+<circle cx="761.0" cy="449.4" r="4" fill="rgb(62,114,216)" stroke="#333" stroke-width=".4"/>
+<circle cx="589.0" cy="458.1" r="4" fill="rgb(63,116,217)" stroke="#333" stroke-width=".4"/>
+<circle cx="505.9" cy="355.6" r="4" fill="rgb(65,125,219)" stroke="#333" stroke-width=".4"/>
+<circle cx="649.6" cy="434.2" r="4" fill="rgb(65,125,219)" stroke="#333" stroke-width=".4"/>
+<circle cx="669.8" cy="451.4" r="4" fill="rgb(65,125,219)" stroke="#333" stroke-width=".4"/>
+<circle cx="809.0" cy="506.7" r="4" fill="rgb(64,121,218)" stroke="#333" stroke-width=".4"/>
+<circle cx="679.8" cy="448.1" r="4" fill="rgb(65,123,218)" stroke="#333" stroke-width=".4"/>
+<circle cx="814.1" cy="504.6" r="4" fill="rgb(64,118,217)" stroke="#333" stroke-width=".4"/>
+<circle cx="526.3" cy="356.7" r="4" fill="rgb(69,138,222)" stroke="#333" stroke-width=".4"/>
+<circle cx="712.8" cy="469.4" r="4" fill="rgb(67,132,221)" stroke="#333" stroke-width=".4"/>
+<circle cx="786.6" cy="455.4" r="4" fill="rgb(65,122,218)" stroke="#333" stroke-width=".4"/>
+<circle cx="488.8" cy="385.7" r="4" fill="rgb(64,122,218)" stroke="#333" stroke-width=".4"/>
+<circle cx="407.9" cy="322.4" r="4" fill="rgb(69,138,222)" stroke="#333" stroke-width=".4"/>
+<circle cx="774.8" cy="450.9" r="4" fill="rgb(67,131,220)" stroke="#333" stroke-width=".4"/>
+<circle cx="409.5" cy="317.2" r="4" fill="rgb(70,144,223)" stroke="#333" stroke-width=".4"/>
+<circle cx="556.0" cy="449.0" r="4" fill="rgb(69,139,222)" stroke="#333" stroke-width=".4"/>
+<circle cx="814.3" cy="502.7" r="4" fill="rgb(68,135,221)" stroke="#333" stroke-width=".4"/>
+<circle cx="768.8" cy="447.0" r="4" fill="rgb(72,151,225)" stroke="#333" stroke-width=".4"/>
+<circle cx="268.7" cy="350.0" r="4" fill="rgb(68,134,221)" stroke="#333" stroke-width=".4"/>
+<circle cx="220.7" cy="248.6" r="4" fill="rgb(76,167,229)" stroke="#333" stroke-width=".4"/>
+<circle cx="786.6" cy="464.1" r="4" fill="rgb(73,153,225)" stroke="#333" stroke-width=".4"/>
+<circle cx="135.7" cy="257.9" r="4" fill="rgb(76,165,228)" stroke="#333" stroke-width=".4"/>
+<circle cx="792.4" cy="373.6" r="4" fill="rgb(81,183,232)" stroke="#333" stroke-width=".4"/>
+<circle cx="372.0" cy="400.1" r="4" fill="rgb(75,162,227)" stroke="#333" stroke-width=".4"/>
+<circle cx="694.7" cy="523.9" r="4" fill="rgb(78,174,230)" stroke="#333" stroke-width=".4"/>
+<circle cx="810.3" cy="502.6" r="4" fill="rgb(83,192,235)" stroke="#333" stroke-width=".4"/>
+<circle cx="769.9" cy="531.9" r="4" fill="rgb(86,201,237)" stroke="#333" stroke-width=".4"/>
+<circle cx="516.7" cy="474.5" r="4" fill="rgb(89,214,240)" stroke="#333" stroke-width=".4"/>
+<circle cx="677.8" cy="187.9" r="4" fill="rgb(94,234,244)" stroke="#333" stroke-width=".4"/>
+<circle cx="660.4" cy="563.1" r="4" fill="rgb(93,227,243)" stroke="#333" stroke-width=".4"/>
+<circle cx="605.8" cy="171.0" r="4" fill="rgb(94,234,244)" stroke="#333" stroke-width=".4"/>
+<circle cx="404.0" cy="66.9" r="4" fill="rgb(94,234,244)" stroke="#333" stroke-width=".4"/>
+<text x="814.0" y="490.6" font-family="sans-serif" font-size="9">Kepler-1040 b</text>
+<text x="727.7" y="458.8" font-family="sans-serif" font-size="9">Kepler-1606 b</text>
+<text x="717.8" y="459.5" font-family="sans-serif" font-size="9">Kepler-61 b</text>
+<text x="589.5" y="411.0" font-family="sans-serif" font-size="9">Kepler-705 b</text>
+<text x="788.3" y="485.4" font-family="sans-serif" font-size="9">Kepler-1455 b</text>
+<text x="631.4" y="429.3" font-family="sans-serif" font-size="9">Kepler-1653 b</text>
+<text x="808.9" y="456.2" font-family="sans-serif" font-size="9">Kepler-69 c</text>
+<text x="718.9" y="463.5" font-family="sans-serif" font-size="9">Kepler-1701 b</text>
+<text x="715.7" y="424.2" font-family="sans-serif" font-size="9">Kepler-1410 b</text>
+<text x="684.8" y="414.8" font-family="sans-serif" font-size="9">Kepler-440 b</text>
+</svg>
