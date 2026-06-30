@@ -1,6 +1,6 @@
 # 28-day update manifest - 30 June 2026
 
-This update adds the work products that were not present in the May repository baseline.
+This update records and adds the work products completed during the 28-day interval ending 30 June 2026 that were not represented in the May project index.
 
 ## Theory records
 
@@ -11,19 +11,21 @@ This update adds the work products that were not present in the May repository b
 
 ## Code and experiments
 
-- `src/ecee_planetary_battery.py`
-- `experiments/three_body_flux_fragments.py`
-- `archive/conceptual_prototypes/universal_flux_dynamics.py`
+- `src/ecee_planetary_battery.py` - existing full ECEM/ECEE source, byte-verified against the local project copy.
+- `src/2.py` - existing cross-domain universal-flux conceptual prototype; retained as heuristic material, not part of the active astrophysical baseline.
+- `experiments/three_body_flux_fragments.py` - descriptively named three-body toy experiment.
 
-The cross-domain universal-flux file is archived explicitly as a heuristic conceptual prototype and is not part of the active astrophysical baseline.
+Other local cosmology helpers were also byte-verified against their repository copies and were not duplicated.
 
 ## ECEE outputs
 
-- 57-candidate CSV
-- top-50 CSV
-- reproducible figure script
-- three SVG figures
-- output interpretation README
+- `outputs/ecee/nasa_ecee_usable_battery_candidates_compact.csv` - 57-candidate compact table.
+- `outputs/ecee/nasa_ecee_usable_battery_top50_compact.csv` - top-50 compact table.
+- `outputs/ecee/make_candidate_figures.py` - dependency-light SVG generator.
+- `outputs/ecee/figures/` - three compact SVG figures.
+- `outputs/ecee/README.md` - interpretation and provenance notes.
+
+The generated 6,224-row, approximately 6.8 MB intermediate score table is not duplicated; the source screener and compact research outputs preserve the reproducible result.
 
 ## Versioning decision
 
