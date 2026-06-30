@@ -18,9 +18,22 @@ This repository package contains a working manuscript and supporting scan files 
 - `scripts/flux_phase10_sample_magnification_map.py` - samples FITS magnification maps at source RA/DEC.
 - `scripts/flux_phase10_merge_stability.py` - merges redshift-plane sampled catalogues into final stability classifications.
 
+## June 2026 development update
+
+The 28-day development record ending 30 June 2026 is indexed in [`UPDATE_MANIFEST_2026-06-30.md`](UPDATE_MANIFEST_2026-06-30.md). It includes:
+
+- the active Minimum Interface Point terminology and registration-depth bridge;
+- the metric-memory dark-matter differential;
+- the frozen pre-CLASS integration boundaries;
+- the full project progress record for 2-30 June 2026;
+- the ECEM/ECEE planetary-battery candidate tables, compact SVG figures, and regeneration script;
+- the three-body flux-fragment toy experiment.
+
+The repository's existing `cmbr.py` remains the active version. It contains the later FLRW-aware coherence-field implementation and was not replaced by an older local file with the same name.
+
 ## Notes
 
-The numerical candidate results in this package come from the local Phase-9/Phase-10 working audit provided during development. Before formal submission, re-run the scripts against the newest official UNCOVER/DJA catalogues and lensing maps, then update the CSVs and manuscript tables.
+The numerical candidate results in this package come from local working audits provided during development. Before formal submission, re-run the scripts against the newest official source catalogues and lensing maps, then update the CSVs and manuscript tables.
 
 ## Build
 
@@ -39,3 +52,5 @@ pip install numpy pandas astropy scipy matplotlib
 ## Conservative interpretation
 
 The paper deliberately avoids claiming proof of Flux/MIP cosmology. The central claim is that the scale-gated Metric Archive model provides a selective, falsifiable filter that identifies a small registered minority of compact, de-lensed high-redshift candidates while rejecting the majority.
+
+The June 2026 ECEM/ECEE scores are likewise heuristic screening quantities, not habitability probabilities or measurements of atmospheres, magnetic fields, composition, or internal heat.
