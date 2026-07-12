@@ -1,0 +1,35 @@
+{
+  "decision": "Spatial curvature high-pass susceptibility; reject strict zero-background and adaptive D_star.",
+  "benchmark": {
+    "version": "Flux-MIP-Benchmark-V2.1-RPL-p2-curvature-HP",
+    "signature_sha256": "f819067c8feca48e6d0a51b790e01f5a1be599f4afa22c6accc46f3967827670",
+    "configuration": {
+      "ell_core_m": 0.01,
+      "power_p": 2.0,
+      "rho_star_kg_m3": 1000.0,
+      "reference_volume_factor": 4.1887902047863905,
+      "susceptibility_star": 10.0,
+      "kappa_reg": 1.0,
+      "coherence_factor": 1.0,
+      "precursor_kernel": "G(r)=ell^2/(r^2+ell^2)",
+      "background_rule": "S=-ell^2 Laplacian(D); F=tanh(S/S_star)",
+      "temporal_high_pass": false,
+      "adaptive_threshold": false,
+      "reference_volume_m3": 4.188790204786391e-06
+    }
+  },
+  "physics_rule": {
+    "absolute_precursor": "D_reg from regularized inverse-square finite-source response",
+    "laboratory_susceptibility": "S_reg = -ell^2 Laplacian(D_reg)",
+    "lindblad_field": "F_reg = tanh(S_reg/S_star)",
+    "constant_background_response": 0,
+    "uniform_gradient_response": 0,
+    "far_tail": "S kernel scales as r^-4 and is infrared integrable in 3D"
+  },
+  "preregistration_constraints": [
+    "No adaptive threshold or post-data environmental rescaling.",
+    "No temporal high-pass: static source masses remain physically active.",
+    "Ambient Earth and apparatus enter only through curvature of D_reg.",
+    "Any non-negligible calculated ambient curvature must be included before fitting data."
+  ]
+}
