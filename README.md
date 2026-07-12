@@ -37,6 +37,8 @@ Start here:
 - [`docs/2026-07/PHASE_LADDER_PROTOCOL.md`](docs/2026-07/PHASE_LADDER_PROTOCOL.md)
 - [`UPDATE_MANIFEST_2026-07-12.md`](UPDATE_MANIFEST_2026-07-12.md)
 
+The GitHub-canonical paper is the Markdown manuscript. A typeset PDF was generated and visually audited as the release artifact.
+
 ## Empirical status
 
 Flux-MIP V2.1 has not been detected. The available Overstreet Figure 2 tables contain processed phase points and cannot independently constrain residual visibility. The dedicated apparatus is prospective.
@@ -54,17 +56,10 @@ The prior development index is preserved in [`UPDATE_MANIFEST_2026-06-30.md`](UP
 - `outputs/` - compact reproducible research outputs.
 - `scans/` and `figures/` - observational scan products and figures from earlier modules.
 
-## Build the V2.1 paper
-
-```bash
-cd papers/flux_mip_v2_1
-latexmk -pdf -interaction=nonstopmode -halt-on-error Flux_MIP_V2_1_Final_Paper.tex
-```
-
 ## Python requirements for the V2.1 pipeline
 
 ```bash
-pip install numpy scipy pandas matplotlib
+pip install -r requirements-flux-mip-v2-1.txt
 ```
 
 ## Interpretation rule
