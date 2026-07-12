@@ -1,56 +1,72 @@
-# Flux/MIP Metric Archive JWST Paper Package
+# Flux Cosmology / Minimum Interface Point Research Archive
 
-This repository package contains a working manuscript and supporting scan files for:
+This repository is an open research archive for Flux cosmology, registration-depth phenomenology, Minimum Interface Point (MIP) concepts, numerical toy models, observational screening work, and falsifiable laboratory proposals.
 
-**A Scale-Gated Metric Archive Model for JWST Early Galaxy Formation**
+## Scientific status
 
-## Contents
+The repository contains work at several levels of maturity. Every result should be read according to its declared class:
 
-- `flux_metric_archive_jwst.tex` - full LaTeX manuscript source.
-- `flux_metric_archive_jwst.pdf` - compiled manuscript PDF.
-- `figures/flux_env_filter.png` - environmental gate containment plot.
-- `figures/id12385_zplane_stability.png` - ID 12385 redshift-plane stability plot.
-- `scans/flux_containment_audit.csv` - CMB/RSD/galactic containment scale values.
-- `scans/phase10_2_classification_summary.csv` - final Phase-10.2 classification counts.
-- `scans/flux_uncover_final_stability_top15.csv` - top candidates by registration score from the local audit output.
-- `scans/id12385_redshift_plane_scan.csv` - ID 12385 magnification and registration values by redshift plane.
-- `scripts/flux_containment_audit.py` - reproduces containment table.
-- `scripts/flux_phase10_sample_magnification_map.py` - samples FITS magnification maps at source RA/DEC.
-- `scripts/flux_phase10_merge_stability.py` - merges redshift-plane sampled catalogues into final stability classifications.
+- derived mathematics;
+- phenomenological closure;
+- toy simulation;
+- heuristic analogy;
+- observational fit or data-screening result;
+- prospective experimental protocol.
 
-## June 2026 development update
+No toy output is evidence for the complete theory.
 
-The 28-day development record ending 30 June 2026 is indexed in [`UPDATE_MANIFEST_2026-06-30.md`](UPDATE_MANIFEST_2026-06-30.md). It includes:
+## Active July 2026 module: Flux-MIP V2.1
 
-- the active Minimum Interface Point terminology and registration-depth bridge;
-- the metric-memory dark-matter differential;
-- the frozen pre-CLASS integration boundaries;
-- the full project progress record for 2-30 June 2026;
-- the ECEM/ECEE planetary-battery candidate tables, compact SVG figures, and regeneration script;
-- the three-body flux-fragment toy experiment.
+The current laboratory branch is a frozen curvature-sourced Lindblad benchmark:
 
-The repository's existing `cmbr.py` remains the active version. It contains the later FLRW-aware coherence-field implementation and was not replaced by an older local file with the same name.
+- regularized inverse-square finite-source precursor;
+- local curvature response `S_reg = -ell^2 nabla^2 D_reg`;
+- bounded susceptibility `F_reg = tanh(S_reg/S_*)`;
+- linked phase, dephasing, diffusion, and heating predictions;
+- conservative 7.4112 kg tungsten-plate apparatus;
+- blinded four-state Phase Ladder null test.
 
-## Notes
+**Benchmark signature:** `f819067c8feca48e6d0a51b790e01f5a1be599f4afa22c6accc46f3967827670`  
+**Optimizer signature:** `ed3bde6ab4adcef685d3cee33942b0cc5467118dd82f86ad4d2863e2603ef6b0`
 
-The numerical candidate results in this package come from local working audits provided during development. Before formal submission, re-run the scripts against the newest official source catalogues and lensing maps, then update the CSVs and manuscript tables.
+Start here:
 
-## Build
+- [`papers/flux_mip_v2_1/Flux_MIP_V2_1_Final_Paper.md`](papers/flux_mip_v2_1/Flux_MIP_V2_1_Final_Paper.md)
+- [`docs/2026-07/PROJECT_STATUS_2026-07-12.md`](docs/2026-07/PROJECT_STATUS_2026-07-12.md)
+- [`docs/2026-07/FLUX_MIP_V2_1_THEORY.md`](docs/2026-07/FLUX_MIP_V2_1_THEORY.md)
+- [`docs/2026-07/PHASE_LADDER_PROTOCOL.md`](docs/2026-07/PHASE_LADDER_PROTOCOL.md)
+- [`UPDATE_MANIFEST_2026-07-12.md`](UPDATE_MANIFEST_2026-07-12.md)
 
-From this directory:
+## Empirical status
+
+Flux-MIP V2.1 has not been detected. The available Overstreet Figure 2 tables contain processed phase points and cannot independently constrain residual visibility. The dedicated apparatus is prospective.
+
+## Earlier June 2026 update
+
+The prior development index is preserved in [`UPDATE_MANIFEST_2026-06-30.md`](UPDATE_MANIFEST_2026-06-30.md), including MIP terminology, registration depth, metric-memory hypotheses, active cosmology boundaries, ECEE screening outputs, and toy experiments.
+
+## Repository map
+
+- `papers/` - manuscript sources and paper packages.
+- `docs/` - theory records, status boundaries, and protocols.
+- `src/` - active numerical implementations.
+- `experiments/` - geometry studies, null-test tools, and toy experiments.
+- `outputs/` - compact reproducible research outputs.
+- `scans/` and `figures/` - observational scan products and figures from earlier modules.
+
+## Build the V2.1 paper
 
 ```bash
-latexmk -pdf flux_metric_archive_jwst.tex
+cd papers/flux_mip_v2_1
+latexmk -pdf -interaction=nonstopmode -halt-on-error Flux_MIP_V2_1_Final_Paper.tex
 ```
 
-## Required Python packages for scripts
+## Python requirements for the V2.1 pipeline
 
 ```bash
-pip install numpy pandas astropy scipy matplotlib
+pip install numpy scipy pandas matplotlib
 ```
 
-## Conservative interpretation
+## Interpretation rule
 
-The paper deliberately avoids claiming proof of Flux/MIP cosmology. The central claim is that the scale-gated Metric Archive model provides a selective, falsifiable filter that identifies a small registered minority of compact, de-lensed high-redshift candidates while rejecting the majority.
-
-The June 2026 ECEM/ECEE scores are likewise heuristic screening quantities, not habitability probabilities or measurements of atmospheres, magnetic fields, composition, or internal heat.
+The laboratory paper is a test specification. A positive signal would require independent replication and would not by itself establish the wider cosmological interpretation. A null result constrains the frozen V2.1 channel and may not be evaded by changing the preregistered kernel or background rule after unblinding.
