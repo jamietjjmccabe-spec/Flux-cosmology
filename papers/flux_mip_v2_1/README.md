@@ -1,12 +1,8 @@
 # Flux-MIP V2.1 final paper package
 
-Canonical source: `Flux_MIP_V2_1_Final_Paper.tex`
+Canonical repository manuscript: `Flux_MIP_V2_1_Final_Paper.md`
 
-## Build
-
-```bash
-latexmk -pdf -interaction=nonstopmode -halt-on-error Flux_MIP_V2_1_Final_Paper.tex
-```
+A 10-page typeset PDF was generated from a matching LaTeX working source and visually audited before publication. The PDF is distributed as the reviewed release artifact rather than as the canonical editable repository source.
 
 ## Scientific status
 
