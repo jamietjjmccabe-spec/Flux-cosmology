@@ -1,0 +1,28 @@
+{
+  "benchmark_version": "Flux-MIP-Benchmark-V2.1-RPL-p2-curvature-HP",
+  "benchmark_signature_sha256": "f819067c8feca48e6d0a51b790e01f5a1be599f4afa22c6accc46f3967827670",
+  "represented_source_mass_kg": 1.251412006723912,
+  "source_voxel_count": 10304,
+  "trajectory_duration_s": 1.64,
+  "gamma_mip_s_inv": 1.0,
+  "beta_mip_s_inv": 1.0,
+  "phase_exposure_integral_s": -0.003278923027193425,
+  "dephasing_exposure_integral_s": 4.662067813821008e-05,
+  "X_half_dephasing_exposure_s": 2.331033906910504e-05,
+  "predicted_mip_phase_shift_rad": -0.003278923027193425,
+  "predicted_visibility_ratio": 0.9999766899326148,
+  "gradient_heating_exposure_s_per_m2": 0.028146120619633227,
+  "predicted_delta_kinetic_energy_j": 1.0844916371290917e-45,
+  "path_statistics": {
+    "D1_mean": 0.8103646869396023,
+    "D2_mean": 0.10571209467935741,
+    "S1_mean": -0.020196188143006708,
+    "S2_mean": -0.00020620545537407324,
+    "F1_mean": -0.002019464143833313,
+    "F2_mean": -2.0620545468620897e-05,
+    "delta_F_rms": 0.005331054092087987,
+    "gradF1_rms_per_m": 0.1852446186601455,
+    "gradF2_rms_per_m": 0.0006241865791160286
+  },
+  "interpretation": "Forward-model result only. No empirical gamma_MIP bound was extracted from the processed Figure 2 tables."
+}

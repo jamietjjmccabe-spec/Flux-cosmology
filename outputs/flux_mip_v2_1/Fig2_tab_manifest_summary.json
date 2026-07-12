@@ -1,0 +1,17 @@
+{
+  "uploaded_name": "Fig2.tab.tsv",
+  "size_bytes": 1136,
+  "sha256": "f8b3145d6834ed94330853a70a6f6e377828f5aab0487e11a09e7acb50dc6cb4",
+  "rows": 9,
+  "classification": "processed phase data / Dataverse tabular export",
+  "step2_contrast_viability": "insufficient from this file alone",
+  "reason": "Contains processed Figure 2 differential phase values and uncertainties. No shot-level port populations, fluorescence images, visibility/amplitude, atom counts, timestamps, or technical covariates are present.",
+  "comparison_with_Fig2_csv": {
+    "csv_exists": true,
+    "csv_shape": [9, 8],
+    "tsv_shape": [9, 8],
+    "same_columns": true,
+    "pandas_equals": true,
+    "column_sets_equal": true
+  }
+}
