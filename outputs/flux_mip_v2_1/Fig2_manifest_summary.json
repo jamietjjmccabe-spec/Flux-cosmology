@@ -1,0 +1,23 @@
+{
+  "uploaded_name": "Fig2.csv",
+  "size_bytes": 1146,
+  "sha256": "6bcd79fa411d837349097e59a1abed9ab309d0dd97db9541f74fa966e469e726",
+  "rows": 9,
+  "source_positions_Rx_m": [-0.279864349, -0.203603617, -0.111398973, -0.002758772, 0.043118634, 0.089483193],
+  "runs_present": [1, 2, 3],
+  "classification": "processed phase data / figure-source data",
+  "step2_contrast_viability": "insufficient from this file alone",
+  "reason": "Contains differential gradiometer phases and phase uncertainties only. No shot-level output-port populations, fluorescence images, fitted fringe visibility/amplitude, atom counts, timestamps, or technical covariates are present.",
+  "useful_for": [
+    "validating source-position coordinates Rx",
+    "reproducing or checking Figure 2 phase points",
+    "testing the odd phase-response branch beta_MIP",
+    "cross-checking the forward source-mass geometry"
+  ],
+  "not_sufficient_for": [
+    "recovering fringe visibility V",
+    "forming residual contrast ratios R_j",
+    "regressing y_j = -ln(R_j) against X_j",
+    "placing an empirical upper bound on gamma_MIP"
+  ]
+}
