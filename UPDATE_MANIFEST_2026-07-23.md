@@ -12,7 +12,7 @@ This update changes the repository from a broad cross-scale Flux/MIP claim set i
 - `LEGACY_MODEL_STATUS.md`
 - `src/mip_record_conditioned_actualisation.py`
 - `src/__init__.py`
-- `tests/test_mip_record_conditioned_actualisation.py`
+- `tests/test_registration_model.py`
 
 ## Updated
 
@@ -32,13 +32,13 @@ This update changes the repository from a broad cross-scale Flux/MIP claim set i
 
 ## Validation
 
-The reference module was checked with:
+The committed reference module was checked with:
 
 ```bash
 python -m unittest discover -s tests -v
 ```
 
-Six tests passed, covering trace distance, positive record production, temporal recovery, bounded rates, spatial-kernel normalisation, and trajectory-state normalisation.
+Four committed tests pass, covering trace-distance extremes, temporal recovery, bounded rates, spatial-kernel normalisation, and trajectory-state normalisation. A six-test local pre-publication suite also checked positive record-source clipping and an additional mixed-state trace-distance case.
 
 ## Merge policy
 
