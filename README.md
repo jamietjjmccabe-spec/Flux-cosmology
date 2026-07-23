@@ -1,56 +1,89 @@
-# Flux/MIP Metric Archive JWST Paper Package
+# Flux/MIP Research Archive
 
-This repository package contains a working manuscript and supporting scan files for:
+**Current framework date:** 23 July 2026  
+**Author:** Jamie McCabe  
+**Status:** speculative laboratory quantum-to-classical research programme with archived cosmology, gravity, and astrophysical branches
 
-**A Scale-Gated Metric Archive Model for JWST Early Galaxy Formation**
+## Start here
 
-## Contents
+The active framework is no longer a single cross-scale claim linking quantum actualisation directly to dark matter, gravity, variable constants, and cosmology.
 
-- `flux_metric_archive_jwst.tex` - full LaTeX manuscript source.
-- `flux_metric_archive_jwst.pdf` - compiled manuscript PDF.
-- `figures/flux_env_filter.png` - environmental gate containment plot.
-- `figures/id12385_zplane_stability.png` - ID 12385 redshift-plane stability plot.
-- `scans/flux_containment_audit.csv` - CMB/RSD/galactic containment scale values.
-- `scans/phase10_2_classification_summary.csv` - final Phase-10.2 classification counts.
-- `scans/flux_uncover_final_stability_top15.csv` - top candidates by registration score from the local audit output.
-- `scans/id12385_redshift_plane_scan.csv` - ID 12385 magnification and registration values by redshift plane.
-- `scripts/flux_containment_audit.py` - reproduces containment table.
-- `scripts/flux_phase10_sample_magnification_map.py` - samples FITS magnification maps at source RA/DEC.
-- `scripts/flux_phase10_merge_stability.py` - merges redshift-plane sampled catalogues into final stability classifications.
+Read these documents first:
 
-## June 2026 development update
+1. [`docs/2026-07/CURRENT_FRAMEWORK_2026-07-23.md`](docs/2026-07/CURRENT_FRAMEWORK_2026-07-23.md)
+2. [`docs/2026-07/BRANCH_STATUS_LEDGER_2026-07-23.md`](docs/2026-07/BRANCH_STATUS_LEDGER_2026-07-23.md)
+3. [`docs/2026-07/EXPERIMENTAL_PROGRAM_2026-07-23.md`](docs/2026-07/EXPERIMENTAL_PROGRAM_2026-07-23.md)
+4. [`LEGACY_MODEL_STATUS.md`](LEGACY_MODEL_STATUS.md)
+5. [`UPDATE_MANIFEST_2026-07-23.md`](UPDATE_MANIFEST_2026-07-23.md)
 
-The 28-day development record ending 30 June 2026 is indexed in [`UPDATE_MANIFEST_2026-06-30.md`](UPDATE_MANIFEST_2026-06-30.md). It includes:
+## Active research question
 
-- the active Minimum Interface Point terminology and registration-depth bridge;
-- the metric-memory dark-matter differential;
-- the frozen pre-CLASS integration boundaries;
-- the full project progress record for 2-30 June 2026;
-- the ECEM/ECEE planetary-battery candidate tables, compact SVG figures, and regeneration script;
-- the three-body flux-fragment toy experiment.
+Can environmental record distinguishability generate a finite-memory registration load that modulates a bounded stochastic actualisation channel in a way that cannot be reproduced by standard open-system physics?
 
-The repository's existing `cmbr.py` remains the active version. It contains the later FLRW-aware coherence-field implementation and was not replaced by an older local file with the same name.
+The frozen candidate chain is:
 
-## Notes
-
-The numerical candidate results in this package come from local working audits provided during development. Before formal submission, re-run the scripts against the newest official source catalogues and lensing maps, then update the CSVs and manuscript tables.
-
-## Build
-
-From this directory:
-
-```bash
-latexmk -pdf flux_metric_archive_jwst.tex
+```text
+unitary system–environment dynamics
+        ↓
+trace-distance record production
+        ↓
+finite temporal/spatial registration load
+        ↓
+bounded stochastic trajectory channel
+        ↓
+controlled test against the full nuisance space
 ```
 
-## Required Python packages for scripts
+The reference implementation is in:
+
+- [`src/mip_record_conditioned_actualisation.py`](src/mip_record_conditioned_actualisation.py)
+- [`tests/test_registration_model.py`](tests/test_registration_model.py)
+
+Run its checks with:
 
 ```bash
-pip install numpy pandas astropy scipy matplotlib
+python -m unittest discover -s tests -v
 ```
 
-## Conservative interpretation
+## Meaning of MIP
 
-The paper deliberately avoids claiming proof of Flux/MIP cosmology. The central claim is that the scale-gated Metric Archive model provides a selective, falsifiable filter that identifies a small registered minority of compact, de-lensed high-redshift candidates while rejecting the majority.
+MIP means **Minimum Interface Points**. In the current framework this is a hypothetical interface interpretation, not a derived Planck-scale lattice and not a universal “frame rate of reality.”
 
-The June 2026 ECEM/ECEE scores are likewise heuristic screening quantities, not habitability probabilities or measurements of atmospheres, magnetic fields, composition, or internal heat.
+## Current scientific boundary
+
+The active model is **not experimentally confirmed**. Numerical trajectory audits show that monitored open-system models can lock branches while preserving Born-compatible ensemble statistics, and that record geometry can alter locking kinetics. They do not identify one unravelling as objectively real.
+
+A standard structured bath can mimic important nonlinear signatures. A later tangent-space result found local identifiability in selected operating regions. Both results are part of the current status.
+
+## Archived branches
+
+This repository still contains the JWST Metric Archive paper package, Closure D galaxy phenomenology, cosmology scripts, variable-constant toy models, compact-object and jet simulations, visual maps, and ECEM/ECEE outputs.
+
+They are retained for provenance and possible separate research use. They are not evidence for the active MIP bridge unless a newer status document explicitly promotes them.
+
+### JWST Metric Archive package
+
+The original manuscript package remains available, including its LaTeX/PDF paper, figures, scans, and scripts. It is now classified as historical phenomenology rather than a validated quantum-to-gravity derivation.
+
+### ECEM/ECEE planetary battery
+
+The planetary-battery work remains a separate heuristic exoplanet-screening project. Its scores are not habitability probabilities, measured planetary properties, or tests of MIP physics.
+
+## Previous development record
+
+The June update remains indexed in [`UPDATE_MANIFEST_2026-06-30.md`](UPDATE_MANIFEST_2026-06-30.md). Statements in that update that conflict with the 23 July framework are superseded by the July status ledger.
+
+## Interpretation standard
+
+Every result should be labelled as one of:
+
+- standard-physics validation;
+- numerical implementation result;
+- local identifiability result;
+- standard-model degeneracy;
+- speculative physical postulate;
+- quarantined phenomenology;
+- retired branch;
+- separate heuristic project.
+
+No simulation output should be described as confirmation of objective collapse, dark matter, dark energy, or a theory of everything without an independent experimental discriminator.
